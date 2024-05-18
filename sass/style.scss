@@ -5,14 +5,14 @@
 // For example:
 // $color-primary: #3a0;
 @import "global/theme";
-@import "reset";
+@import "comp-related-styles/reset";
 @import "logomark";
-@import "typography";
-@import "layout";
-@import "header";
-@import "nav";
-@import "about";
-@import "guidelines";
+@import "utility-styles/typography";
+@import "comp-related-styles/layout";
+@import "blockrelated-styles/header";
+@import "blockrelated-styles/nav";
+@import "blockrelated-styles/about";
+@import "blockrelated-styles/guidelines";
 @import "contribute";
 @import "files";
 @import "styles";
