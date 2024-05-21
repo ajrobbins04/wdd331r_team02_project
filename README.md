@@ -28,4 +28,4 @@ Once you've created your stylesheet with this starter, publish this as a public 
 If you choose to publish to github pages, you can use:
 https://username.github.io/stylestage-sass/style.css
 
-You will need to fork [the main Style Stage repo](https://github.com/5t3ph/stylestage) to add your stylesheet, as [explained in the FAQ](https://stylestage.dev/guidelines/#how-do-i-create-a-pull-request-pr).
+You'll need to fork [the main Style Stage repo](https://github.com/5t3ph/stylestage) to add your stylesheet, as [explained in the FAQ](https://stylestage.dev/guidelines/#how-do-i-create-a-pull-request-pr).
