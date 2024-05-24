@@ -1,10 +1,10 @@
-@import "fonts";
+
 
 // You can modify the theme directly, or override some of the variables
 // Overrides just need placed prior to the theme import
 // For example:
 // $color-primary: #3a0;
-@import "global/theme";
+@import "global-css/theme";
 @import "comp-related-styles/reset";
 @import "utility-styles/logomark";
 @import "utility-styles/typography";
@@ -21,3 +21,16 @@
 @import "utility-styles/links";
 // Rebeca added fonts
 @import "utility-styles/fonts"; 
+
+$headline-font: 'cybersky';
+$secondary-headline: 'astro-space';
+$body-font: 'reformation-sans';
+h1 {
+    font-family: $headline-font;
+}
+h2, h3 {
+    font-family: $secondary-headline;
+}
+p {
+    font-family: $body-font;
+}
