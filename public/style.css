@@ -513,7 +513,7 @@ nav ul li {
 }
 @media (min-width: 515px) and (max-width: 765px) {
   #styles .features li:nth-last-child(1):nth-child(odd),
-.features.patterned li:nth-last-child(1):nth-child(odd) {
+  .features.patterned li:nth-last-child(1):nth-child(odd) {
     grid-column: span 2;
   }
 }
@@ -744,4 +744,28 @@ nav ul li {
   height: 1em;
   margin-right: 0.25em;
   fill: currentColor;
+}
+
+@font-face {
+  font-family: "cybersky";
+  src: url("../../resources/fonts/cybersky-trial-font/misc/Cybersky Free Trial-2c0d.woff") format("woff");
+}
+@font-face {
+  font-family: "reformation-sans";
+  src: url("../../resources/fonts/reformation-sans-regular-font/ReformationSansRegular-32mL.ttf") format("truetype");
+}
+@font-face {
+  font-family: "astro-space";
+  src: url("../../resources/fonts/a-astro-space-font/AstroSpace-eZ2Bg.ttf") format("truetype");
+}
+h1 {
+  font-family: "cybersky";
+}
+
+h2, h3 {
+  font-family: "astro-space";
+}
+
+p {
+  font-family: "reformation-sans";
 }
