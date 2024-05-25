@@ -7,7 +7,7 @@
 
   h4 {
     margin: 0;
-    color: var(--color-secondary);
+    color: var(--color-anchor);
     text-align: center;
   }
 
@@ -19,7 +19,7 @@
     > a {
       min-height: 2em;
       border: 2px solid currentColor;
-      color: var(--color-secondary);
+      color: var(--color-anchor);
     }
   }
 

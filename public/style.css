@@ -1,13 +1,13 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&display=swap");
 :root {
-  --color-primary: #3a00ff;
+  --color-primary: #ef2d56;
   --color-primary-alt: #6f6ffd;
-  --color-secondary: #d42257;
-  --color-background: #d2fbf7;
-  --color-text: #412d86;
-  --color-light: #fff;
-  --color-anchor: #3a00ff;
+  --color-secondary: #fb8b24;
+  --color-background: #161c41;
+  --color-text: #fff;
+  --color-light: #6f6ffd;
+  --color-anchor: #16c8e3;
   --font-family: "Baloo 2", sans-serif;
   --font-weight-strong: 500;
   --font-size-h1: 6rem;
