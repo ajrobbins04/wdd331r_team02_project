@@ -1,3 +1,5 @@
+@import "../design-tokens/fonts";
+
 h1,
 h2,
 h3,
@@ -105,6 +107,7 @@ blockquote {
     content: "";
   }
 
+  
   &::after {
     grid-area: blockquote;
     color: #6f6ffd;

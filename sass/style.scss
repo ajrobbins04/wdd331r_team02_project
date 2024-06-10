@@ -4,33 +4,25 @@
 // Overrides just need placed prior to the theme import
 // For example:
 // $color-primary: #3a0;
-@import "global-css/theme";
-@import "comp-related-styles/reset";
-@import "utility-styles/logomark";
-@import "utility-styles/typography";
-@import "comp-related-styles/layout";
-@import "blockrelated-styles/header";
-@import "blockrelated-styles/nav";
-@import "blockrelated-styles/about";
-@import "blockrelated-styles/guidelines";
-@import "blockrelated-styles/contribute";
-@import "blockrelated-styles/files";
-@import "blockrelated-styles/styles";
-@import "blockrelated-styles/profile";
-@import "blockrelated-styles/footer";
-@import "utility-styles/links";
-// Rebeca added fonts
-@import "utility-styles/fonts"; 
 
-$headline-font: 'cybersky';
-$secondary-headline: 'astro-space';
-$body-font: 'reformation-sans';
-h1 {
-    font-family: $headline-font;
-}
-h2, h3 {
-    font-family: $secondary-headline;
-}
-p {
-    font-family: $body-font;
-}
+// files are ordered so the macro-level files are imported first.
+// The rules applied become increasingly more specific w/each new import
+@import "design-tokens/fonts";      
+@import "design-tokens/colors";    
+@import "design-tokens/spacing"; // handles margins and padding
+@import "global/reset";
+@import "global/theme";
+@import "global/typography";
+@import "utilities/logomark";
+@import "utilities/links";
+@import "compositions/about";
+@import "compositions/features";
+@import "compositions/footer";
+@import "compositions/header";
+@import "compositions/layout";
+@import "compositions/nav";
+@import "blocks/contribute";
+@import "blocks/guidelines";
+@import "blocks/files";
+@import "blocks/styles";
+@import "blocks/profile";
