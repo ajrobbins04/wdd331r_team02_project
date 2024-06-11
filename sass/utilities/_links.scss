@@ -62,7 +62,7 @@
 .link-codepen {
   display: block;
   margin-top: 3rem;
-  font-size: var(--font-size-h4);
+  font-size: $font-size-h4;
 
   &::before {
     position: absolute;
@@ -79,7 +79,7 @@
 }
 
 .link-allstyles {
-  font-size: var(--font-size-h4);
+  font-size: $font-size-h4;
 
   @media (max-width: 400px) {
     margin-left: 6rem;

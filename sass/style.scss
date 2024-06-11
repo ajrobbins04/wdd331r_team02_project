@@ -7,14 +7,11 @@
 
 // files are ordered so the macro-level files are imported first.
 // The rules applied become increasingly more specific w/each new import
-@import "design-tokens/fonts";      
-@import "design-tokens/colors";    
-@import "design-tokens/spacing"; // handles margins and padding
+@import "utilities/index";
+@import "design-tokens/index";
 @import "global/reset";
 @import "global/theme";
 @import "global/typography";
-@import "utilities/logomark";
-@import "utilities/links";
 @import "compositions/about";
 @import "compositions/features";
 @import "compositions/footer";

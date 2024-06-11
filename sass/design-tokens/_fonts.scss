@@ -1,15 +1,56 @@
+/*
+* design-token/fonts defines 3 font-based properties:
+* font-family, font-size, and font-weight
+*/
+
+// from Google Fonts 
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&display=swap");
+
+// free-use custom fonts from FontSpace 
 @font-face {
-    font-family: 'cybersky';
-    src: url('../../resources/fonts/cybersky-trial-font/misc/Cybersky Free Trial-2c0d.woff') format('woff');
+    font-family: 'Cybersky';
+    src: url('../resources/fonts/cybersky-trial-font/misc/Cybersky Free Trial-2c0d.woff') format('woff');
+    font-display: swap; // ensures text is visible even if custom font is still loading
 }
 
 @font-face {
-    font-family: 'reformation-sans';
-    src: url('../../resources/fonts/reformation-sans-regular-font/ReformationSansRegular-32mL.ttf') format('truetype');
+    font-family: 'Reformation Sans';
+    src: url('../resources/fonts/reformation-sans-regular-font/ReformationSansRegular-32mL.ttf') format('truetype');
+    font-display: swap;
 }
 
-@font-face {
-    font-family: 'astro-space';
-    src: url('../../resources/fonts/a-astro-space-font/AstroSpace-eZ2Bg.ttf') format('truetype');
-}
+// font family variables
+$primary-font: 'Reformation Sans', sans-serif;
+$standout-font: 'Cybersky', sans-serif;
+// ADD VARIABLE FOR BALOO 2?
+
+$font-families: (
+    body: $primary-font,
+    p: $primary-font,
+    h1: $standout-font,
+    // fonts have placeholder values for now
+    h2: $primary-font,
+    h3: $primary-font,
+    a: $primary-font,
+);
+
+// initialize font size variables
+$font-size-h1: 6rem !default;
+$font-size-h2: 3rem !default;
+$font-size-h3: 2rem !default;
+$font-size-h4: 1.35rem !default;
+$font-size-text: 1.15rem !default;
+$font-size-strong: 1.15em !default; // uses em, not rem
+
+// mapping makes it easy to look up an element by
+// using it as a key to retrieve its associated value
+$font-sizes: (
+  h1: $font-size-h1,
+  h2: $font-size-h2,
+  h3: $font-size-h3,
+  h4: $font-size-h4,
+  text: $font-size-text,
+);
+
+// initialize font-weight variables
+$font-weight-strong: 500 !default;

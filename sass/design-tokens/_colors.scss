@@ -1,0 +1,29 @@
+$color-primary: #161C41 !default;      // dark blue
+$color-primary-alt: #562052 !default;  // dark purple
+$color-secondary: #EF2D56 !default;    // red
+$color-background: #16C8E3 !default;   // sky blue
+
+// place primary and secondary colors in a map
+$brand-colors: (
+  primary: $color-primary,
+  primary-alt: $color-primary-alt,
+  secondary: $color-secondary,
+) !default;
+
+// create a color that maps to $color-body
+$color-body: scale-color(
+  $color-primary,
+  $lightness: -30%, /* darken primary color */
+  $saturation: -50% /* reduce primary color's saturation */
+) !default;
+// creates color mapping to $color-gray by mixing a given
+// color (gray for now) with $color-body at a 70% ratio
+$color-gray: mix(#767676, $color-body, 70%) !default;
+
+// additional-colors map to merge with brand-colors
+$additional-colors: (
+    background: $color-background,
+    text: $color-body,
+    light: #fff,
+);
+$colors: merge-colors($brand-colors, $additional-colors);
