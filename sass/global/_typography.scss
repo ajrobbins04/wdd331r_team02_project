@@ -1,3 +1,5 @@
+
+
 h1,
 h2,
 h3,
@@ -8,6 +10,7 @@ h4 {
 }
 
 h1 {
+  font-family: var(--font-family-h1), var(--font-family-no-primary);
   font-size: var(--font-size-h1);
   font-size: clamp(2rem, 7vw, var(--font-size-h1));
 }
@@ -89,7 +92,7 @@ blockquote {
     padding: 0.5em;
 
     strong {
-      font-size: 1.15em;
+      font-size: var(--font-size-strong);
     }
   }
 
@@ -105,6 +108,7 @@ blockquote {
     content: "";
   }
 
+  
   &::after {
     grid-area: blockquote;
     color: #6f6ffd;

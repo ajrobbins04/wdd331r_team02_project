@@ -1,0 +1,56 @@
+/*
+* handles 3 font-based properties:
+* font-family, font-size, and font-weight
+*/
+
+
+
+// free-use custom fonts from FontSpace 
+@font-face {
+    font-family: 'Cybersky';
+    src: url('../sass/resources/fonts/cybersky-trial-font/misc/Cybersky Free Trial-2c0d.woff') format('woff');
+    font-display: swap; // ensures text is visible even if custom font is still loading
+}
+
+@font-face {
+    font-family: 'Reformation Sans';
+    src: url('../sass/resources/fonts/reformation-sans-regular-font/ReformationSansRegular-32mL.ttf') format('truetype');
+    font-display: swap;
+}
+
+// font family variables
+$primary-font: 'Reformation Sans';
+$standout-font: 'Cybersky';
+
+// used when first-choice primary font unavailable
+// not inside map so quotes aren't placed around it in themes file
+$no-primary-font: sans-serif;
+
+$font-families: (
+    body: $primary-font,
+    h1: $standout-font,
+    // fonts have placeholder values for now
+    h2: $primary-font,
+    h3: $primary-font,
+);
+
+// initialize font size variables
+$font-size-h1: 6rem !default;
+$font-size-h2: 3rem !default;
+$font-size-h3: 2rem !default;
+$font-size-h4: 1.35rem !default;
+$font-size-text: 1.15rem !default;
+$font-size-strong: 1.15em !default; // uses em, not rem
+
+// mapping makes it easy to look up an element by
+// using it as a key to retrieve its associated value
+$font-sizes: (
+  h1: $font-size-h1,
+  h2: $font-size-h2,
+  h3: $font-size-h3,
+  h4: $font-size-h4,
+  text: $font-size-text,
+);
+
+// initialize font-weight variables
+$font-weight-strong: 500 !default;

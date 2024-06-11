@@ -1,0 +1,6 @@
+// design-tokens/index file contains imports for all the design-token
+// files. It provides a clean, more efficient way to import all design
+// tokens using one file.
+@import "fonts";
+@import "colors";
+@import "spacing"; // handles margins and padding

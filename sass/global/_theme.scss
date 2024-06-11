@@ -1,0 +1,22 @@
+
+$link-color: color(primary) !default;
+$border-radius: 8px !default;
+
+// stylelint-disable
+:root {
+
+  @each $key, $color in $colors {
+    --color-#{$key}: #{$color};
+  }
+  @each $key, $font in $font-families {
+    --font-family-#{$key}: "#{$font}";
+  }
+  @each $key, $size in $font-sizes {
+    --font-size-#{$key}: #{$size};
+  }
+
+  --color-anchor: #{$link-color};
+  --font-weight-strong: #{$font-weight-strong};
+  --border-radius: #{$border-radius};
+  --font-family-no-primary: #{$no-primary-font};
+}
