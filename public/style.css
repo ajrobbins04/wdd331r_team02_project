@@ -1,11 +1,10 @@
-/* Error: Undefined variable.
- *    ,
- * 65 |   font-size: $font-size-h4;
- *    |              ^^^^^^^^^^^^^
- *    '
- *   sass/utilities/_links.scss 65:14  @import
- *   sass/utilities/_index.scss 6:9    @import
- *   sass/style.scss 10:9              root stylesheet */
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 4 | @import "spacing";
+ *   |         ^^^^^^^^^
+ *   '
+ *   sass/global/_index.scss 4:9  @import
+ *   sass/style.scss 11:9         root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -15,5 +14,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 65 \2502    font-size: $font-size-h4;\a    \2502               ^^^^^^^^^^^^^\a    \2575 \a   sass/utilities/_links.scss 65:14  @import\a   sass/utilities/_index.scss 6:9    @import\a   sass/style.scss 10:9              root stylesheet";
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 4 \2502  @import \"spacing\";\a   \2502          ^^^^^^^^^\a   \2575 \a   sass/global/_index.scss 4:9  @import\a   sass/style.scss 11:9         root stylesheet";
 }

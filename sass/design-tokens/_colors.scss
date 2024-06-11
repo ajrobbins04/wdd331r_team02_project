@@ -19,6 +19,7 @@ $color-body: scale-color(
 // creates color mapping to $color-gray by mixing a given
 // color (gray for now) with $color-body at a 70% ratio
 $color-gray: mix(#767676, $color-body, 70%) !default;
+$link-color: color(primary) !default;
 
 // additional-colors map to merge with brand-colors
 $additional-colors: (
@@ -26,4 +27,16 @@ $additional-colors: (
     text: $color-body,
     light: #fff,
 );
-$colors: merge-colors($brand-colors, $additional-colors);
+
+$link-color: color(primary) !default;
+
+$colors: map-merge($brand-colors,$additional-colors);
+
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+@function svgColor($color) {
+  @return "%23" + str-slice("#{color($color)}", 2, -1);
+}
+

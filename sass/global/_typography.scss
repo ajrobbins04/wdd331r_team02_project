@@ -4,19 +4,19 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: $font-weight-strong;
+  font-weight: var(--font-weight-strong);
   line-height: 1;
   margin-bottom: 0.65em;
 }
 
 h1 {
-  font-size: $font-size-h1;
-  font-size: clamp(2rem, 7vw, $font-size-h1);
+  font-size: var(--font-size-h1);
+  font-size: clamp(2rem, 7vw, var(--font-size-h1));
 }
 
 h2 {
-  font-size: $font-size-h2;
-  font-size: clamp(2rem, 4vw, $font-size-h2);
+  font-size: var(--font-size-h2);
+  font-size: clamp(2rem, 4vw, var(--font-size-h2));
   text-align: center;
 }
 
@@ -28,16 +28,16 @@ h2 {
 }
 
 h3 {
-  font-size: $font-size-h3;
+  font-size: var(--font-size-h3);
 }
 
 h4 {
-  font-size: $font-size-h4;
+  font-size: var(--font-size-h4);
 }
 
 p,
 li {
-  font-size: $font-size-text;
+  font-size: var(--font-size-text);
 }
 
 p {
@@ -86,12 +86,12 @@ blockquote {
 
   p {
     position: relative;
-    font-size: $font-size-h4;
+    font-size: var(--font-size-h4);
     margin-bottom: 0;
     padding: 0.5em;
 
     strong {
-      font-size: $font-size-strong;
+      font-size: var(--font-size-strong);
     }
   }
 
@@ -130,7 +130,7 @@ blockquote {
 #guidelines,
 #contribute {
   p:nth-of-type(1) {
-    font-size: $font-size-h4;
+    font-size: var(--font-size-h4);
     font-weight: var(--font-weight-strong);
   }
 }

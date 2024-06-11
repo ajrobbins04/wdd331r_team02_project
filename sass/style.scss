@@ -7,19 +7,8 @@
 
 // files are ordered so the macro-level files are imported first.
 // The rules applied become increasingly more specific w/each new import
-@import "utilities/index";
 @import "design-tokens/index";
-@import "global/reset";
-@import "global/theme";
-@import "global/typography";
-@import "compositions/about";
-@import "compositions/features";
-@import "compositions/footer";
-@import "compositions/header";
-@import "compositions/layout";
-@import "compositions/nav";
-@import "blocks/contribute";
-@import "blocks/guidelines";
-@import "blocks/files";
-@import "blocks/styles";
-@import "blocks/profile";
+@import "global/index";
+@import "utilities/index";
+@import "compositions/index";
+@import "blocks/index";
