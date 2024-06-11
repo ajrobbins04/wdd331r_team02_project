@@ -1,37 +1,37 @@
 /*
-* design-token/fonts defines 3 font-based properties:
+* handles 3 font-based properties:
 * font-family, font-size, and font-weight
 */
 
-// from Google Fonts 
-@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&display=swap");
+
 
 // free-use custom fonts from FontSpace 
 @font-face {
     font-family: 'Cybersky';
-    src: url('../resources/fonts/cybersky-trial-font/misc/Cybersky Free Trial-2c0d.woff') format('woff');
+    src: url('../sass/resources/fonts/cybersky-trial-font/misc/Cybersky Free Trial-2c0d.woff') format('woff');
     font-display: swap; // ensures text is visible even if custom font is still loading
 }
 
 @font-face {
     font-family: 'Reformation Sans';
-    src: url('../resources/fonts/reformation-sans-regular-font/ReformationSansRegular-32mL.ttf') format('truetype');
+    src: url('../sass/resources/fonts/reformation-sans-regular-font/ReformationSansRegular-32mL.ttf') format('truetype');
     font-display: swap;
 }
 
 // font family variables
-$primary-font: 'Reformation Sans', sans-serif;
-$standout-font: 'Cybersky', sans-serif;
-// ADD VARIABLE FOR BALOO 2?
+$primary-font: 'Reformation Sans';
+$standout-font: 'Cybersky';
+
+// used when first-choice primary font unavailable
+// not inside map so quotes aren't placed around it in themes file
+$no-primary-font: sans-serif;
 
 $font-families: (
     body: $primary-font,
-    p: $primary-font,
     h1: $standout-font,
     // fonts have placeholder values for now
     h2: $primary-font,
     h3: $primary-font,
-    a: $primary-font,
 );
 
 // initialize font size variables
