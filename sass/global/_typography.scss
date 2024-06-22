@@ -19,13 +19,14 @@ h2 {
   font-size: var(--font-size-h2);
   font-size: clamp(2rem, 4vw, var(--font-size-h2));
   text-align: center;
+  padding: 0.25em 0.5em;
 }
 
+// applies to the header for every section contained in main
 #main h2 {
-  background-color: var(--color-secondary);
+  background-color:  var(--color-secondary);
   align-self: center;
   color: var(--color-background);
-  padding: 0.25em 0.5em;
 }
 
 h3 {
