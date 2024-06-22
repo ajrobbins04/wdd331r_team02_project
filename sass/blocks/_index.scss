@@ -1,5 +1,11 @@
-@import "contribute";
+/* 
+* BLOCKS INDEX:
+*   Imports all files in the global directory so only
+*   this file is imported directly into style.scss
+*/
 @import "files";
+@import "about";
 @import "guidelines";
+@import "contribute";
 @import "profile";
 @import "styles";

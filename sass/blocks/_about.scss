@@ -1,4 +1,14 @@
-/* article element near top of main, explains style stage project */
+/* 
+* BLOCKS ABOUT:
+*   #about is the first child article inside 
+*   main. It is wrapped inside a section
+*   element belonging to the .container class.
+*   
+*   Its content, including a "Setting the Stage" 
+*   headline and description of the Style Stage
+*   project's purpose, are also wrapped inside a 
+*   section element from the .container class.
+*/
 
 #about {
   section:nth-child(2) {

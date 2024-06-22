@@ -1,22 +1,8 @@
-// stylelint-disable no-descending-specificity
-body {
-  background-color: var(--color-background);
-  color: var(--color-text);
-  font-family: var(--font-family-body), var(--font-family-no-primary);
-}
-
-main {
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-
-  &:focus {
-    outline: none;
-  }
-
-  h3 {
-    color: var(--color-primary);
-  }
-}
+/* 
+* COMPOSITIONS LAYOUT:
+*   Imports all files in the global directory so only
+*   this file is imported directly into style.scss
+*/
 
 article {
   section {

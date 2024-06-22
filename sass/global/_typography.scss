@@ -1,9 +1,13 @@
 /* 
 * GLOBAL TYPOGRAPHY: 
-*   Handles arranging text on the page properties 
-*   such as font-family, size, weight, line-height, 
-*   and spacing.
+*   Handles styling text elements exclusively with
+*   properties such as font-family, size, weight, 
+*   line-height, spacing, and font-color.
 */
+
+body {
+  font-family: var(--font-family-body), var(--font-family-no-primary);
+}
 
 h1,
 h2,
@@ -23,19 +27,11 @@ h1 {
 h2 {
   font-size: var(--font-size-h2);
   font-size: clamp(2rem, 4vw, var(--font-size-h2));
-  text-align: center;
-  padding: 0.25em 0.5em;
-}
-
-// applies to the header for every section contained in main
-#main h2 {
-  background-color:  var(--color-secondary);
-  align-self: center;
-  color: var(--color-background);
 }
 
 h3 {
   font-size: var(--font-size-h3);
+  color: var(--color-primary);
 }
 
 h4 {
@@ -49,6 +45,15 @@ li {
 
 p {
   margin: 0 0 1rem;
+}
+
+a {
+  color: var(--color-anchor);
+  text-decoration: none;
+}
+
+strong {
+  font-weight: var(--font-weight-strong);
 }
 
 article .container {
@@ -68,14 +73,6 @@ article .container {
       margin-top: 2rem;
     }
   }
-}
-
-strong {
-  font-weight: var(--font-weight-strong);
-}
-
-a {
-  color: var(--color-anchor);
 }
 
 blockquote {

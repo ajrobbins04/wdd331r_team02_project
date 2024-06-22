@@ -1,0 +1,6 @@
+article {
+    h2 {
+        align-self: center;
+        @include h2-box; // adjusts text alignment, padding, color, and background-color
+    }
+}

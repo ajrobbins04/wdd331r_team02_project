@@ -1,0 +1,18 @@
+/* 
+* GLOBAL: 
+*   Applies properties to some of the largest
+*   elements to affect the overall appearance.
+*/
+
+body {
+    background-color: var(--color-background);
+}
+
+main {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+  
+    &:focus {
+      outline: none;
+    }
+  }

@@ -1,4 +1,7 @@
-// utilities/index file contains imports for all the utility files.
-// It provides a clean, more efficient way to import all utility files
-// using one file.
+/* 
+* UTILITIES INDEX 
+*   Imports all files in the global directory so only
+*   this file is imported directly into style.scss
+*/
+@import "typography";
 @import "logomark";

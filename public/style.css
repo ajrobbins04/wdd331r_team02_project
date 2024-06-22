@@ -1,4 +1,9 @@
 @charset "UTF-8";
+/* 
+* DESIGN TOKENS INDEX: 
+*   Imports all files in the global directory so only
+*   this file is imported directly into style.scss
+*/
 /*
 * handles 3 font-based properties:
 * font-family, font-size, and font-weight
@@ -16,7 +21,7 @@
 /* 
 * GLOBAL INDEX: 
 *   Imports all files in the global directory so only
-*   this file can be imported directly into style.scss
+*   this file is imported directly into style.scss
 */
 /*
  * [Modified] Modern CSS Reset
@@ -104,11 +109,32 @@ select {
 }
 
 /* 
-* GLOBAL TYPOGRAPHY: 
-*   Handles arranging text on the page properties 
-*   such as font-family, size, weight, line-height, 
-*   and spacing.
+* GLOBAL: 
+*   Applies properties to some of the largest
+*   elements to affect the overall appearance.
 */
+body {
+  background-color: var(--color-background);
+}
+
+main {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+main:focus {
+  outline: none;
+}
+
+/* 
+* GLOBAL TYPOGRAPHY: 
+*   Handles styling text elements exclusively with
+*   properties such as font-family, size, weight, 
+*   line-height, spacing, and font-color.
+*/
+body {
+  font-family: var(--font-family-body), var(--font-family-no-primary);
+}
+
 h1,
 h2,
 h3,
@@ -127,18 +153,11 @@ h1 {
 h2 {
   font-size: var(--font-size-h2);
   font-size: clamp(2rem, 4vw, var(--font-size-h2));
-  text-align: center;
-  padding: 0.25em 0.5em;
-}
-
-#main h2 {
-  background-color: var(--color-secondary);
-  align-self: center;
-  color: var(--color-background);
 }
 
 h3 {
   font-size: var(--font-size-h3);
+  color: var(--color-primary);
 }
 
 h4 {
@@ -154,6 +173,15 @@ p {
   margin: 0 0 1rem;
 }
 
+a {
+  color: var(--color-anchor);
+  text-decoration: none;
+}
+
+strong {
+  font-weight: var(--font-weight-strong);
+}
+
 article .container > ul:not(.features) > li + li,
 article .container > ol > li + li {
   margin-top: 1rem;
@@ -163,14 +191,6 @@ article .container * + h2 {
 }
 article .container * + h3 {
   margin-top: 2rem;
-}
-
-strong {
-  font-weight: var(--font-weight-strong);
-}
-
-a {
-  color: var(--color-anchor);
 }
 
 blockquote {
@@ -230,32 +250,78 @@ blockquote::after {
   font-weight: var(--font-weight-strong);
 }
 
-/* article element near top of main, explains style stage project */
-#about section:nth-child(2) {
-  position: relative;
-}
-#about section:nth-child(2) p:nth-of-type(2) {
-  align-self: center;
-  margin-top: 2rem;
-  color: var(--color-secondary);
-  font-size: 1.5em;
-  font-weight: var(--font-weight-strong);
+/* 
+* UTILITIES INDEX 
+*   Imports all files in the global directory so only
+*   this file is imported directly into style.scss
+*/
+/* 
+* UTILITIES TYPOGRAPHY:
+*   Uses mixins to apply style patterns to certain
+*   text elements so they appear inside a box.
+*/
+/* 
+* COMPOSITIONS INDEX:
+*   Imports all files in the global directory so only
+*   this file is imported directly into style.scss
+*/
+header {
+  --logomark-height: 3em;
+  --logomark-padding: 0 1em;
+  display: grid;
+  min-height: 40vh;
+  place-items: center;
+  padding: 10vh 2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%233a00ff' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: 0 -38px, 17px -40px;
+  color: var(--color-primary);
   text-align: center;
 }
-#about section:nth-child(2) ul {
+header h1 {
+  display: inline-grid;
+  min-height: var(--logomark-height);
+  padding: var(--logomark-padding);
+  border: 0.16em solid var(--color-primary);
+  box-shadow: 0.12em 0.12em var(--color-secondary);
+  place-content: center;
+}
+header h2 {
+  max-width: 30ch;
+}
+
+nav ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 1rem 0 2rem;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
-#about section:nth-child(2) ul li {
-  margin: 0.25em;
-  padding: 0.25em 0.5em;
-  background-color: var(--color-light);
+nav ul a {
+  display: inline-grid;
+  padding: 0.5rem;
+  color: var(--color-secondary);
+  font-size: 1.25rem;
+}
+nav ul a::before {
+  width: 100%;
+  height: 0.33em;
+  background-color: var(--color-secondary);
+  opacity: 0.15;
+  content: "";
+}
+nav ul a:hover::before, nav ul a:focus::before {
+  opacity: 1;
+}
+nav ul li {
+  margin: 0.25rem;
 }
 
+/* 
+* COMPOSITIONS MAIN
+*   The layout for main.
+*/
 .features {
   position: relative;
   width: 100%;
@@ -344,48 +410,11 @@ blockquote::after {
   margin-bottom: 0;
 }
 
-header {
-  --logomark-height: 3em;
-  --logomark-padding: 0 1em;
-  display: grid;
-  min-height: 40vh;
-  place-items: center;
-  padding: 10vh 2rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%233a00ff' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: 0 -38px, 17px -40px;
-  color: var(--color-primary);
-  text-align: center;
-}
-header h1 {
-  display: inline-grid;
-  min-height: var(--logomark-height);
-  padding: var(--logomark-padding);
-  border: 0.16em solid var(--color-primary);
-  box-shadow: 0.12em 0.12em var(--color-secondary);
-  place-content: center;
-}
-header h2 {
-  max-width: 30ch;
-}
-
-body {
-  background-color: var(--color-background);
-  color: var(--color-text);
-  font-family: var(--font-family-body), var(--font-family-no-primary);
-}
-
-main {
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-}
-main:focus {
-  outline: none;
-}
-main h3 {
-  color: var(--color-primary);
-}
-
+/* 
+* COMPOSITIONS LAYOUT:
+*   Imports all files in the global directory so only
+*   this file is imported directly into style.scss
+*/
 article section {
   display: flex;
   flex-direction: column;
@@ -415,35 +444,6 @@ article,
   padding: 0;
   grid-gap: 1em;
   list-style: none;
-}
-
-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-nav ul a {
-  display: inline-grid;
-  padding: 0.5rem;
-  color: var(--color-secondary);
-  font-size: 1.25rem;
-  text-decoration: none;
-}
-nav ul a::before {
-  width: 100%;
-  height: 0.33em;
-  background-color: var(--color-secondary);
-  opacity: 0.15;
-  content: "";
-}
-nav ul a:hover::before, nav ul a:focus::before {
-  opacity: 1;
-}
-nav ul li {
-  margin: 0.25rem;
 }
 
 .skip-link {
@@ -539,6 +539,112 @@ nav ul li {
   fill: currentColor;
 }
 
+/* 
+* BLOCKS INDEX:
+*   Imports all files in the global directory so only
+*   this file is imported directly into style.scss
+*/
+/* first footer with links to style stage source files */
+#files {
+  display: grid;
+  place-content: center;
+  margin: 5vh auto;
+  text-align: center;
+}
+#files h3 {
+  height: 0;
+  opacity: 0;
+}
+#files .container {
+  display: inline-block;
+  padding: 5vmin;
+  outline: 4px dashed var(--color-secondary);
+  background-color: var(--color-background);
+  text-align: center;
+}
+#files .container a:not(:last-child) {
+  margin: 0.5rem;
+}
+#files .container a:not(:last-child):not(.link-codepen) {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+/* 
+* BLOCKS ABOUT:
+*   #about is the first child article inside 
+*   main. It is wrapped inside a section
+*   element belonging to the .container class.
+*   
+*   Its content, including a "Setting the Stage" 
+*   headline and description of the Style Stage
+*   project's purpose, are also wrapped inside a 
+*   section element from the .container class.
+*/
+#about section:nth-child(2) {
+  position: relative;
+}
+#about section:nth-child(2) p:nth-of-type(2) {
+  align-self: center;
+  margin-top: 2rem;
+  color: var(--color-secondary);
+  font-size: 1.5em;
+  font-weight: var(--font-weight-strong);
+  text-align: center;
+}
+#about section:nth-child(2) ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+#about section:nth-child(2) ul li {
+  margin: 0.25em;
+  padding: 0.25em 0.5em;
+  background-color: var(--color-light);
+}
+
+/* article element with style stage contribution guidelines */
+#guidelines h3 {
+  display: inline-block;
+  transform: rotate(-8deg) translateX(-10%);
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+}
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  #guidelines h3 {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+@media (min-width: 120ch) {
+  #guidelines h3 {
+    transform: rotate(-8deg) translateX(-30%);
+  }
+}
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  #guidelines p:nth-of-type(2) {
+    position: relative;
+  }
+  #guidelines p:nth-of-type(2)::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(4deg) translate(4.75rem, -3.5rem);
+    transform-origin: left center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: var(--color-primary-alt);
+    font-size: 0.9em;
+    font-weight: normal;
+    content: "← Whoa, text gradients!";
+  }
+}
+#guidelines .container > a {
+  align-self: center;
+}
+
 /* article element inside about article, right after guidelines article */
 #about section:nth-child(2) {
   position: relative;
@@ -588,71 +694,6 @@ nav ul li {
     transform: scale(2) translate(-25%, -25%);
   }
 }
-/* first footer with links to style stage source files */
-#files {
-  display: grid;
-  place-content: center;
-  margin: 5vh auto;
-  text-align: center;
-}
-#files h3 {
-  height: 0;
-  opacity: 0;
-}
-#files .container {
-  display: inline-block;
-  padding: 5vmin;
-  outline: 4px dashed var(--color-secondary);
-  background-color: var(--color-background);
-  text-align: center;
-}
-#files .container a:not(:last-child) {
-  margin: 0.5rem;
-}
-#files .container a:not(:last-child):not(.link-codepen) {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-}
-
-/* article element with style stage contribution guidelines */
-#guidelines h3 {
-  display: inline-block;
-  transform: rotate(-8deg) translateX(-10%);
-  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
-}
-@supports (background-clip: text) or (-webkit-background-clip: text) {
-  #guidelines h3 {
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-}
-@media (min-width: 120ch) {
-  #guidelines h3 {
-    transform: rotate(-8deg) translateX(-30%);
-  }
-}
-@supports (background-clip: text) or (-webkit-background-clip: text) {
-  #guidelines p:nth-of-type(2) {
-    position: relative;
-  }
-  #guidelines p:nth-of-type(2)::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: rotate(4deg) translate(4.75rem, -3.5rem);
-    transform-origin: left center;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: var(--color-primary-alt);
-    font-size: 0.9em;
-    font-weight: normal;
-    content: "← Whoa, text gradients!";
-  }
-}
-#guidelines .container > a {
-  align-self: center;
-}
-
 /* first aside element that follows after main. shows author credentials */
 .profile {
   width: 95vw;

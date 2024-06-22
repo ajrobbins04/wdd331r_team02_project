@@ -1,7 +1,12 @@
-@import "about";
+/* 
+* COMPOSITIONS INDEX:
+*   Imports all files in the global directory so only
+*   this file is imported directly into style.scss
+*/
+@import "header";
+@import "nav";
+@import "main";
 @import "features";
 @import "footer";
-@import "header";
 @import "layout";
-@import "nav";
 @import "links";
