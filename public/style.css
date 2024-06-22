@@ -13,6 +13,11 @@
   src: url("../sass/resources/fonts/reformation-sans-regular-font/ReformationSansRegular-32mL.ttf") format("truetype");
   font-display: swap;
 }
+/* 
+* GLOBAL INDEX: 
+*   Imports all files in the global directory so only
+*   this file can be imported directly into style.scss
+*/
 /*
  * [Modified] Modern CSS Reset
  * @link https://github.com/hankchizljaw/modern-css-reset
@@ -71,6 +76,11 @@ select {
     scroll-behavior: auto !important;
   }
 }
+/* 
+* GLOBAL VARIABLES: 
+*   Creates CSS variables and sets their 
+*   values using design tokens.
+*/
 :root {
   --color-primary: #161C41;
   --color-primary-alt: #562052;
@@ -93,6 +103,12 @@ select {
   --font-family-no-primary: sans-serif;
 }
 
+/* 
+* GLOBAL TYPOGRAPHY: 
+*   Handles arranging text on the page properties 
+*   such as font-family, size, weight, line-height, 
+*   and spacing.
+*/
 h1,
 h2,
 h3,
