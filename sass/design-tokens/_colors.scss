@@ -1,7 +1,18 @@
-$color-primary: #161C41 !default;      // dark blue
-$color-primary-alt: #562052 !default;  // dark purple
-$color-secondary: #EF2D56 !default;    // red
-$color-background: #16C8E3 !default;   // sky blue
+$color-gradient1: #122A4E !default;      // dark blue
+$color-gradient2: #562052 !default;  // dark purple
+$color-gradient3:  #DA40D3 !default;    // red
+$color-gradient4: #FFE5B9; //butter yellow
+$accent-color1: #16C8E3 !default; // sky blue
+$accent-color2: #FFD542;  //yellow
+
+
+/* ***** new color palette ***** */
+// $color-gradient1: #122A4E !default;  //dark blue    
+// $color-gradient2: #552C85 !default;  //purple
+// $color-gradient3: #DA40D3 !default; //pink    
+// $color-gradient4: #FFE5B9; //butter yellow
+// $accent-color1: #16C8E3 !default;  //sky blue 
+// $accent-color2: #FFD542; //yellow
 
 // place primary and secondary colors in a map
 $brand-colors: (
@@ -10,12 +21,16 @@ $brand-colors: (
   secondary: $color-secondary,
 ) !default;
 
-// create a color that maps to $color-body
-$color-body: scale-color(
-  $color-primary,
-  $lightness: -30%, /* darken primary color */
-  $saturation: -50% /* reduce primary color's saturation */
-) !default;
+// // create a color that maps to $color-body
+// $color-body: scale-color(
+//   $color-primary,
+//   $lightness: -30%, /* darken primary color */
+//   $saturation: -50% /* reduce primary color's saturation */
+// ) !default;
+
+// $color-body: linear-gradient(to bottom, #122A4E, #552C85, #DA40D3, #FFE5B9);
+
+
 // creates color mapping to $color-gray by mixing a given
 // color (gray for now) with $color-body at a 70% ratio
 $color-gray: mix(#767676, $color-body, 70%) !default;
