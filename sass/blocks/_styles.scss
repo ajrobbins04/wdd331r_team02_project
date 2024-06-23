@@ -1,5 +1,7 @@
 /* second aside element showing feature styles under .profile */
 #styles {
+  @include centered-container;
+  padding: 1rem;
   margin: 5vh 0 20vh;
   text-align: center;
 

@@ -3,9 +3,11 @@
 *   Imports all files in the global directory so only
 *   this file is imported directly into style.scss
 */
-@import "files";
-@import "about";
-@import "guidelines";
-@import "contribute";
-@import "profile";
-@import "styles";
+
+@import "about";    // first article inside main
+@import "guidelines"; // second article inside main
+@import "contribute"; // third article inside main 
+@import "files";    // a #contribute child element
+@import "profile";  // the first aside element inside body
+@import "styles";   // the second aside element inside body
+@import "features"; // a #styles child element

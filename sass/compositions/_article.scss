@@ -1,0 +1,26 @@
+article {
+    padding: 1rem;
+
+    .container {
+        @include centered-container;
+        @include flex-column-container;
+
+        > ol {
+        > li + li {
+            margin-top: 1rem; // applied to li elements inside ol and ul lists
+        }
+        }
+    
+        * {
+        + h2 {
+            margin-top: 4rem;
+            align-self: center;
+            @include h2-box; // adjusts text alignment, padding, color, and background-color
+        }
+    
+        + h3 {
+            margin-top: 2rem;
+        }
+        }
+    }
+}

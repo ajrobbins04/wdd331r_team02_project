@@ -1,12 +1,30 @@
 /* 
 * GLOBAL TYPOGRAPHY: 
-*   Handles styling text elements exclusively with
+*   Handles general styling of text elements with
 *   properties such as font-family, size, weight, 
-*   line-height, spacing, and font-color.
+*   line-height, spacing, and color.
 */
 
 body {
   font-family: var(--font-family-body), var(--font-family-no-primary);
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+p,
+li {
+  font-size: var(--font-size-text);
+}
+
+a {
+  color: var(--color-anchor);
+  text-decoration: none;
+}
+
+strong {
+  font-weight: var(--font-weight-strong);
 }
 
 h1,
@@ -36,43 +54,6 @@ h3 {
 
 h4 {
   font-size: var(--font-size-h4);
-}
-
-p,
-li {
-  font-size: var(--font-size-text);
-}
-
-p {
-  margin: 0 0 1rem;
-}
-
-a {
-  color: var(--color-anchor);
-  text-decoration: none;
-}
-
-strong {
-  font-weight: var(--font-weight-strong);
-}
-
-article .container {
-  > ul:not(.features),
-  > ol {
-    > li + li {
-      margin-top: 1rem;
-    }
-  }
-
-  * {
-    + h2 {
-      margin-top: 4rem;
-    }
-
-    + h3 {
-      margin-top: 2rem;
-    }
-  }
 }
 
 blockquote {

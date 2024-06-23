@@ -1,4 +1,9 @@
-
+/* 
+* COMPOSITIONS FOOTER:
+*   Handles all styline inside the second 
+*   footer element, whose class is called 
+*   'page-footer', and its children.
+*/
 .page-footer {
   --logomark-height: 2em;
   --logomark-padding: 0;
@@ -24,6 +29,10 @@
     content: "S";
   }
 
+  .container  {
+    @include centered-container;
+  }
+
   p:first-child {
     margin-top: 3rem;
     font-weight: var(--font-weight-strong);
@@ -36,6 +45,7 @@
   }
 
   ul {
+    @include grid-list;
     grid-template-columns: repeat(auto-fit, minmax(12ch, auto));
   }
 
