@@ -24,12 +24,9 @@
     }
 
     ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      @include flex-row-wrapped-centered;
       margin: 1rem 0 2rem;
       padding: 0;
-      list-style: none;
 
       li {
         margin: 0.25em;

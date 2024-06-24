@@ -4,5 +4,7 @@
 *   this file is imported directly into style.scss
 */
 @import "typography";
-@import "layout";
+@import "width";      // element width/sizing
+@import "spacing";    // margins and padding
+@import "layout";     // flex and grid
 @import "logomark";

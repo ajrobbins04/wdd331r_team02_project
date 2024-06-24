@@ -320,10 +320,10 @@ article {
   padding: 1rem;
 }
 article .container {
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   max-width: 80ch;
-  margin-right: auto;
-  margin-left: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -379,10 +379,10 @@ article .container * + h3 {
   content: "S";
 }
 .page-footer .container {
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   max-width: 80ch;
-  margin-right: auto;
-  margin-left: auto;
 }
 .page-footer p:first-child {
   margin-top: 3rem;
@@ -529,9 +529,9 @@ article .container * + h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  list-style: none;
   margin: 1rem 0 2rem;
   padding: 0;
-  list-style: none;
 }
 #about section:nth-child(2) ul li {
   margin: 0.25em;
@@ -664,9 +664,9 @@ article .container * + h3 {
 
 /* 
 * BLOCKS PROFILE:
-*   Displays profile information for the
-*   author of the style stage shown. Is
-*   the first aside element inside main.
+*   .profile is the first aside element under
+*   main (#styles is the second one). It displays 
+*   information linked to the staged style's author.
 */
 .profile {
   width: 95vw;
@@ -694,9 +694,9 @@ article .container * + h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 .profile ul li {
   display: flex;
@@ -739,15 +739,16 @@ article .container * + h3 {
 
 /* 
 * BLOCKS STYLES:
-*   #styles is a child element of .profile. 
-*   Shows 3 featured styles right below
-*   the 'Currently Staged Style' section.
+*   #styles is the second aside element under
+*   main (.profile is the first aside element).
+*   It currently shows 3 featured styles right
+*   below its 'Featured Styles' headline.
 */
 #styles {
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   max-width: 80ch;
-  margin-right: auto;
-  margin-left: auto;
   padding: 1rem;
   margin: 5vh 0 20vh;
   text-align: center;

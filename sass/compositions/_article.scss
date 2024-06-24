@@ -2,9 +2,11 @@ article {
     padding: 1rem;
 
     .container {
-        // max-width 
-        @include centered-by-margins;
-        @include flex-column-container;
+        // max-width 80ch w/left and right margins set to auto
+        @include auto-lr-margins;
+        @include max-width-standard;
+        // arranged in column direction w/items aligned to flex-start
+        @include flex-column-w-start-items;
 
         > ol {
         > li + li {

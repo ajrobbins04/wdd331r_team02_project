@@ -1,11 +1,17 @@
 /* 
 * BLOCKS STYLES:
-*   #styles is a child element of .profile. 
-*   Shows 3 featured styles right below
-*   the 'Currently Staged Style' section.
+*   #styles is the second aside element under
+*   main (.profile is the first aside element).
+*   It currently shows 3 featured styles right
+*   below its 'Featured Styles' headline.
 */
+
+// note that the only direct child of #styles 
+// is .container. It isn't included because these
+// properties can be inherited by descendants
 #styles {
-  @include centered-by-margins;
+  @include auto-lr-margins;
+  @include max-width-standard;
   padding: 1rem;
   margin: 5vh 0 20vh;
   text-align: center;
@@ -15,8 +21,9 @@
     color: var(--color-primary);
   }
 
-  // each featured style has its own background pattern, 
-  // but the background color is the same.
+  // each featured style inside the ul has 
+  // its own background pattern, but the 
+  // background color is the same for all.
   .features {
     li {
       background-color: var(--color-secondary);

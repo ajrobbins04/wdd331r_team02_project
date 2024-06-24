@@ -1,8 +1,8 @@
 /* 
 * BLOCKS PROFILE:
-*   Displays profile information for the
-*   author of the style stage shown. Is
-*   the first aside element inside main.
+*   .profile is the first aside element under
+*   main (#styles is the second one). It displays 
+*   information linked to the staged style's author.
 */
 .profile {
   width: 95vw;
@@ -11,6 +11,7 @@
   padding: 1.25rem;
   z-index: 1;
 
+  // 'Currently Staged Style'
   h4 {
     margin: 0;
     color: var(--color-anchor);
@@ -28,12 +29,8 @@
   }
 
   ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    @include flex-row-wrapped-centered;
+    @include no-margin-padding;
 
     li {
       display: flex;

@@ -30,7 +30,8 @@
   }
 
   .container  {
-    @include centered-by-margins;
+    @include auto-lr-margins;
+    @include max-width-standard;
   }
 
   p:first-child {
