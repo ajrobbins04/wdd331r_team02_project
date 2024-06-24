@@ -1,3 +1,10 @@
+/* 
+* COMPOSITIONS ARTICLE:
+*   Handles the structuring of article elements
+*   mainly using their .container direct
+*   children and additional descendant elements 
+*   shared among all three articles.
+*/
 article {
     padding: 1rem;
 
@@ -5,6 +12,7 @@ article {
         // max-width 80ch w/left and right margins set to auto
         @include auto-lr-margins;
         @include max-width-standard;
+        
         // arranged in column direction w/items aligned to flex-start
         @include flex-column-w-start-items;
 

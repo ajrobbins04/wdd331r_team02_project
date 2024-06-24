@@ -1,3 +1,7 @@
+/* UTILITIES SPACING:
+*   Uses mixins to apply commonly-used margins
+*   and padding to elements.
+*/
 @mixin no-margin-padding {
     margin: 0;
     padding: 0;

@@ -1,11 +1,7 @@
 nav {
   ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    @include flex-row-wrapped-centered;
+    @include no-margin-padding;
 
     a {
       display: inline-grid;

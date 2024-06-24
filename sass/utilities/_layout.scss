@@ -1,11 +1,8 @@
 /* 
 * UTILITIES LAYOUT:
-*   Defines layout-based mixins.
+*   Defines layout-based mixins utilizing
+*   flexbox and grid.
 */
-@mixin centered-by-margins {
-    margin-right: auto;
-    margin-left: auto;
-}
 
 @mixin grid-w-centered-items {
     display: grid;
@@ -30,7 +27,7 @@
 
 @mixin grid-list {
     display: grid;
-    margin: 0 0 2rem;
+    margin: 0 0 2rem; 
     padding: 0;
     grid-gap: 1em;
     list-style: none;

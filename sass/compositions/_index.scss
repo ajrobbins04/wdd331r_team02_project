@@ -1,11 +1,13 @@
 /* 
 * COMPOSITIONS INDEX:
 *   Imports all files in the global directory so only
-*   this file is imported directly into style.scss
+*   this file is imported directly into style.scss. 
 */
-@import "header";
-@import "nav";
-@import "main";
-@import "article";
-@import "footer";
-@import "links";
+
+@import "links";    // first direct child element belonging to body
+@import "header";   // second direct child element after .skip-link
+@import "nav";      // third direct child element after header
+@import "article";  // comprised of 3 article elements descended from main
+@import "profile";  // the first aside after main
+@import "styles";   // the second aside element after main
+@import "footer";   // third element after main and last direct child in body
