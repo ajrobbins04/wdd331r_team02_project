@@ -1,5 +1,9 @@
-/* first aside element that follows after main. shows author credentials */
-
+/* 
+* BLOCKS PROFILE:
+*   Displays profile information for the
+*   author of the style stage shown. Is
+*   the first aside element inside main.
+*/
 .profile {
   width: 95vw;
   max-width: 80ch;
@@ -14,9 +18,7 @@
   }
 
   .container {
-    display: grid;
-    justify-items: center;
-    grid-gap: 1rem;
+    @include grid-w-centered-items;
 
     > a {
       min-height: 2em;

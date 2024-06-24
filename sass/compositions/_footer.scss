@@ -30,7 +30,7 @@
   }
 
   .container  {
-    @include centered-container;
+    @include centered-by-margins;
   }
 
   p:first-child {

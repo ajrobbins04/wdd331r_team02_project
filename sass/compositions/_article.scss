@@ -2,7 +2,8 @@ article {
     padding: 1rem;
 
     .container {
-        @include centered-container;
+        // max-width 
+        @include centered-by-margins;
         @include flex-column-container;
 
         > ol {

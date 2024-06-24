@@ -1,4 +1,5 @@
 .features {
+    @include grid-list; // displays as a list of features using grid
     position: relative;
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
