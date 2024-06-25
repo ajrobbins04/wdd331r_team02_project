@@ -1,0 +1,22 @@
+/* 
+* UTILITIES TYPOGRAPHY:
+*   Uses mixins to apply style patterns to certain
+*   text elements so they appear inside a box.
+*/
+@mixin h2-box {
+    text-align: center;
+    padding: 0.25em 0.5em;
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+}
+
+@mixin li-box {
+    text-align: center;
+    padding: 0.25em 0.5em;
+}
+
+@mixin anchor-box {
+    text-align: center;
+    padding: 0em 0.75em;
+    color: var(--color-anchor);
+}

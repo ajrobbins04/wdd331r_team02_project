@@ -1,7 +1,12 @@
-@import "about";
-@import "features";
-@import "footer";
-@import "header";
-@import "layout";
-@import "nav";
-@import "links";
+/* 
+* COMPOSITIONS INDEX:
+*   Imports all files in the global directory so only
+*   this file is imported directly into style.scss. 
+*/
+
+@import "header";    // second direct child element of main
+@import "about";     // handles 'setting the stage' portion
+@import "contribute";// third article inside main 
+@import "profile";   // the first aside after main w/author info
+@import "features";  // featured styles found in second aside element, #styles
+@import "footer";    // third element after main w/typical footer content

@@ -1,0 +1,9 @@
+/* UTILITIES WIDTH
+*   Uses mixins to apply sizing (mainly width)
+*   to elements.
+*/
+
+@mixin max-width-standard {
+    width: 100%;
+    max-width: 80ch;
+}

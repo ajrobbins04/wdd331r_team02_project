@@ -1,3 +1,9 @@
+/* 
+* GLOBAL INDEX: 
+*   Imports all files in the global directory so only
+*   this file is imported directly into style.scss
+*/
 @import "reset";
-@import "theme";
-@import "typography";
+@import "variables";  // assigns design tokens to variables
+@import "global";     // general global styles
+@import "typography"; // global typography styles

@@ -8,7 +8,8 @@
 // files are ordered so the macro-level files are imported first.
 // The rules applied become increasingly more specific w/each new import
 @import "design-tokens/index";
-@import "global/index";
 @import "utilities/index";
+@import "global/index";
 @import "compositions/index";
 @import "blocks/index";
+@import "exceptions/index";

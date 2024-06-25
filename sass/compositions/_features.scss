@@ -1,4 +1,25 @@
-.features {
+/* 
+* COMPOSITIONS FEATURES:
+*   Handles layout for the second aside element,
+*   #styles, and its children. 3 featured styles 
+*   are currently shown below the 'Featured Styles' 
+*   headline.
+*/
+
+#styles {
+  @include auto-lr-margins;
+  @include max-width-standard;
+  padding: 1rem;
+  margin: 5vh 0 20vh;
+  text-align: center;
+
+  // 'Featured Styles'
+  h2 {
+    color: var(--color-primary);
+  }
+
+  .features {
+    @include grid-list; // displays as a list of features using grid
     position: relative;
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
@@ -48,4 +69,5 @@
       }
     }
   }
-  
+
+}
