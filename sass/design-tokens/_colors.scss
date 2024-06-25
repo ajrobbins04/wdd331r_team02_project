@@ -13,7 +13,6 @@ $color-gradient4: #FFE5B9; //butter yellow
 $accent-color1: #16C8E3 !default; // sky blue
 $accent-color2: #FFD542;  //yellow
 
-
 /* ***** new color palette ***** */
 // $color-gradient1: #122A4E !default;  //dark blue    
 // $color-gradient2: #552C85 !default;  //purple
@@ -21,6 +20,8 @@ $accent-color2: #FFD542;  //yellow
 // $color-gradient4: #FFE5B9; //butter yellow
 // $accent-color1: #16C8E3 !default;  //sky blue 
 // $accent-color2: #FFD542; //yellow
+
+//$color-background: linear-gradient(to bottom, #122A4E, #552C85, #DA40D3, #FFE5B9);
 
 $main-colors: (
   primary: $color-primary,
@@ -39,8 +40,6 @@ $color-body: scale-color(
 // color (gray for now) with $color-body at a 70% ratio
 $color-gray: mix(#767676, $color-body, 70%) !default;
 $link-color: color(primary) !default;
-
-//$color-background: linear-gradient(to bottom, #122A4E, #552C85, #DA40D3, #FFE5B9);
 
 // additional-colors map to merge with brand-colors
 $additional-colors: (

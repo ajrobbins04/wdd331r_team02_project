@@ -1,10 +1,9 @@
 /* 
 * COMPOSITIONS HEADER:
-*   Handles all styling inside the second 
-*   footer element, whose class is called 
-*   'page-footer', and its children.
+*   Handles all styling inside the header.
 */
 header {
+  // dimensions for 'Style Stage' banner
   --h1-height: 3em;
   --h1-padding: 0 1em;
 
@@ -22,7 +21,7 @@ header {
 
   // 'Style Stage'
   h1 {
-    @include logomark;
+    @include banner;
   }
 
   // 'A modern CSS showcase styled by community contributions'

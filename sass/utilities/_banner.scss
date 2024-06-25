@@ -1,9 +1,9 @@
 /* 
-* UTILITIES INDEX 
-*   Imports all files in the global directory so only
-*   this file is imported directly into style.scss
+* UTILITIES BANNER
+*   Creates the banner displaying 'Style Stage' 
+*   in the header and 'S' in the footer.
 */
-@mixin logomark() {
+@mixin banner() {
   display: inline-grid;
   min-height: var(--banner-height);
   padding: var(--banner-padding);

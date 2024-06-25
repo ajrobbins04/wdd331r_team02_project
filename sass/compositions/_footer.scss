@@ -2,9 +2,10 @@
 * COMPOSITIONS FOOTER:
 *   Handles all styling inside the second 
 *   footer element, whose class is called 
-*   'page-footer', and its children.
+*   'page-footer'.
 */
 .page-footer {
+  // dimensions for the banner displaying 'S'
   --banner-height: 2em;
   --banner-padding: 0;
 
@@ -18,7 +19,7 @@
   background-position: center -34px;*/
 
   &::before {
-    @include logomark;
+    @include banner;
 
     position: absolute;
     left: 50%;

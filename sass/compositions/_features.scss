@@ -1,0 +1,73 @@
+/* 
+* COMPOSITIONS FEATURES:
+*   Handles layout for the second aside element,
+*   #styles, and its children. 3 featured styles 
+*   are currently shown below the 'Featured Styles' 
+*   headline.
+*/
+
+#styles {
+  @include auto-lr-margins;
+  @include max-width-standard;
+  padding: 1rem;
+  margin: 5vh 0 20vh;
+  text-align: center;
+
+  // 'Featured Styles'
+  h2 {
+    color: var(--color-primary);
+  }
+
+  .features {
+    @include grid-list; // displays as a list of features using grid
+    position: relative;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
+  
+    /*! 
+      * SVGs from Hero Patterns
+      * @link http://www.heropatterns.com/
+      */
+    li {
+      display: grid;
+      position: relative;
+      place-content: center;
+      min-height: 12rem;
+      padding: 1rem;
+      color: var(--color-background);
+      text-align: center;
+  
+      > span {
+        display: grid;
+        place-content: center;
+        padding: 0.5em;
+        grid-gap: 0.5rem;
+        border: 1px solid var(--color-background);
+        background-color: var(--color-secondary);
+        line-height: 1.1;
+  
+        a {
+          color: inherit;
+          font-size: 1.3rem;
+          font-weight: var(--font-weight-strong);
+          text-decoration: none;
+  
+          // stylelint-disable-next-line max-nesting-depth
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+          }
+        }
+  
+        span:nth-child(2) {
+          position: relative;
+        }
+      }
+    }
+  }
+
+}

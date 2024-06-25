@@ -4,10 +4,9 @@
 *   this file is imported directly into style.scss. 
 */
 
-@import "links";    // first direct child element belonging to body
-@import "header";   // second direct child element after .skip-link
-@import "nav";      // third direct child element after header
-@import "article";  // comprised of 3 article elements descended from main
-@import "profile";  // the first aside after main
-@import "styles";   // the second aside element after main
-@import "footer";   // third element after main and last direct child in body
+@import "header";    // second direct child element of main
+@import "about";     // handles 'setting the stage' portion
+@import "contribute";// third article inside main 
+@import "profile";   // the first aside after main w/author info
+@import "features";  // featured styles found in second aside element, #styles
+@import "footer";    // third element after main w/typical footer content

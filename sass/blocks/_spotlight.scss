@@ -1,18 +1,14 @@
 /* 
-* BLOCKS ABOUT:
-*   #about is the first article element in
-*   main. It contains two .container sections. 
-*   The first section has a "Setting the Stage" 
-*   headline and information about the Style Stage
-*   project. The second section has a "Modern CSS
-*   Under the Spotlight" headline  are also wrapped inside a 
-*   section element from the .container class.
+* BLOCKS SPOTLIGHT:
+*   Handles the second section inside #about,
+*   'Modern CSS Under the Spotlight' that displays
+*   CSS styling tools currently used by developers.
 */
-
 #about {
+    // second section: 'Modern CSS Under the Spotlight'
   section:nth-child(2) {
     position: relative;
-
+    
     p:nth-of-type(2) {
       align-self: center;
       margin-top: 2rem;
@@ -21,6 +17,7 @@
       font-weight: var(--font-weight-strong);
       text-align: center;
     }
+    border: 8px solid white;
 
     ul {
       @include flex-row-wrapped-centered;
