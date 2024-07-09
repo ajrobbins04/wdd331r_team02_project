@@ -119,6 +119,15 @@ select {
 *   values using design tokens.
 */
 :root {
+--darkBlue: #122A4E;   
+--darkPurple: #552C85;  
+--pink:  #DA40D3;    
+--butterYellow: #FFE5B9;
+--skyBlue: #16C8E3; 
+--brightYellow: #FFD542;
+--white:#fff;
+--transparentPurple: #562c8591;
+
   --color-primary: #161C41;
   --color-primary-alt: #562052;
   --color-secondary: #EF2D56;
@@ -147,7 +156,7 @@ select {
 *   and layout.
 */
 body {
-  background-color: var(--color-background);
+  background-image:linear-gradient(to bottom, #122A4E, #552C85, #DA40D3, #FFE5B9);
 }
 
 nav ul {
@@ -193,7 +202,7 @@ article .container * + h2 {
   text-align: center;
   padding: 0.25em 0.5em;
   background-color: var(--color-secondary);
-  color: var(--color-background);
+  color: var(--white);
 }
 article .container * + h3 {
   margin-top: 2rem;
@@ -272,7 +281,7 @@ header {
   min-height: 40vh;
   place-items: center;
   padding: 10vh 2rem;
-  color: var(--color-primary);
+  color: var(--white);
   text-align: center;
   /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%233a00ff' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -283,8 +292,7 @@ header h1 {
   display: inline-grid;
   min-height: var(--banner-height);
   padding: var(--banner-padding);
-  border: 0.16em solid var(--color-primary);
-  box-shadow: 0.12em 0.12em var(--color-secondary);
+
   place-content: center;
 }
 header h2 {
@@ -307,7 +315,7 @@ header h2 {
   place-items: center;
   padding: 0;
   margin: 3rem 0;
-  color: var(--color-primary);
+  color: var(--white);
   /*
   &::after {
     grid-area: blockquote;
@@ -521,8 +529,8 @@ header h2 {
   place-content: center;
   padding: 0.5em;
   grid-gap: 0.5rem;
-  border: 1px solid var(--color-background);
-  background-color: var(--color-secondary);
+  /* border: 1px solid var(--color-background);
+  background-color: var(--color-secondary); */
   line-height: 1.1;
 }
 #styles .features li > span a {
@@ -616,13 +624,14 @@ header h2 {
 nav a {
   display: inline-grid;
   padding: 0.5rem;
-  color: var(--color-secondary);
+  color: var(--brightYellow);
   font-size: 1.25rem;
 }
 nav a::before {
   width: 100%;
   height: 0.33em;
-  background-color: var(--color-secondary);
+  background-color: var(--brightYellow
+  );
   opacity: 0.15;
   content: "";
 }
@@ -786,8 +795,8 @@ nav a:hover::before, nav a:focus::before {
 #files .container {
   display: inline-block;
   padding: 5vmin;
-  outline: 4px dashed var(--color-secondary);
-  background-color: var(--color-background);
+  /* outline: 4px dashed var(--color-secondary); */
+  background-color: var(--transparentPurple);
   text-align: center;
 }
 #files .container a:not(:last-child) {
@@ -797,8 +806,8 @@ nav a:hover::before, nav a:focus::before {
   font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
-.features {
-  /*&::after {
+/* .features {
+  &::after {
     position: absolute;
     bottom: -4.5em;
     width: 10ch;
@@ -811,8 +820,9 @@ nav a:hover::before, nav a:focus::before {
     color: var(--color-primary-alt);
     font-size: 0.9rem;
     content: "Grid FTW!";
-  }*/
-}
+  }
+} */
+
 .features li {
   background-color: var(--color-secondary);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");

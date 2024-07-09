@@ -7,7 +7,5 @@
   display: inline-grid;
   min-height: var(--banner-height);
   padding: var(--banner-padding);
-  border: 0.16em solid var(--color-primary);
-  box-shadow: 0.12em 0.12em var(--color-secondary);
   place-content: center;
 }

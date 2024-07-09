@@ -1,3 +1,4 @@
+@use 'sass:list';
 /* original colors added back just so the 
 program doesn't break from missing color 
 variables while refactoring the rest of the code */
@@ -6,22 +7,30 @@ $color-primary-alt: #562052 !default;  // dark purple
 $color-secondary: #EF2D56 !default;    // red
 $color-background: #16C8E3 !default;   // sky blue
 
-$color-gradient1: #122A4E !default;      // dark blue
-$color-gradient2: #562052 !default;  // dark purple
-$color-gradient3:  #DA40D3 !default;    // red
-$color-gradient4: #FFE5B9; //butter yellow
-$accent-color1: #16C8E3 !default; // sky blue
-$accent-color2: #FFD542;  //yellow
+$darkBlue: #122A4E !default;      
+$darkPurple: #552C85 !default;  
+$pink:  #DA40D3 !default;    
+$butterYellow: #FFE5B9;
+$skyBlue: #16C8E3 !default; 
+$brightYellow: #FFD542; 
+$white:#ffff;
+$transparentPurple: #562c8591;
 
-/* ***** new color palette ***** */
-// $color-gradient1: #122A4E !default;  //dark blue    
-// $color-gradient2: #552C85 !default;  //purple
-// $color-gradient3: #DA40D3 !default; //pink    
-// $color-gradient4: #FFE5B9; //butter yellow
-// $accent-color1: #16C8E3 !default;  //sky blue 
-// $accent-color2: #FFD542; //yellow
 
-//$color-background: linear-gradient(to bottom, #122A4E, #552C85, #DA40D3, #FFE5B9);
+$bg-gradient: $darkBlue, $darkPurple, $pink, $butterYellow;
+// $color-background: linear-gradient(to bottom, #122A4E, #552C85, #DA40D3, #FFE5B9);
+// body {
+//   background-image:linear-gradient(to bottom, #122A4E, #552C85, #DA40D3, #FFE5B9);
+// }
+
+@mixin background($bg) {
+  @if list.length($bg) == 1{
+    background-color: $bg;
+  } @else {
+    background-image:linear-gradient(to bottom, $bg) ;
+  }
+}
+
 
 $main-colors: (
   primary: $color-primary,

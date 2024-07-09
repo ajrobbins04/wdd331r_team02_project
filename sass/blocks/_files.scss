@@ -14,8 +14,7 @@
   .container {
     display: inline-block;
     padding: 5vmin;
-    outline: 4px dashed var(--color-secondary);
-    background-color: var(--color-background);
+    background-color: var(--transparentPurple);
     text-align: center;
 
     a:not(:last-child) {
