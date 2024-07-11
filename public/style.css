@@ -30,9 +30,9 @@
 */
 :root {
   --color-dark: #122A4E;
-  --color-dark-2: #552C85;
+  --color-dark-secondary: #552C85;
   --color-accent: #DA40D3;
-  --color-accent-2: #FFE5B9;
+  --color-accent-secondary: #FFE5B9;
   --color-contrast: #16C8E3;
   --color-high-contrast: #FFD542;
   --color-extra-light: #fff;
@@ -48,6 +48,7 @@
   --font-size-h3: 2rem;
   --font-size-h4: 1.35rem;
   --font-size-text: 1.15rem;
+  --font-size-anchor: 1.125rem;
   --font-weight-strong: 500;
   --border-radius: 8px;
   --font-family-no-primary: sans-serif;
@@ -138,41 +139,10 @@ select {
 /* 
 * GLOBAL LAYOUT
 *   Applies properties to some of the largest
-*   elements to affect the overall appearance
-*   and layout.
+*   elements, mainly to affect the overall layout.
 */
 body {
   background-image: linear-gradient(to bottom, #122A4E, #552C85, #DA40D3, #FFE5B9);
-}
-
-ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 1rem 0 2rem;
-  padding: 0;
-  list-style: none;
-}
-
-li {
-  margin: 0.25em;
-  padding: 0.25em 0.5em;
-}
-
-nav ul {
-  margin: 0;
-  padding: 0;
-}
-nav ul li {
-  margin: 0.25rem;
-}
-
-main {
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-}
-main:focus {
-  outline: none;
 }
 
 .container {
@@ -185,7 +155,34 @@ main:focus {
   max-width: 80ch;
   margin-left: auto;
   margin-right: auto;
-  background-color: var(--bg-color-section);
+}
+
+header .container {
+  display: grid;
+  min-height: 40vh;
+  place-items: center;
+  padding: 10vh 2rem;
+  text-align: center;
+}
+header .container h2 {
+  max-width: 30ch;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+main {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+main:focus {
+  outline: none;
 }
 
 article {
@@ -195,7 +192,6 @@ article > ol > li + li {
   margin-top: 1rem;
 }
 article * + h2 {
-  align-self: center;
   text-align: center;
   padding: 0.25em 0.5em;
   background-color: var(--color-secondary);
@@ -216,18 +212,43 @@ body {
   font-family: var(--font-family-body), var(--font-family-no-primary);
 }
 
-p {
-  margin: 0 0 1rem;
+section,
+header {
+  color: var(--color-extra-light);
+}
+
+footer {
+  color: var(--color-footer);
 }
 
 p,
 li {
+  margin: 0 0 1rem;
   font-size: var(--font-size-text);
 }
 
 a {
-  color: var(--color-a);
+  color: var(--color-anchor);
   text-decoration: none;
+  font-size: var(--font-size-anchor);
+}
+
+li {
+  margin: 0.25em;
+  padding: 0.25em 0.5em;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  margin: 0.25rem;
+}
+nav a {
+  display: inline-grid;
+  padding: 0.5rem 0;
+  font-size: var(--font-size-h4);
 }
 
 strong {
@@ -241,6 +262,7 @@ h4 {
   font-weight: var(--font-weight-strong);
   line-height: 1;
   margin-bottom: 0.65em;
+  align-self: center;
 }
 
 h1 {
@@ -253,7 +275,6 @@ h2 {
   font-size: var(--font-size-h2);
   font-size: clamp(2rem, 4vw, var(--font-size-h2));
   color: var(--color-h2);
-  text-align: center;
   margin-top: 4rem;
 }
 
@@ -270,51 +291,15 @@ h4 {
   margin: 0;
 }
 
-header {
-  color: var(--color-header);
-}
-
-section {
-  color: var(--color-aside);
-}
-
-aside {
-  color: var(--color-aside);
-}
-
 /* 
 * COMPOSITIONS INDEX:
+*   Each file handles layout, element spacing, sizing, and 
+*   anything else affecting the overall flow of major elements
+*   and their children.
+*
 *   Imports all files in the global directory so only
 *   this file is imported directly into style.scss. 
 */
-/* 
-* COMPOSITIONS HEADER:
-*   Handles all styling inside the header.
-*/
-header {
-  --h1-height: 3em;
-  --h1-padding: 0 1em;
-  display: grid;
-  min-height: 40vh;
-  place-items: center;
-  padding: 10vh 2rem;
-  color: var(--white);
-  text-align: center;
-  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%233a00ff' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: 0 -38px, 17px -40px;*/
-}
-header h1 {
-  display: inline-grid;
-  min-height: var(--banner-height);
-  padding: var(--banner-padding);
-  place-content: center;
-}
-header h2 {
-  max-width: 30ch;
-}
-
 /* 
 * COMPOSITIONS ABOUT:
 *   #about is the first article element in
@@ -326,9 +311,6 @@ header h2 {
 */
 #about {
   font-size: var(--font-size-h4);
-}
-#about strong {
-  font-size: var(--font-size-strong);
 }
 
 #about section:nth-child(1) blockquote {
@@ -386,20 +368,6 @@ header h2 {
 */
 #guidelines h3 {
   display: inline-block;
-  transform: rotate(-8deg) translateX(-10%);
-  background: linear-gradient(to right, var(--color-dark), var(--color-accent));
-}
-@supports (background-clip: text) or (-webkit-background-clip: text) {
-  #guidelines h3 {
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-}
-@media (min-width: 120ch) {
-  #guidelines h3 {
-    transform: rotate(-8deg) translateX(-30%);
-  }
 }
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   #guidelines p:nth-of-type(2) {
@@ -409,14 +377,8 @@ header h2 {
     position: absolute;
     top: 0;
     left: 0;
-    transform: rotate(4deg) translate(4.75rem, -3.5rem);
-    transform-origin: left center;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: var(--color-dark-2);
     font-size: 0.9em;
     font-weight: normal;
-    content: "← Whoa, text gradients!";
   }
 }
 #guidelines .container > a {
@@ -468,7 +430,7 @@ header h2 {
   width: 95vw;
   max-width: 80ch;
   margin: 1rem auto 10vh;
-  padding: 1.25rem;
+  padding: 1rem;
   z-index: 1;
 }
 .profile .container {
@@ -585,7 +547,7 @@ header h2 {
 
 /* 
 * COMPOSITIONS FOOTER:
-*   Handles all styling inside the second 
+*   Handles all styling inside the second 0
 *   footer element, whose class is called 
 *   'page-footer'.
 */
@@ -641,26 +603,6 @@ header h2 {
 *   this file is imported directly into style.scss
 */
 /* 
-* COMPOSITIONS NAV:
-*   Handles all styling inside the header.
-*/
-nav a {
-  display: inline-grid;
-  padding: 0.5rem;
-  font-size: 1.25rem;
-}
-nav a::before {
-  width: 100%;
-  height: 0.33em;
-  background-color: var(--color-transparent-dark);
-  opacity: 0.15;
-  content: "";
-}
-nav a:hover::before, nav a:focus::before {
-  opacity: 1;
-}
-
-/* 
 * BLOCKS LINKS:
 *   Handles styling of anchor elements 
 *   throughout the style stage page.
@@ -685,77 +627,111 @@ nav a:hover::before, nav a:focus::before {
   padding: 0.5em;
 }
 
-[class^=link]:not(.link-codepen) {
-  min-height: 3em;
-  background-color: var(--color-primary);
-  color: #fff;
-  box-shadow: 0.18em 0.18em var(--color-secondary);
+.link-github svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.25em;
+  fill: currentColor;
 }
 
-[class^=link]:not(.link-codepen),
-.profile .container > a {
+header .link-github {
+  color: var(--color-accent);
+}
+
+.page-footer .link-github {
+  color: var(--color-high-contrast);
+}
+
+[class^=link]:not(.link-codepen) {
+  min-height: 3em;
+}
+
+.container a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0 0.75em;
   transform: translate(0, 0);
   transition: 180ms all ease-in-out;
-  font-size: 1.125rem;
   line-height: 1;
   text-align: center;
-  text-decoration: none;
 }
-[class^=link]:not(.link-codepen):hover, [class^=link]:not(.link-codepen):focus,
-.profile .container > a:hover,
-.profile .container > a:focus {
+.container a:hover, .container a:focus {
   transform: translate(-0.15em, -0.15em);
-  box-shadow: 0.3em 0.3em var(--color-secondary);
 }
-[class^=link]:not(.link-codepen):focus,
-.profile .container > a:focus {
+.container a:focus {
   outline-color: transparent;
   outline-style: solid;
 }
 
-.page-footer [class^=link] {
+/* 
+* BLOCKS HEADER:
+*   Handles all styling inside the header.
+*   The header element is simple enough that
+*   its layout-related properties are stored
+*   in global/layout.
+*/
+header {
+  --h1-height: 3em;
+  --h1-padding: 0 1em;
+}
+header h1 {
+  display: inline-grid;
+  min-height: var(--banner-height);
+  padding: var(--banner-padding);
+  place-content: center;
+}
+header h2 {
+  max-width: 30ch;
+}
+
+/* 
+* BLOCKS NAV:
+*   Handles all styling inside the nav element
+*   containing links to various sections throughout
+*   index.html. 
+*
+*   The nav element is simple enough that its layout
+*   related properties are stored in global/layout.
+*/
+nav::before {
   width: 100%;
-  min-height: 2.5em;
-  background-color: var(--color-background);
-  color: var(--color-primary);
+  height: 0.33em;
+  background-color: var(--color-transparent-dark);
+  opacity: 0.15;
+  content: "";
+}
+nav:hover::before, nav:focus::before {
+  opacity: 1;
 }
 
-.link-codepen {
-  display: block;
-  margin-top: 3rem;
-  font-size: 1.35rem;
-}
-.link-codepen::before {
-  position: absolute;
-  padding-right: 1.25em;
-  transform: translate(15%, -90%) rotate(-3deg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 79.6 187.1'%3E%3Cpath fill='svgColor(primary-alt)' d='M12 131l-2 13-3 26a10 10 0 000 2 1 1 0 001 0 24 24 0 002-3 37 37 0 016-8 73 73 0 007-9l24-33 4-5a70 70 0 006-7l15-20a8 8 0 001-1 1 1 0 000-1 16 16 0 00-2-1l-8-3a69 69 0 01-13-6 7 7 0 00-1-1l-16-6-13-7a57 57 0 00-10-4 17 17 0 01-2-1 2 2 0 01-1-4 18 18 0 012-2 93 93 0 0011-13 95 95 0 018-8l10-11a32 32 0 003-4c3-5 7-9 12-13a12 12 0 011-1 1 1 0 012 0 2 2 0 010 2 27 27 0 01-3 3 104 104 0 00-10 12 115 115 0 01-11 13 102 102 0 00-11 13 78 78 0 01-5 7l-2 2a1 1 0 000 1l19 8 9 4 3 2a77 77 0 0113 5 22 22 0 003 2l17 8a8 8 0 011 1 2 2 0 010 2 22 22 0 01-1 3l-11 14a33 33 0 00-2 3 98 98 0 01-10 13l-5 7-23 31a87 87 0 01-7 9 60 60 0 00-6 8l-2 3a1 1 0 000 1l9-4 12-6 10-6 13-7a10 10 0 012 0 2 2 0 012 1 2 2 0 010 3 24 24 0 01-3 1l-8 4-20 11-24 12a19 19 0 01-2 1 2 2 0 01-3-2 10 10 0 010-2l1-7 3-24 3-21a39 39 0 011-5 2 2 0 013-1 2 2 0 011 2v4z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 130%;
-  background-size: 14%;
-  color: #6f6ffd;
-  font-size: 0.85em;
-  content: "Jump right in";
+#about section:nth-child(1)::before {
+  border: 4px solid var(--color-dark);
+  box-shadow: 0.25em 0.25em var(--color-accent);
+  transform: scale(1.1);
+  content: "";
 }
 
-.link-allstyles {
-  font-size: 1.35rem;
+#about section:nth-child(2) {
+  border: 8px solid var(--color-extra-light);
 }
-@media (max-width: 400px) {
-  .link-allstyles {
-    margin-left: 6rem;
+#about section:nth-child(2) p:nth-child(2) {
+  color: var(--color-dark-2);
+}
+#about section:nth-child(2) li {
+  background-color: var(--color-light);
+}
+#about section:nth-child(2)::before {
+  transform: translate(-50%, -50%);
+  transition: 300ms transform ease-in;
+  opacity: 0.8;
+  content: "";
+  z-index: -1;
+}
+@media (max-width: 35rem) {
+  #about section:nth-child(2)::before {
+    transform: scale(2) translate(-25%, -25%);
   }
-}
-
-.link-github svg {
-  width: 1em;
-  height: 1em;
-  margin-right: 0.25em;
-  fill: currentColor;
 }
 
 /* 
@@ -765,7 +741,6 @@ nav a:hover::before, nav a:focus::before {
 *   must be followed to submit a new style stage.
 */
 #guidelines h3 {
-  display: inline-block;
   transform: rotate(-8deg) translateX(-10%);
   background: linear-gradient(to right, var(--color-dark), var(--color-accent));
 }
@@ -781,7 +756,28 @@ nav a:hover::before, nav a:focus::before {
     transform: rotate(-8deg) translateX(-30%);
   }
 }
+#guidelines::before {
+  transform: rotate(4deg) translate(4.75rem, -3.5rem);
+  transform-origin: left center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: var(--color-dark-2);
+  content: "← Whoa, text gradients!";
+}
+#guidelines a:hover,
+#guidelines a:focus {
+  box-shadow: 0.3em 0.3em var(--color-contrast);
+}
 
+/* 
+* BLOCKS CONTRIBUTE:
+*   Handles decorative styling and visual effects of the third 
+*   article element in main. Its first section contains an invitation 
+*   to contribute to the style stage project, the second section 
+*   provides the guidelines to contribute, and the third section provides 
+*   the necessary starter files.
+*
+*/
 .features li {
   background-color: var(--color-accent);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -802,4 +798,38 @@ nav a:hover::before, nav a:focus::before {
 }
 .features li:nth-child(3) {
   background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.page-footer [class^=link] {
+  width: 100%;
+  min-height: 2.5em;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}
+
+.page-footer .link-codepen {
+  display: block;
+  margin-top: 3rem;
+  font-size: 1.35rem;
+}
+.page-footer .link-codepen::before {
+  position: absolute;
+  padding-right: 1.25em;
+  transform: translate(15%, -90%) rotate(-3deg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 79.6 187.1'%3E%3Cpath fill='svgColor(primary-alt)' d='M12 131l-2 13-3 26a10 10 0 000 2 1 1 0 001 0 24 24 0 002-3 37 37 0 016-8 73 73 0 007-9l24-33 4-5a70 70 0 006-7l15-20a8 8 0 001-1 1 1 0 000-1 16 16 0 00-2-1l-8-3a69 69 0 01-13-6 7 7 0 00-1-1l-16-6-13-7a57 57 0 00-10-4 17 17 0 01-2-1 2 2 0 01-1-4 18 18 0 012-2 93 93 0 0011-13 95 95 0 018-8l10-11a32 32 0 003-4c3-5 7-9 12-13a12 12 0 011-1 1 1 0 012 0 2 2 0 010 2 27 27 0 01-3 3 104 104 0 00-10 12 115 115 0 01-11 13 102 102 0 00-11 13 78 78 0 01-5 7l-2 2a1 1 0 000 1l19 8 9 4 3 2a77 77 0 0113 5 22 22 0 003 2l17 8a8 8 0 011 1 2 2 0 010 2 22 22 0 01-1 3l-11 14a33 33 0 00-2 3 98 98 0 01-10 13l-5 7-23 31a87 87 0 01-7 9 60 60 0 00-6 8l-2 3a1 1 0 000 1l9-4 12-6 10-6 13-7a10 10 0 012 0 2 2 0 012 1 2 2 0 010 3 24 24 0 01-3 1l-8 4-20 11-24 12a19 19 0 01-2 1 2 2 0 01-3-2 10 10 0 010-2l1-7 3-24 3-21a39 39 0 011-5 2 2 0 013-1 2 2 0 011 2v4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 130%;
+  background-size: 14%;
+  color: #6f6ffd;
+  font-size: 0.85em;
+  content: "Jump right in";
+}
+
+.link-allstyles {
+  font-size: 1.35rem;
+}
+@media (max-width: 400px) {
+  .link-allstyles {
+    margin-left: 6rem;
+  }
 }

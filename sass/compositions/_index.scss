@@ -1,10 +1,13 @@
 /* 
 * COMPOSITIONS INDEX:
+*   Each file handles layout, element spacing, sizing, and 
+*   anything else affecting the overall flow of major elements
+*   and their children.
+*
 *   Imports all files in the global directory so only
 *   this file is imported directly into style.scss. 
 */
 
-@import "header";   
 @import "about";      // first article in main to explain style stage purpose and lists css tools
 @import "guidelines";
 @import "contribute"; // final article inside main with information and resources to contribute

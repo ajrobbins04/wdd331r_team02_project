@@ -8,12 +8,13 @@
   width: 95vw;
   max-width: 80ch;
   margin: 1rem auto 10vh;
-  padding: 1.25rem;
+  padding: 1rem;
   z-index: 1;
 
   .container {
     @include grid-w-centered-items;
 
+    // only applies to 'View Stylesheet' link
     > a {
       min-height: 2em;
       border: 2px solid currentColor;

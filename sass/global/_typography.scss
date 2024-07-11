@@ -9,18 +9,45 @@ body {
   font-family: var(--font-family-body), var(--font-family-no-primary);
 }
 
-p {
-  margin: 0 0 1rem; // margin-bottom = 1rem
+section,
+header {
+    color: var(--color-extra-light);
+}
+
+footer {
+  color: var(--color-footer);
 }
 
 p,
 li {
+  margin: 0 0 1rem; // margin-bottom = 1rem
   font-size: var(--font-size-text);
 }
 
 a {
-  color: var(--color-a);
+  color: var(--color-anchor);
   text-decoration: none;
+  font-size: var(--font-size-anchor);
+}
+
+li {
+  margin: 0.25em;
+  padding: 0.25em 0.5em;
+}
+
+nav {
+  ul {
+    @include no-margin-padding;
+  }
+  li {
+    margin: 0.25rem;
+  }
+  a {
+    display: inline-grid;
+    padding: 0.5rem 0;
+    // given same size of smallest header at 1.35rem
+    font-size: var(--font-size-h4);
+  }
 }
 
 strong {
@@ -34,20 +61,21 @@ h4 {
   font-weight: var(--font-weight-strong);
   line-height: 1;
   margin-bottom: 0.65em;
+  align-self: center;
 }
 
 h1 {
   font-family: var(--font-family-h1), var(--font-family-no-primary);
   font-size: var(--font-size-h1);
   font-size: clamp(2rem, 7vw, var(--font-size-h1));
+
 }
 
 h2 {
   font-size: var(--font-size-h2);
   font-size: clamp(2rem, 4vw, var(--font-size-h2));
   color: var(--color-h2);
-  text-align: center;
-  //align-self: center;
+
   margin-top: 4rem;
 }
 
@@ -63,16 +91,4 @@ h4 {
   color: var(--color-h4);
   text-align: center;
   margin: 0;
-}
-
-header {
-  color: var(--color-header);
-}
-
-section {
-  color: var(--color-aside);
-}
-
-aside {
-  color: var(--color-aside);
 }

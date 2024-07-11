@@ -1,0 +1,23 @@
+/* 
+* BLOCKS HEADER:
+*   Handles all styling inside the header.
+*   The header element is simple enough that
+*   its layout-related properties are stored
+*   in global/layout.
+*/
+header {
+    // dimensions for 'Style Stage' banner
+    --h1-height: 3em;
+    --h1-padding: 0 1em;
+  
+    // 'Style Stage'
+    h1 {
+      @include banner;
+    }
+  
+    // 'A modern CSS showcase styled by community contributions'
+    h2 {
+      max-width: 30ch;
+    }
+    
+  }

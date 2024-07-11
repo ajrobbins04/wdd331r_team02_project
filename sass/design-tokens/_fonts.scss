@@ -39,6 +39,7 @@ $font-size-h1: 6rem !default;
 $font-size-h2: 3rem !default;
 $font-size-h3: 2rem !default;
 $font-size-h4: 1.35rem !default;
+$font-size-anchor: 1.125rem !default;
 $font-size-text: 1.15rem !default;
 $font-size-strong: 1.15em !default; // uses em, not rem
 
@@ -50,6 +51,7 @@ $font-sizes: (
   h3: $font-size-h3,
   h4: $font-size-h4,
   text: $font-size-text,
+  anchor: $font-size-anchor
 );
 
 // initialize font-weight variables

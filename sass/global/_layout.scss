@@ -1,44 +1,11 @@
 /* 
 * GLOBAL LAYOUT
 *   Applies properties to some of the largest
-*   elements to affect the overall appearance
-*   and layout.
+*   elements, mainly to affect the overall layout.
 */
 
 body {
   @include background-gradient;
-}
-
-ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 1rem 0 2rem;
-  padding: 0;
-  list-style: none;
-}
-
-li {
-  margin: 0.25em;
-  padding: 0.25em 0.5em;
-}
-
-nav {
-  ul {
-    @include no-margin-padding;
-    li {
-      margin: 0.25rem;
-    }
-  }
-}
-
-main {
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-  
-    &:focus {
-      outline: none;
-    }
 }
 
 .container {
@@ -51,7 +18,38 @@ main {
   max-width: 80ch;
   margin-left: auto;
   margin-right: auto;
-  background-color: var(--bg-color-section);
+}
+
+// .container added to give header's container
+// greater specificity over the default shown above
+header .container {
+  display: grid;
+  min-height: 40vh;
+  place-items: center;
+  padding: 10vh 2rem;
+  text-align: center;
+  
+  h2 {
+    max-width: 30ch;
+  }
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+main {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+  
+    &:focus {
+      outline: none;
+    }
 }
 
 // applies to all 3 article descendants belonging to main
@@ -66,7 +64,6 @@ article {
 
     * {
     + h2 {
-        align-self: center;
         @include h2-box; // adjusts text alignment, padding, color, and background-color
     }
 
