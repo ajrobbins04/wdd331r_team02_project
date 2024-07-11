@@ -14,7 +14,7 @@
   h3 {
     display: inline-block;
     transform: rotate(-8deg) translateX(-10%);
-    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(to right, var(--color-dark), var(--color-accent));
 
     @supports (background-clip: text) or (-webkit-background-clip: text) {
       -webkit-background-clip: text;
@@ -39,7 +39,7 @@
         transform-origin: left center;
         -webkit-background-clip: text;
         background-clip: text;
-        color: var(--color-primary-alt);
+        color: var(--color-dark-2);
         font-size: 0.9em;
         font-weight: normal;
         content: "← Whoa, text gradients!";

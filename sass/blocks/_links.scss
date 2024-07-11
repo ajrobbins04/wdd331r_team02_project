@@ -4,27 +4,6 @@
 *   throughout the style stage page.
 */
 
-nav {
-  a {
-    display: inline-grid;
-    padding: 0.5rem;
-    color: var(--brightYellow);
-    font-size: 1.25rem;
-
-    &::before {
-      width: 100%;
-      height: 0.33em;
-      background-color: var(--color-secondary);
-      opacity: 0.15;
-      content: "";
-    }
-
-    &:hover::before,
-    &:focus::before {
-      opacity: 1;
-    }
-  }
-}
 
 .skip-link {
   position: absolute;

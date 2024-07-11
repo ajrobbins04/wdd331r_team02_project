@@ -6,7 +6,7 @@
 */
 
 body {
-  @include background($bg-gradient ...);
+  @include background-gradient;
 }
 
 nav {
@@ -39,6 +39,7 @@ article {
       
       // arranged in column direction w/items aligned to flex-start
       @include flex-column-w-start-items;
+      background-color: var(--bg-color-section);
 
       > ol {
       > li + li {
@@ -58,4 +59,8 @@ article {
       }
       }
   }
+}
+
+footer {
+  background-color: var(--bg-color-footer);
 }

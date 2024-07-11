@@ -18,10 +18,6 @@
   src: url("../sass/resources/fonts/reformation-sans-regular-font/ReformationSansRegular-32mL.ttf") format("truetype");
   font-display: swap;
 }
-/* original colors added back just so the 
-program doesn't break from missing color 
-variables while refactoring the rest of the code */
-/* ***** new color palette ***** */
 /* 
 * UTILITIES INDEX 
 *   Imports all files in the global directory so only
@@ -119,21 +115,16 @@ select {
 *   values using design tokens.
 */
 :root {
---darkBlue: #122A4E;   
---darkPurple: #552C85;  
---pink:  #DA40D3;    
---butterYellow: #FFE5B9;
---skyBlue: #16C8E3; 
---brightYellow: #FFD542;
---white:#fff;
---transparentPurple: #562c8591;
-
-  --color-primary: #161C41;
-  --color-primary-alt: #562052;
-  --color-secondary: #EF2D56;
-  --color-background: #16C8E3;
-  --color-text: #171926;
-  --color-light: #fff;
+  --color-dark: #122A4E;
+  --color-dark-2: #552C85;
+  --color-accent: #DA40D3;
+  --color-accent-2: #FFE5B9;
+  --color-contrast: #16C8E3;
+  --color-high-contrast: #FFD542;
+  --color-extra-light: #fff;
+  --color-transparent-dark: rgba(86, 44, 133, 0.568627451);
+  --bg-color-section: #122A4E;
+  --bg-color-footer: #122A4E;
   --font-family-body: "Reformation Sans";
   --font-family-h1: "Cybersky";
   --font-family-h2: "Reformation Sans";
@@ -143,7 +134,6 @@ select {
   --font-size-h3: 2rem;
   --font-size-h4: 1.35rem;
   --font-size-text: 1.15rem;
-  --color-anchor: color(primary);
   --font-weight-strong: 500;
   --border-radius: 8px;
   --font-family-no-primary: sans-serif;
@@ -156,7 +146,7 @@ select {
 *   and layout.
 */
 body {
-  background-image:linear-gradient(to bottom, #122A4E, #552C85, #DA40D3, #FFE5B9);
+  background-image: linear-gradient(to bottom, #122A4E, #552C85, #DA40D3, #FFE5B9);
 }
 
 nav ul {
@@ -192,6 +182,7 @@ article .container {
   align-items: flex-start;
   padding-top: 5vh;
   padding-bottom: 5vh;
+  background-color: var(--bg-color-section);
 }
 article .container > ol > li + li {
   margin-top: 1rem;
@@ -202,10 +193,14 @@ article .container * + h2 {
   text-align: center;
   padding: 0.25em 0.5em;
   background-color: var(--color-secondary);
-  color: var(--white);
+  color: var(--color-background);
 }
 article .container * + h3 {
   margin-top: 2rem;
+}
+
+footer {
+  background-color: var(--bg-color-footer);
 }
 
 /* 
@@ -228,7 +223,7 @@ li {
 }
 
 a {
-  color: var(--color-anchor);
+  color: var(--color-a);
   text-decoration: none;
 }
 
@@ -254,15 +249,31 @@ h1 {
 h2 {
   font-size: var(--font-size-h2);
   font-size: clamp(2rem, 4vw, var(--font-size-h2));
+  color: var(--color-h2);
 }
 
 h3 {
   font-size: var(--font-size-h3);
-  color: var(--color-primary);
+  color: var(--color-h3);
 }
 
 h4 {
   font-size: var(--font-size-h4);
+  color: var(--color-h4);
+  text-align: center;
+  margin: 0;
+}
+
+header {
+  color: var(--color-header);
+}
+
+section {
+  color: var(--color-aside);
+}
+
+aside {
+  color: var(--color-aside);
 }
 
 /* 
@@ -292,7 +303,6 @@ header h1 {
   display: inline-grid;
   min-height: var(--banner-height);
   padding: var(--banner-padding);
-
   place-content: center;
 }
 header h2 {
@@ -315,12 +325,11 @@ header h2 {
   place-items: center;
   padding: 0;
   margin: 3rem 0;
-  color: var(--white);
   /*
   &::after {
     grid-area: blockquote;
     color: #6f6ffd;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 199.1 111.3'%3E%3Cpath fill='%23562052' d='M118 77a77 77 0 00-2-18c-2-4-3-9-3-13a29 29 0 011-12 19 19 0 017-9c4-3 8-4 13-3a14 14 0 018 7 31 31 0 012 5 75 75 0 005 10 47 47 0 002 5 17 17 0 003 3c4 4 8 4 13 0a15 15 0 005-8 37 37 0 001-7l1-11a18 18 0 014-11 2 2 0 000-3l-3-3-2-3a2 2 0 011-2 11 11 0 012-1l19-3c4 0 5 1 3 5l-7 16c-1 3-2 3-5 1l-4-5a1 1 0 00-1 0 9 9 0 00-3 5 23 23 0 00-1 6l-1 11a26 26 0 01-1 7 18 18 0 01-8 10c-5 3-9 3-13 0a20 20 0 01-6-6 68 68 0 01-6-13l-2-4a18 18 0 00-2-4 10 10 0 00-14-2 15 15 0 00-4 4 19 19 0 00-3 9 32 32 0 000 11l2 6a78 78 0 012 27 32 32 0 01-4 15 24 24 0 01-11 9 33 33 0 01-19 3 16 16 0 01-13-9 29 29 0 01-3-11 70 70 0 012-18l2-14a33 33 0 000-14c-1-4-4-7-8-7-7-1-14 1-19 6a34 34 0 00-6 9 59 59 0 00-4 10l-3 12-2 6a26 26 0 01-5 8 17 17 0 01-16 6 26 26 0 01-10-4 7 7 0 01-2-1 2 2 0 010-2 2 2 0 012 0l3 1a22 22 0 0010 3 13 13 0 009-4 22 22 0 005-6 41 41 0 003-8l3-12a59 59 0 015-13 31 31 0 017-9c6-5 14-7 22-5a12 12 0 019 7 21 21 0 011 7 57 57 0 01-2 17 132 132 0 00-2 16 37 37 0 000 13 27 27 0 002 5 13 13 0 0011 8 30 30 0 0016-3 22 22 0 0010-10c3-4 3-9 4-13v-5z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 199.1 111.3'%3E%3Cpath fill='svgColor(primary-alt)' d='M118 77a77 77 0 00-2-18c-2-4-3-9-3-13a29 29 0 011-12 19 19 0 017-9c4-3 8-4 13-3a14 14 0 018 7 31 31 0 012 5 75 75 0 005 10 47 47 0 002 5 17 17 0 003 3c4 4 8 4 13 0a15 15 0 005-8 37 37 0 001-7l1-11a18 18 0 014-11 2 2 0 000-3l-3-3-2-3a2 2 0 011-2 11 11 0 012-1l19-3c4 0 5 1 3 5l-7 16c-1 3-2 3-5 1l-4-5a1 1 0 00-1 0 9 9 0 00-3 5 23 23 0 00-1 6l-1 11a26 26 0 01-1 7 18 18 0 01-8 10c-5 3-9 3-13 0a20 20 0 01-6-6 68 68 0 01-6-13l-2-4a18 18 0 00-2-4 10 10 0 00-14-2 15 15 0 00-4 4 19 19 0 00-3 9 32 32 0 000 11l2 6a78 78 0 012 27 32 32 0 01-4 15 24 24 0 01-11 9 33 33 0 01-19 3 16 16 0 01-13-9 29 29 0 01-3-11 70 70 0 012-18l2-14a33 33 0 000-14c-1-4-4-7-8-7-7-1-14 1-19 6a34 34 0 00-6 9 59 59 0 00-4 10l-3 12-2 6a26 26 0 01-5 8 17 17 0 01-16 6 26 26 0 01-10-4 7 7 0 01-2-1 2 2 0 010-2 2 2 0 012 0l3 1a22 22 0 0010 3 13 13 0 009-4 22 22 0 005-6 41 41 0 003-8l3-12a59 59 0 015-13 31 31 0 017-9c6-5 14-7 22-5a12 12 0 019 7 21 21 0 011 7 57 57 0 01-2 17 132 132 0 00-2 16 37 37 0 000 13 27 27 0 002 5 13 13 0 0011 8 30 30 0 0016-3 22 22 0 0010-10c3-4 3-9 4-13v-5z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     place-self: end;
     content: "Ooh, scale()!";
@@ -422,7 +431,6 @@ header h2 {
 }
 .profile h4 {
   margin: 0;
-  color: var(--color-anchor);
   text-align: center;
 }
 .profile .container {
@@ -467,8 +475,8 @@ header h2 {
     max-width: 30ch;
     margin-bottom: 0;
     border-radius: var(--border-radius);
-    background-color: var(--color-light);
-    box-shadow: 0 2px 5px rgba(22, 28, 65, 0.15);
+    background-color: var(--color-extra-light);
+    box-shadow: 0 2px 5px rgba(var(--color-dark), 0.15);
   }
   .profile ul {
     justify-content: unset;
@@ -529,8 +537,8 @@ header h2 {
   place-content: center;
   padding: 0.5em;
   grid-gap: 0.5rem;
-  /* border: 1px solid var(--color-background);
-  background-color: var(--color-secondary); */
+  border: 1px solid var(--color-background);
+  background-color: var(--color-secondary);
   line-height: 1.1;
 }
 #styles .features li > span a {
@@ -572,8 +580,6 @@ header h2 {
   display: inline-grid;
   min-height: var(--banner-height);
   padding: var(--banner-padding);
-  border: 0.16em solid var(--color-primary);
-  box-shadow: 0.12em 0.12em var(--color-secondary);
   place-content: center;
   position: absolute;
   left: 50%;
@@ -617,21 +623,18 @@ header h2 {
 *   this file is imported directly into style.scss
 */
 /* 
-* BLOCKS LINKS:
-*   Handles styling of anchor elements 
-*   throughout the style stage page.
+* COMPOSITIONS NAV:
+*   Handles all styling inside the header.
 */
 nav a {
   display: inline-grid;
   padding: 0.5rem;
-  color: var(--brightYellow);
   font-size: 1.25rem;
 }
 nav a::before {
   width: 100%;
   height: 0.33em;
-  background-color: var(--brightYellow
-  );
+  background-color: var(--color-transparent-dark);
   opacity: 0.15;
   content: "";
 }
@@ -639,6 +642,11 @@ nav a:hover::before, nav a:focus::before {
   opacity: 1;
 }
 
+/* 
+* BLOCKS LINKS:
+*   Handles styling of anchor elements 
+*   throughout the style stage page.
+*/
 .skip-link {
   position: absolute;
   top: auto;
@@ -707,7 +715,7 @@ nav a:hover::before, nav a:focus::before {
   position: absolute;
   padding-right: 1.25em;
   transform: translate(15%, -90%) rotate(-3deg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 79.6 187.1'%3E%3Cpath fill='%23562052' d='M12 131l-2 13-3 26a10 10 0 000 2 1 1 0 001 0 24 24 0 002-3 37 37 0 016-8 73 73 0 007-9l24-33 4-5a70 70 0 006-7l15-20a8 8 0 001-1 1 1 0 000-1 16 16 0 00-2-1l-8-3a69 69 0 01-13-6 7 7 0 00-1-1l-16-6-13-7a57 57 0 00-10-4 17 17 0 01-2-1 2 2 0 01-1-4 18 18 0 012-2 93 93 0 0011-13 95 95 0 018-8l10-11a32 32 0 003-4c3-5 7-9 12-13a12 12 0 011-1 1 1 0 012 0 2 2 0 010 2 27 27 0 01-3 3 104 104 0 00-10 12 115 115 0 01-11 13 102 102 0 00-11 13 78 78 0 01-5 7l-2 2a1 1 0 000 1l19 8 9 4 3 2a77 77 0 0113 5 22 22 0 003 2l17 8a8 8 0 011 1 2 2 0 010 2 22 22 0 01-1 3l-11 14a33 33 0 00-2 3 98 98 0 01-10 13l-5 7-23 31a87 87 0 01-7 9 60 60 0 00-6 8l-2 3a1 1 0 000 1l9-4 12-6 10-6 13-7a10 10 0 012 0 2 2 0 012 1 2 2 0 010 3 24 24 0 01-3 1l-8 4-20 11-24 12a19 19 0 01-2 1 2 2 0 01-3-2 10 10 0 010-2l1-7 3-24 3-21a39 39 0 011-5 2 2 0 013-1 2 2 0 011 2v4z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 79.6 187.1'%3E%3Cpath fill='svgColor(primary-alt)' d='M12 131l-2 13-3 26a10 10 0 000 2 1 1 0 001 0 24 24 0 002-3 37 37 0 016-8 73 73 0 007-9l24-33 4-5a70 70 0 006-7l15-20a8 8 0 001-1 1 1 0 000-1 16 16 0 00-2-1l-8-3a69 69 0 01-13-6 7 7 0 00-1-1l-16-6-13-7a57 57 0 00-10-4 17 17 0 01-2-1 2 2 0 01-1-4 18 18 0 012-2 93 93 0 0011-13 95 95 0 018-8l10-11a32 32 0 003-4c3-5 7-9 12-13a12 12 0 011-1 1 1 0 012 0 2 2 0 010 2 27 27 0 01-3 3 104 104 0 00-10 12 115 115 0 01-11 13 102 102 0 00-11 13 78 78 0 01-5 7l-2 2a1 1 0 000 1l19 8 9 4 3 2a77 77 0 0113 5 22 22 0 003 2l17 8a8 8 0 011 1 2 2 0 010 2 22 22 0 01-1 3l-11 14a33 33 0 00-2 3 98 98 0 01-10 13l-5 7-23 31a87 87 0 01-7 9 60 60 0 00-6 8l-2 3a1 1 0 000 1l9-4 12-6 10-6 13-7a10 10 0 012 0 2 2 0 012 1 2 2 0 010 3 24 24 0 01-3 1l-8 4-20 11-24 12a19 19 0 01-2 1 2 2 0 01-3-2 10 10 0 010-2l1-7 3-24 3-21a39 39 0 011-5 2 2 0 013-1 2 2 0 011 2v4z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 130%;
   background-size: 14%;
@@ -745,7 +753,7 @@ nav a:hover::before, nav a:focus::before {
 #guidelines h3 {
   display: inline-block;
   transform: rotate(-8deg) translateX(-10%);
-  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(to right, var(--color-dark), var(--color-accent));
 }
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   #guidelines h3 {
@@ -771,7 +779,7 @@ nav a:hover::before, nav a:focus::before {
     transform-origin: left center;
     -webkit-background-clip: text;
     background-clip: text;
-    color: var(--color-primary-alt);
+    color: var(--color-dark-2);
     font-size: 0.9em;
     font-weight: normal;
     content: "← Whoa, text gradients!";
@@ -795,8 +803,7 @@ nav a:hover::before, nav a:focus::before {
 #files .container {
   display: inline-block;
   padding: 5vmin;
-  /* outline: 4px dashed var(--color-secondary); */
-  background-color: var(--transparentPurple);
+  background-color: var(--color-transparent-dark);
   text-align: center;
 }
 #files .container a:not(:last-child) {
@@ -806,25 +813,24 @@ nav a:hover::before, nav a:focus::before {
   font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
-/* .features {
-  &::after {
+.features {
+  /*&::after {
     position: absolute;
     bottom: -4.5em;
     width: 10ch;
     padding-top: 3em;
     transform: rotate(-15deg);
     transform-origin: bottom right;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 199.1 111.3'%3E%3Cpath fill='%23562052' d='M118 77a77 77 0 00-2-18c-2-4-3-9-3-13a29 29 0 011-12 19 19 0 017-9c4-3 8-4 13-3a14 14 0 018 7 31 31 0 012 5 75 75 0 005 10 47 47 0 002 5 17 17 0 003 3c4 4 8 4 13 0a15 15 0 005-8 37 37 0 001-7l1-11a18 18 0 014-11 2 2 0 000-3l-3-3-2-3a2 2 0 011-2 11 11 0 012-1l19-3c4 0 5 1 3 5l-7 16c-1 3-2 3-5 1l-4-5a1 1 0 00-1 0 9 9 0 00-3 5 23 23 0 00-1 6l-1 11a26 26 0 01-1 7 18 18 0 01-8 10c-5 3-9 3-13 0a20 20 0 01-6-6 68 68 0 01-6-13l-2-4a18 18 0 00-2-4 10 10 0 00-14-2 15 15 0 00-4 4 19 19 0 00-3 9 32 32 0 000 11l2 6a78 78 0 012 27 32 32 0 01-4 15 24 24 0 01-11 9 33 33 0 01-19 3 16 16 0 01-13-9 29 29 0 01-3-11 70 70 0 012-18l2-14a33 33 0 000-14c-1-4-4-7-8-7-7-1-14 1-19 6a34 34 0 00-6 9 59 59 0 00-4 10l-3 12-2 6a26 26 0 01-5 8 17 17 0 01-16 6 26 26 0 01-10-4 7 7 0 01-2-1 2 2 0 010-2 2 2 0 012 0l3 1a22 22 0 0010 3 13 13 0 009-4 22 22 0 005-6 41 41 0 003-8l3-12a59 59 0 015-13 31 31 0 017-9c6-5 14-7 22-5a12 12 0 019 7 21 21 0 011 7 57 57 0 01-2 17 132 132 0 00-2 16 37 37 0 000 13 27 27 0 002 5 13 13 0 0011 8 30 30 0 0016-3 22 22 0 0010-10c3-4 3-9 4-13v-5z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 199.1 111.3'%3E%3Cpath fill='svgColor(primary-alt)' d='M118 77a77 77 0 00-2-18c-2-4-3-9-3-13a29 29 0 011-12 19 19 0 017-9c4-3 8-4 13-3a14 14 0 018 7 31 31 0 012 5 75 75 0 005 10 47 47 0 002 5 17 17 0 003 3c4 4 8 4 13 0a15 15 0 005-8 37 37 0 001-7l1-11a18 18 0 014-11 2 2 0 000-3l-3-3-2-3a2 2 0 011-2 11 11 0 012-1l19-3c4 0 5 1 3 5l-7 16c-1 3-2 3-5 1l-4-5a1 1 0 00-1 0 9 9 0 00-3 5 23 23 0 00-1 6l-1 11a26 26 0 01-1 7 18 18 0 01-8 10c-5 3-9 3-13 0a20 20 0 01-6-6 68 68 0 01-6-13l-2-4a18 18 0 00-2-4 10 10 0 00-14-2 15 15 0 00-4 4 19 19 0 00-3 9 32 32 0 000 11l2 6a78 78 0 012 27 32 32 0 01-4 15 24 24 0 01-11 9 33 33 0 01-19 3 16 16 0 01-13-9 29 29 0 01-3-11 70 70 0 012-18l2-14a33 33 0 000-14c-1-4-4-7-8-7-7-1-14 1-19 6a34 34 0 00-6 9 59 59 0 00-4 10l-3 12-2 6a26 26 0 01-5 8 17 17 0 01-16 6 26 26 0 01-10-4 7 7 0 01-2-1 2 2 0 010-2 2 2 0 012 0l3 1a22 22 0 0010 3 13 13 0 009-4 22 22 0 005-6 41 41 0 003-8l3-12a59 59 0 015-13 31 31 0 017-9c6-5 14-7 22-5a12 12 0 019 7 21 21 0 011 7 57 57 0 01-2 17 132 132 0 00-2 16 37 37 0 000 13 27 27 0 002 5 13 13 0 0011 8 30 30 0 0016-3 22 22 0 0010-10c3-4 3-9 4-13v-5z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-size: 90%;
     color: var(--color-primary-alt);
     font-size: 0.9rem;
     content: "Grid FTW!";
-  }
-} */
-
+  }*/
+}
 .features li {
-  background-color: var(--color-secondary);
+  background-color: var(--color-accent);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 @media (min-width: 515px) and (max-width: 765px) {
@@ -837,4 +843,36 @@ nav a:hover::before, nav a:focus::before {
 }
 .features li:nth-child(3) {
   background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* 
+* BLOCKS SPOTLIGHT:
+*   Handles the second section inside #about,
+*   'Modern CSS Under the Spotlight' that displays
+*   CSS styling tools currently used by developers.
+*/
+#about section:nth-child(2) {
+  position: relative;
+  border: 8px solid var(--color-extra-light);
+}
+#about section:nth-child(2) p:nth-of-type(2) {
+  align-self: center;
+  margin-top: 2rem;
+  color: var(--color-secondary);
+  font-size: 1.5em;
+  font-weight: var(--font-weight-strong);
+  text-align: center;
+}
+#about section:nth-child(2) ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  margin: 1rem 0 2rem;
+  padding: 0;
+}
+#about section:nth-child(2) ul li {
+  margin: 0.25em;
+  padding: 0.25em 0.5em;
+  background-color: var(--color-light);
 }

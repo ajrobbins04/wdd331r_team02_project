@@ -14,7 +14,6 @@
   // 'Currently Staged Style'
   h4 {
     margin: 0;
-    color: var(--color-anchor);
     text-align: center;
   }
 
@@ -60,8 +59,8 @@
     max-width: 30ch;
     margin-bottom: 0;
     border-radius: var(--border-radius);
-    background-color: var(--color-light);
-    box-shadow: 0 2px 5px rgba(color(primary), 0.15);
+    background-color: var(--color-extra-light);
+    box-shadow: 0 2px 5px rgba(var(--color-dark), 0.15);
 
     ul {
       justify-content: unset;

@@ -1,95 +1,53 @@
 @use 'sass:list';
-/* original colors added back just so the 
-program doesn't break from missing color 
-variables while refactoring the rest of the code */
-$color-primary: #161C41 !default;      // dark blue
-$color-primary-alt: #562052 !default;  // dark purple
-$color-secondary: #EF2D56 !default;    // red
-$color-background: #16C8E3 !default;   // sky blue
+$dark: #122A4E !default;      // dark blue
+$dark-2: #552C85 !default;    // dark purple
+$accent: #DA40D3  !default;   // pink (an accent to dark blue)
+$accent-2: #FFE5B9 !default;  // butter yellow (an accent to dark purple)
+$contrast: #16C8E3 !default;  // sky blue
+$high-contrast: #FFD542 !default;      // bright yellow
+$extra-light: #fff !default;              // white
+$transparent-dark: #562c8591 !default; // purple
 
-$darkBlue: #122A4E !default;      
-$darkPurple: #552C85 !default;  
-$pink:  #DA40D3 !default;    
-$butterYellow: #FFE5B9;
-$skyBlue: #16C8E3 !default; 
-$brightYellow: #FFD542; 
-$white:#ffff;
-$transparentPurple: #562c8591;
+ 
+$bg-gradient: $dark, $dark-2, $accent, $accent-2;
 
-
-$bg-gradient: $darkBlue, $darkPurple, $pink, $butterYellow;
-// $color-background: linear-gradient(to bottom, #122A4E, #552C85, #DA40D3, #FFE5B9);
-// body {
-//   background-image:linear-gradient(to bottom, #122A4E, #552C85, #DA40D3, #FFE5B9);
-// }
-
-@mixin background($bg) {
-  @if list.length($bg) == 1{
-    background-color: $bg;
-  } @else {
-    background-image:linear-gradient(to bottom, $bg) ;
-  }
+// whole page has a linear gradient background
+@mixin background-gradient {
+  background-image:linear-gradient(to bottom, $bg-gradient);
 }
 
-
-$main-colors: (
-  primary: $color-primary,
-  primary-alt: $color-primary-alt,
-  secondary: $color-secondary,
-) !default;
-
-// create a color that maps to $color-body
-$color-body: scale-color(
-  $color-primary,
-  $lightness: -30%, /* darken primary color */
-  $saturation: -50% /* reduce primary color's saturation */
-) !default;
-
-// creates color mapping to $color-gray by mixing a given
-// color (gray for now) with $color-body at a 70% ratio
-$color-gray: mix(#767676, $color-body, 70%) !default;
-$link-color: color(primary) !default;
-
-// additional-colors map to merge with brand-colors
-$additional-colors: (
-    background: $color-background,
-    text: $color-body,
-    light: #fff,
+$colors: (
+  dark: $dark,
+  dark-2: $dark-2,
+  accent: $accent,
+  accent-2: $accent-2,
+  contrast: $contrast,
+  high-contrast: $high-contrast,
+  extra-light: $extra-light,
+  transparent-dark: $transparent-dark
 );
 
-// place primary and secondary colors in a map
-$main-colors: (
-  primary: $color-primary,
-  primary-alt: $color-primary-alt,
-  secondary: $color-secondary,
-) !default;
-
-// create a color that maps to $color-body
-$color-body: scale-color(
-  $color-primary,
-  $lightness: -30%, /* darken primary color */
-  $saturation: -50% /* reduce primary color's saturation */
-) !default;
-// creates color mapping to $color-gray by mixing a given
-// color (gray for now) with $color-body at a 70% ratio
-$color-gray: mix(#767676, $color-body, 70%) !default;
-$link-color: color(primary) !default;
-
-// additional-colors map to merge with brand-colors
-$additional-colors: (
-    background: $color-background,
-    text: $color-body,
-    light: #fff,
+// color property values given to elements found in global/typography.scss
+$color-by-element: (
+  section: $extra-light,  // .container 
+  header: $extra-light,
+  blockquote: $extra-light,
+  a: $high-contrast,
+  aside: $dark,    // #styles
+  h2: $dark,
+  h3: $dark,
+  h4: $accent
 );
 
-$link-color: color(primary) !default;
+// background-color property values given to elements found in global/global.scss
+$bg-color-by-element: (
+  section: $dark,
+  footer: $dark
+);
 
-$colors: map-merge($main-colors,$additional-colors);
+$all-colors: map-merge($colors, $color_by_element);
 
 @function color($key) {
   @return map-get($colors, $key);
 }
 
-@function svgColor($color) {
-  @return "%23" + str-slice("#{color($color)}", 2, -1);
-}

@@ -17,7 +17,7 @@
       font-weight: var(--font-weight-strong);
       text-align: center;
     }
-    border: 8px solid white;
+    border: 8px solid var(--color-extra-light);
 
     ul {
       @include flex-row-wrapped-centered;
