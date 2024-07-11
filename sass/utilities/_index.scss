@@ -3,8 +3,8 @@
 *   Imports all files in the global directory so only
 *   this file is imported directly into style.scss
 */
+@import "variables";  // assigns design tokens to variables in CSS
 @import "typography";
-@import "width";      // element width/sizing
 @import "spacing";    // margins and padding
-@import "layout";     // flex and grid
+@import "layout";     // flexbox and grid
 @import "banner";     // 'Style Stage' headline banner

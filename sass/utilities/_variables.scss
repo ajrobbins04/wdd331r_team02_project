@@ -8,6 +8,8 @@ $border-radius: 8px !default;
 // stylelint-disable
 :root {
 
+  // generate a CSS variable for every mapped sass variable 
+  // in design-tokens/colors and design-tokens/fonts 
   @each $key, $color in $colors {
     --color-#{$key}: #{$color};
   }

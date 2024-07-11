@@ -1,7 +1,7 @@
 /* 
 * UTILITIES LAYOUT:
-*   Defines layout-based mixins utilizing
-*   flexbox and grid.
+*   Defines layout-based mixins
+*   using flexbox and grid.
 */
 
 @mixin grid-w-centered-items {
@@ -10,19 +10,11 @@
     grid-gap: 1rem;
 }
 
-@mixin flex-column-w-start-items {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-}
-
-@mixin flex-row-wrapped-centered {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    list-style: none;
+@mixin standard-max-width-margin {
+    width: 100%;
+    max-width: 80ch;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @mixin grid-list {

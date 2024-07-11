@@ -11,12 +11,6 @@
   padding: 1.25rem;
   z-index: 1;
 
-  // 'Currently Staged Style'
-  h4 {
-    margin: 0;
-    text-align: center;
-  }
-
   .container {
     @include grid-w-centered-items;
 
@@ -26,31 +20,28 @@
       color: var(--color-anchor);
     }
   }
+  // ul properties found in global/layout b/c 
+  // they are shared by multiple ul elements
+  li {
+    display: flex;
+    padding: 0.45em;
 
-  ul {
-    @include flex-row-wrapped-centered;
-    @include no-margin-padding;
+    span:nth-child(1) {
+      width: auto;
+      margin-right: 0.25em;
+      font-weight: var(--font-weight-strong);
+    }
 
-    li {
-      display: flex;
-      padding: 0.45em;
+    span:nth-child(2) {
+      flex-grow: 1;
+      word-break: break-word;
 
-      span:nth-child(1) {
-        width: auto;
-        margin-right: 0.25em;
-        font-weight: var(--font-weight-strong);
-      }
-
-      span:nth-child(2) {
-        flex-grow: 1;
-        word-break: break-word;
-
-        a {
-          color: inherit;
-        }
+      a {
+        color: inherit;
       }
     }
   }
+  
 
   @media (min-width: 180ch) {
     position: fixed;

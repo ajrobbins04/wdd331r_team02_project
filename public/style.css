@@ -24,13 +24,39 @@
 *   this file is imported directly into style.scss
 */
 /* 
+* GLOBAL VARIABLES: 
+*   Creates CSS variables and sets their 
+*   values using design tokens.
+*/
+:root {
+  --color-dark: #122A4E;
+  --color-dark-2: #552C85;
+  --color-accent: #DA40D3;
+  --color-accent-2: #FFE5B9;
+  --color-contrast: #16C8E3;
+  --color-high-contrast: #FFD542;
+  --color-extra-light: #fff;
+  --color-transparent-dark: rgba(86, 44, 133, 0.568627451);
+  --bg-color-section: #122A4E;
+  --bg-color-footer: #122A4E;
+  --font-family-body: "Reformation Sans";
+  --font-family-h1: "Cybersky";
+  --font-family-h2: "Reformation Sans";
+  --font-family-h3: "Reformation Sans";
+  --font-size-h1: 6rem;
+  --font-size-h2: 3rem;
+  --font-size-h3: 2rem;
+  --font-size-h4: 1.35rem;
+  --font-size-text: 1.15rem;
+  --font-weight-strong: 500;
+  --border-radius: 8px;
+  --font-family-no-primary: sans-serif;
+}
+
+/* 
 * UTILITIES TYPOGRAPHY:
 *   Uses mixins to apply style patterns to certain
 *   text elements so they appear inside a box.
-*/
-/* UTILITIES WIDTH
-*   Uses mixins to apply sizing (mainly width)
-*   to elements.
 */
 /* UTILITIES SPACING:
 *   Uses mixins to apply commonly-used margins
@@ -38,8 +64,8 @@
 */
 /* 
 * UTILITIES LAYOUT:
-*   Defines layout-based mixins utilizing
-*   flexbox and grid.
+*   Defines layout-based mixins
+*   using flexbox and grid.
 */
 /* 
 * UTILITIES BANNER
@@ -110,37 +136,7 @@ select {
   }
 }
 /* 
-* GLOBAL VARIABLES: 
-*   Creates CSS variables and sets their 
-*   values using design tokens.
-*/
-:root {
-  --color-dark: #122A4E;
-  --color-dark-2: #552C85;
-  --color-accent: #DA40D3;
-  --color-accent-2: #FFE5B9;
-  --color-contrast: #16C8E3;
-  --color-high-contrast: #FFD542;
-  --color-extra-light: #fff;
-  --color-transparent-dark: rgba(86, 44, 133, 0.568627451);
-  --bg-color-section: #122A4E;
-  --bg-color-footer: #122A4E;
-  --font-family-body: "Reformation Sans";
-  --font-family-h1: "Cybersky";
-  --font-family-h2: "Reformation Sans";
-  --font-family-h3: "Reformation Sans";
-  --font-size-h1: 6rem;
-  --font-size-h2: 3rem;
-  --font-size-h3: 2rem;
-  --font-size-h4: 1.35rem;
-  --font-size-text: 1.15rem;
-  --font-weight-strong: 500;
-  --border-radius: 8px;
-  --font-family-no-primary: sans-serif;
-}
-
-/* 
-* GLOBAL: 
+* GLOBAL LAYOUT
 *   Applies properties to some of the largest
 *   elements to affect the overall appearance
 *   and layout.
@@ -149,11 +145,21 @@ body {
   background-image: linear-gradient(to bottom, #122A4E, #552C85, #DA40D3, #FFE5B9);
 }
 
-nav ul {
+ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 1rem 0 2rem;
+  padding: 0;
   list-style: none;
+}
+
+li {
+  margin: 0.25em;
+  padding: 0.25em 0.5em;
+}
+
+nav ul {
   margin: 0;
   padding: 0;
 }
@@ -169,34 +175,31 @@ main:focus {
   outline: none;
 }
 
-article {
-  padding: 1rem;
-}
-article .container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 80ch;
+.container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-top: 5vh;
   padding-bottom: 5vh;
+  width: 100%;
+  max-width: 80ch;
+  margin-left: auto;
+  margin-right: auto;
   background-color: var(--bg-color-section);
 }
-article .container > ol > li + li {
+
+article {
+  padding: 1rem;
+}
+article > ol > li + li {
   margin-top: 1rem;
 }
-article .container * + h2 {
-  margin-top: 4rem;
+article * + h2 {
   align-self: center;
   text-align: center;
   padding: 0.25em 0.5em;
   background-color: var(--color-secondary);
   color: var(--color-background);
-}
-article .container * + h3 {
-  margin-top: 2rem;
 }
 
 footer {
@@ -250,11 +253,14 @@ h2 {
   font-size: var(--font-size-h2);
   font-size: clamp(2rem, 4vw, var(--font-size-h2));
   color: var(--color-h2);
+  text-align: center;
+  margin-top: 4rem;
 }
 
 h3 {
   font-size: var(--font-size-h3);
   color: var(--color-h3);
+  margin-top: 2rem;
 }
 
 h4 {
@@ -314,10 +320,17 @@ header h2 {
 *   #about is the first article element in
 *   main. It contains two .container sections. 
 *   The first section talks about the Style Stage
-*   project, and it is the main focus in this file.
-*   The second section that lists the many CSS 
-*   styling tools available today are in spotlight.scss.
+*   project, and second section lists the many CSS 
+*   styling tools available today. Decorative styles
+*   for these elements are found in blocks/about.
 */
+#about {
+  font-size: var(--font-size-h4);
+}
+#about strong {
+  font-size: var(--font-size-strong);
+}
+
 #about section:nth-child(1) blockquote {
   position: relative;
   display: grid;
@@ -325,36 +338,14 @@ header h2 {
   place-items: center;
   padding: 0;
   margin: 3rem 0;
-  /*
-  &::after {
-    grid-area: blockquote;
-    color: #6f6ffd;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 199.1 111.3'%3E%3Cpath fill='svgColor(primary-alt)' d='M118 77a77 77 0 00-2-18c-2-4-3-9-3-13a29 29 0 011-12 19 19 0 017-9c4-3 8-4 13-3a14 14 0 018 7 31 31 0 012 5 75 75 0 005 10 47 47 0 002 5 17 17 0 003 3c4 4 8 4 13 0a15 15 0 005-8 37 37 0 001-7l1-11a18 18 0 014-11 2 2 0 000-3l-3-3-2-3a2 2 0 011-2 11 11 0 012-1l19-3c4 0 5 1 3 5l-7 16c-1 3-2 3-5 1l-4-5a1 1 0 00-1 0 9 9 0 00-3 5 23 23 0 00-1 6l-1 11a26 26 0 01-1 7 18 18 0 01-8 10c-5 3-9 3-13 0a20 20 0 01-6-6 68 68 0 01-6-13l-2-4a18 18 0 00-2-4 10 10 0 00-14-2 15 15 0 00-4 4 19 19 0 00-3 9 32 32 0 000 11l2 6a78 78 0 012 27 32 32 0 01-4 15 24 24 0 01-11 9 33 33 0 01-19 3 16 16 0 01-13-9 29 29 0 01-3-11 70 70 0 012-18l2-14a33 33 0 000-14c-1-4-4-7-8-7-7-1-14 1-19 6a34 34 0 00-6 9 59 59 0 00-4 10l-3 12-2 6a26 26 0 01-5 8 17 17 0 01-16 6 26 26 0 01-10-4 7 7 0 01-2-1 2 2 0 010-2 2 2 0 012 0l3 1a22 22 0 0010 3 13 13 0 009-4 22 22 0 005-6 41 41 0 003-8l3-12a59 59 0 015-13 31 31 0 017-9c6-5 14-7 22-5a12 12 0 019 7 21 21 0 011 7 57 57 0 01-2 17 132 132 0 00-2 16 37 37 0 000 13 27 27 0 002 5 13 13 0 0011 8 30 30 0 0016-3 22 22 0 0010-10c3-4 3-9 4-13v-5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    place-self: end;
-    content: "Ooh, scale()!";
-    background-size: 90%;
-    width: 10ch;
-    padding-top: 3.25em;
-    transform: translate(25%, 50%) rotate(-5deg);
-    transform-origin: bottom right;
-
-    @media (max-width: 60rem) {
-      transform: translate(25%, 55%) rotate(-5deg);
-    }
-  }*/
 }
 #about section:nth-child(1) blockquote > * {
   grid-area: blockquote;
 }
 #about section:nth-child(1) blockquote p {
   position: relative;
-  font-size: var(--font-size-h4);
   margin-bottom: 0;
   padding: 0.5em;
-}
-#about section:nth-child(1) blockquote p strong {
-  font-size: var(--font-size-strong);
 }
 #about section:nth-child(1) blockquote::before {
   position: absolute;
@@ -362,41 +353,18 @@ header h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  border: 4px solid var(--color-primary);
-  box-shadow: 0.25em 0.25em var(--color-secondary);
-  transform: scale(1.1);
-  content: "";
 }
 
-/* article element inside about article, right after guidelines article */
 #about section:nth-child(2) {
   position: relative;
 }
-
 #about section:nth-child(2) p:nth-of-type(2) {
   align-self: center;
   margin-top: 2rem;
-  color: var(--color-secondary);
+  text-align: center;
   font-size: 1.5em;
   font-weight: var(--font-weight-strong);
-  text-align: center;
 }
-
-#about section:nth-child(2) ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 1rem 0 2rem;
-  padding: 0;
-  list-style: none;
-}
-
-#about section:nth-child(2) ul li {
-  margin: 0.25em;
-  padding: 0.25em 0.5em;
-  background-color: var(--color-light);
-}
-
 #about section:nth-child(2)::before {
   position: absolute;
   top: 60%;
@@ -404,18 +372,92 @@ header h2 {
   width: 100%;
   height: 0;
   padding-bottom: 100%;
-  transform: translate(-50%, -50%);
-  transition: 300ms transform ease-in;
-  opacity: 0.8;
-  content: "";
-  z-index: -1;
 }
 
-@media (max-width: 35rem) {
-  #about section:nth-child(2)::before {
-    transform: scale(2) translate(-25%, -25%);
+/* 
+* BLOCKS GUIDELINES
+*   #contributions is the first article element
+*   inside main. It is placed inside a section
+*   element belonging to the .container class.
+*   
+*   Its explanation of the style stage
+*   participation guidelines is also wrapped in 
+*   a .container section element.
+*/
+#guidelines h3 {
+  display: inline-block;
+  transform: rotate(-8deg) translateX(-10%);
+  background: linear-gradient(to right, var(--color-dark), var(--color-accent));
+}
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  #guidelines h3 {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }
+@media (min-width: 120ch) {
+  #guidelines h3 {
+    transform: rotate(-8deg) translateX(-30%);
+  }
+}
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  #guidelines p:nth-of-type(2) {
+    position: relative;
+  }
+  #guidelines p:nth-of-type(2)::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(4deg) translate(4.75rem, -3.5rem);
+    transform-origin: left center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: var(--color-dark-2);
+    font-size: 0.9em;
+    font-weight: normal;
+    content: "← Whoa, text gradients!";
+  }
+}
+#guidelines .container > a {
+  align-self: center;
+}
+
+/* 
+* COMPOSITIONS CONTRIBUTE:
+*   Handles layout, element spacing, sizing, and anything 
+*   else affecting the overall flow of the third article 
+*   element in main. Its first section contains an invitation 
+*   to contribute to the style stage project, the second section 
+*   provides the guidelines to contribute, and the third section 
+*   provides the necessary starter files.
+*   
+*   Properties affecting the visual styling can be found in blocks/contribute.
+*
+*/
+.contribute #files {
+  display: grid;
+  place-content: center;
+  margin: 5vh auto;
+  text-align: center;
+}
+.contribute #files h3 {
+  height: 0;
+  opacity: 0;
+}
+.contribute #files .container {
+  display: inline-block;
+  padding: 5vmin;
+  background-color: var(--color-transparent-dark);
+  text-align: center;
+}
+.contribute #files .container a:not(:last-child) {
+  margin: 0.5rem;
+}
+.contribute #files .container a:not(:last-child):not(.link-codepen) {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
 /* 
 * COMPOSITIONS PROFILE:
 *   .profile is the first aside element under
@@ -429,10 +471,6 @@ header h2 {
   padding: 1.25rem;
   z-index: 1;
 }
-.profile h4 {
-  margin: 0;
-  text-align: center;
-}
 .profile .container {
   display: grid;
   justify-items: center;
@@ -443,28 +481,20 @@ header h2 {
   border: 2px solid currentColor;
   color: var(--color-anchor);
 }
-.profile ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.profile ul li {
+.profile li {
   display: flex;
   padding: 0.45em;
 }
-.profile ul li span:nth-child(1) {
+.profile li span:nth-child(1) {
   width: auto;
   margin-right: 0.25em;
   font-weight: var(--font-weight-strong);
 }
-.profile ul li span:nth-child(2) {
+.profile li span:nth-child(2) {
   flex-grow: 1;
   word-break: break-word;
 }
-.profile ul li span:nth-child(2) a {
+.profile li span:nth-child(2) a {
   color: inherit;
 }
 @media (min-width: 180ch) {
@@ -495,19 +525,13 @@ header h2 {
 *   Handles layout for the second aside element,
 *   #styles, and its children. 3 featured styles 
 *   are currently shown below the 'Featured Styles' 
-*   headline.
+*   headline. Properties that affect the visual 
+*   effects like color can be found in blocks/features.
 */
 #styles {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 80ch;
   padding: 1rem;
   margin: 5vh 0 20vh;
   text-align: center;
-}
-#styles h2 {
-  color: var(--color-primary);
 }
 #styles .features {
   display: grid;
@@ -523,40 +547,40 @@ header h2 {
     * @link http://www.heropatterns.com/
     */
 }
-#styles .features li {
+
+.features li {
   display: grid;
   position: relative;
   place-content: center;
   min-height: 12rem;
   padding: 1rem;
-  color: var(--color-background);
   text-align: center;
 }
-#styles .features li > span {
+.features li > span {
   display: grid;
   place-content: center;
   padding: 0.5em;
   grid-gap: 0.5rem;
-  border: 1px solid var(--color-background);
-  background-color: var(--color-secondary);
   line-height: 1.1;
 }
-#styles .features li > span a {
-  color: inherit;
+.features li > span a {
   font-size: 1.3rem;
   font-weight: var(--font-weight-strong);
-  text-decoration: none;
 }
-#styles .features li > span a::before {
+.features li > span a::before {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  content: "";
 }
-#styles .features li > span span:nth-child(2) {
+.features li > span:nth-child(2) {
   position: relative;
+}
+@media (min-width: 515px) and (max-width: 765px) {
+  .features li > span:nth-last-child(1):nth-child(odd) {
+    grid-column: span 2;
+  }
 }
 
 /* 
@@ -589,12 +613,6 @@ header h2 {
   color: var(--color-primary);
   font-size: 3rem;
   content: "S";
-}
-.page-footer .container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 80ch;
 }
 .page-footer p:first-child {
   margin-top: 3rem;
@@ -741,14 +759,10 @@ nav a:hover::before, nav a:focus::before {
 }
 
 /* 
-* BLOCKS CONTRIBUTION:
-*   #contributions is the first article element
-*   inside main. It is placed inside a section
-*   element belonging to the .container class.
-*   
-*   Its explanation of the style stage
-*   participation guidelines is also wrapped in 
-*   a .container section element.
+* BLOCKS GUIDELINES
+*   Handles decorative styling and visual effects of the second
+*   article element in main, which displays the guidelines that
+*   must be followed to submit a new style stage.
 */
 #guidelines h3 {
   display: inline-block;
@@ -767,112 +781,25 @@ nav a:hover::before, nav a:focus::before {
     transform: rotate(-8deg) translateX(-30%);
   }
 }
-@supports (background-clip: text) or (-webkit-background-clip: text) {
-  #guidelines p:nth-of-type(2) {
-    position: relative;
-  }
-  #guidelines p:nth-of-type(2)::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: rotate(4deg) translate(4.75rem, -3.5rem);
-    transform-origin: left center;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: var(--color-dark-2);
-    font-size: 0.9em;
-    font-weight: normal;
-    content: "← Whoa, text gradients!";
-  }
-}
-#guidelines .container > a {
-  align-self: center;
-}
 
-/* first footer with links to style stage source files */
-#files {
-  display: grid;
-  place-content: center;
-  margin: 5vh auto;
-  text-align: center;
-}
-#files h3 {
-  height: 0;
-  opacity: 0;
-}
-#files .container {
-  display: inline-block;
-  padding: 5vmin;
-  background-color: var(--color-transparent-dark);
-  text-align: center;
-}
-#files .container a:not(:last-child) {
-  margin: 0.5rem;
-}
-#files .container a:not(:last-child):not(.link-codepen) {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-}
-
-.features {
-  /*&::after {
-    position: absolute;
-    bottom: -4.5em;
-    width: 10ch;
-    padding-top: 3em;
-    transform: rotate(-15deg);
-    transform-origin: bottom right;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 199.1 111.3'%3E%3Cpath fill='svgColor(primary-alt)' d='M118 77a77 77 0 00-2-18c-2-4-3-9-3-13a29 29 0 011-12 19 19 0 017-9c4-3 8-4 13-3a14 14 0 018 7 31 31 0 012 5 75 75 0 005 10 47 47 0 002 5 17 17 0 003 3c4 4 8 4 13 0a15 15 0 005-8 37 37 0 001-7l1-11a18 18 0 014-11 2 2 0 000-3l-3-3-2-3a2 2 0 011-2 11 11 0 012-1l19-3c4 0 5 1 3 5l-7 16c-1 3-2 3-5 1l-4-5a1 1 0 00-1 0 9 9 0 00-3 5 23 23 0 00-1 6l-1 11a26 26 0 01-1 7 18 18 0 01-8 10c-5 3-9 3-13 0a20 20 0 01-6-6 68 68 0 01-6-13l-2-4a18 18 0 00-2-4 10 10 0 00-14-2 15 15 0 00-4 4 19 19 0 00-3 9 32 32 0 000 11l2 6a78 78 0 012 27 32 32 0 01-4 15 24 24 0 01-11 9 33 33 0 01-19 3 16 16 0 01-13-9 29 29 0 01-3-11 70 70 0 012-18l2-14a33 33 0 000-14c-1-4-4-7-8-7-7-1-14 1-19 6a34 34 0 00-6 9 59 59 0 00-4 10l-3 12-2 6a26 26 0 01-5 8 17 17 0 01-16 6 26 26 0 01-10-4 7 7 0 01-2-1 2 2 0 010-2 2 2 0 012 0l3 1a22 22 0 0010 3 13 13 0 009-4 22 22 0 005-6 41 41 0 003-8l3-12a59 59 0 015-13 31 31 0 017-9c6-5 14-7 22-5a12 12 0 019 7 21 21 0 011 7 57 57 0 01-2 17 132 132 0 00-2 16 37 37 0 000 13 27 27 0 002 5 13 13 0 0011 8 30 30 0 0016-3 22 22 0 0010-10c3-4 3-9 4-13v-5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: 90%;
-    color: var(--color-primary-alt);
-    font-size: 0.9rem;
-    content: "Grid FTW!";
-  }*/
-}
 .features li {
   background-color: var(--color-accent);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  color: var(--color-background);
 }
-@media (min-width: 515px) and (max-width: 765px) {
-  .features li:nth-last-child(1):nth-child(odd) {
-    grid-column: span 2;
-  }
+.features li > span {
+  border: 1px solid var(--color-background);
+  background-color: var(--color-secondary);
+}
+.features li a {
+  color: inherit;
+}
+.features li a::before {
+  content: "";
 }
 .features li:nth-child(2) {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='24' viewBox='0 0 88 24'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='autumn' fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M10 0l30 15 2 1V2.18A10 10 0 0 0 41.76 0H39.7a8 8 0 0 1 .3 2.18v10.58L14.47 0H10zm31.76 24a10 10 0 0 0-5.29-6.76L4 1 2 0v13.82a10 10 0 0 0 5.53 8.94L10 24h4.47l-6.05-3.02A8 8 0 0 1 4 13.82V3.24l31.58 15.78A8 8 0 0 1 39.7 24h2.06zM78 24l2.47-1.24A10 10 0 0 0 86 13.82V0l-2 1-32.47 16.24A10 10 0 0 0 46.24 24h2.06a8 8 0 0 1 4.12-4.98L84 3.24v10.58a8 8 0 0 1-4.42 7.16L73.53 24H78zm0-24L48 15l-2 1V2.18A10 10 0 0 1 46.24 0h2.06a8 8 0 0 0-.3 2.18v10.58L73.53 0H78z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 .features li:nth-child(3) {
   background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
-/* 
-* BLOCKS SPOTLIGHT:
-*   Handles the second section inside #about,
-*   'Modern CSS Under the Spotlight' that displays
-*   CSS styling tools currently used by developers.
-*/
-#about section:nth-child(2) {
-  position: relative;
-  border: 8px solid var(--color-extra-light);
-}
-#about section:nth-child(2) p:nth-of-type(2) {
-  align-self: center;
-  margin-top: 2rem;
-  color: var(--color-secondary);
-  font-size: 1.5em;
-  font-weight: var(--font-weight-strong);
-  text-align: center;
-}
-#about section:nth-child(2) ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style: none;
-  margin: 1rem 0 2rem;
-  padding: 0;
-}
-#about section:nth-child(2) ul li {
-  margin: 0.25em;
-  padding: 0.25em 0.5em;
-  background-color: var(--color-light);
 }

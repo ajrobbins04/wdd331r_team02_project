@@ -31,11 +31,6 @@
     content: "S";
   }
 
-  .container  {
-    @include auto-lr-margins;
-    @include max-width-standard;
-  }
-
   p:first-child {
     margin-top: 3rem;
     font-weight: var(--font-weight-strong);
