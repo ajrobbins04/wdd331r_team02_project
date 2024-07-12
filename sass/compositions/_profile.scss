@@ -17,8 +17,7 @@
     // only applies to 'View Stylesheet' link
     > a {
       min-height: 2em;
-      border: 2px solid currentColor;
-      color: var(--color-anchor);
+      padding: 0.75rem;
     }
   }
   // ul properties found in global/layout b/c 
@@ -37,6 +36,7 @@
       flex-grow: 1;
       word-break: break-word;
 
+      // twitter and website links
       a {
         color: inherit;
       }

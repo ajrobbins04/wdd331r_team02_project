@@ -20,18 +20,10 @@
         transform: rotate(-8deg) translateX(-30%);
       }
     }
-
-    &::before {
-        transform: rotate(4deg) translate(4.75rem, -3.5rem);
-        transform-origin: left center;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: var(--color-dark-2);
-        content: "← Whoa, text gradients!";
-    }
-
-    a:hover,
-    a:focus {
-        box-shadow: 0.3em 0.3em var(--color-contrast);
-    }
+    a {
+        &:hover,
+        &:focus {
+            box-shadow: 0.3em 0.3em var(--color-contrast);
+        }
+}
 }

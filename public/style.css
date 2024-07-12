@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* 
 * DESIGN TOKENS INDEX: 
 *   Imports all files in the global directory so only
@@ -365,6 +364,7 @@ h4 {
 */
 #guidelines h3 {
   display: inline-block;
+  align-self: start;
 }
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   #guidelines p:nth-of-type(2) {
@@ -437,8 +437,7 @@ h4 {
 }
 .profile .container > a {
   min-height: 2em;
-  border: 2px solid currentColor;
-  color: var(--color-anchor);
+  padding: 0.75rem;
 }
 .profile li {
   display: flex;
@@ -600,7 +599,6 @@ h4 {
   left: -10000px;
   width: 1px;
   height: 1px;
-  background-color: var(--color-secondary);
   color: #fff;
   font-size: 1.125rem;
   overflow: hidden;
@@ -688,25 +686,15 @@ nav:hover::before, nav:focus::before {
   content: "";
 }
 
+#about section:nth-child(2) {
+  border: 8px solid var(--color-accent-secondary);
+  box-shadow: 0.25em 0.25em var(--color-dark);
+}
 #about section:nth-child(2) p:nth-child(2) {
   color: var(--color-dark-2);
 }
 #about section:nth-child(2) li {
   background-color: var(--color-light);
-}
-#about section:nth-child(2)::before {
-  transform: translate(-50%, -50%);
-  transition: 300ms transform ease-in;
-  opacity: 0.8;
-  content: "";
-  z-index: -1;
-  border: 8px solid var(--color-accent-secondary);
-  box-shadow: 0.25em 0.25em var(--color-dark);
-}
-@media (max-width: 35rem) {
-  #about section:nth-child(2)::before {
-    transform: scale(2) translate(-25%, -25%);
-  }
 }
 
 /* 
@@ -731,16 +719,7 @@ nav:hover::before, nav:focus::before {
     transform: rotate(-8deg) translateX(-30%);
   }
 }
-#guidelines::before {
-  transform: rotate(4deg) translate(4.75rem, -3.5rem);
-  transform-origin: left center;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: var(--color-dark-2);
-  content: "← Whoa, text gradients!";
-}
-#guidelines a:hover,
-#guidelines a:focus {
+#guidelines a:hover, #guidelines a:focus {
   box-shadow: 0.3em 0.3em var(--color-contrast);
 }
 
@@ -753,6 +732,11 @@ nav:hover::before, nav:focus::before {
 *   the necessary starter files.
 *
 */
+.profile .container > a {
+  border: 2px solid currentColor;
+  color: var(--color-anchor);
+}
+
 .features li {
   background-color: var(--color-accent);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");

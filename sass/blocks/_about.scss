@@ -13,6 +13,8 @@
 }
 
 #about section:nth-child(2) {
+    border: 8px solid var(--color-accent-secondary);
+    box-shadow: 0.25em 0.25em var(--color-dark);
 
     p:nth-child(2) {
         color: var(--color-dark-2);
@@ -20,20 +22,6 @@
 
     li {
         background-color: var(--color-light);
-    }
-
-    &::before {
-        transform: translate(-50%, -50%);
-        transition: 300ms transform ease-in;
-        opacity: 0.8;
-        content: "";
-        z-index: -1; 
-        border: 8px solid var(--color-accent-secondary);
-        box-shadow: 0.25em 0.25em var(--color-dark);
-
-        @media (max-width: 35rem) {
-            transform: scale(2) translate(-25%, -25%); 
-        } 
     }
 }
 
