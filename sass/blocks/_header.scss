@@ -7,17 +7,8 @@
 */
 header {
     // dimensions for 'Style Stage' banner
-    --h1-height: 3em;
-    --h1-padding: 0 1em;
-  
-    // 'Style Stage'
-    h1 {
-      @include banner;
+ 
+    .container a {
+        padding: 0.5rem 0;
     }
-  
-    // 'A modern CSS showcase styled by community contributions'
-    h2 {
-      max-width: 30ch;
-    }
-    
-  }
+}

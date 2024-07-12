@@ -27,24 +27,11 @@ $colors: (
   transparent-dark: $transparent-dark
 );
 
-// color property values given to elements found in global/typography.scss
-$color-by-element: (
-  section: $extra-light,  // .container 
-  header: $extra-light,
-  anchor: $high-contrast,
-  footer: $dark-secondary,
-  h2: $dark,
-  h3: $dark,
-  h4: $accent
-);
-
 // background-color property values given to elements found in global/global.scss
 $bg-color-by-element: (
   section: $dark,
   footer: $dark
 );
-
-$all-colors: map-merge($colors, $color_by_element);
 
 @function color($key) {
   @return map-get($colors, $key);

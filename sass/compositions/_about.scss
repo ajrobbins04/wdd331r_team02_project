@@ -10,6 +10,7 @@
 
 #about {
   font-size: var(--font-size-h4);
+ 
 }
 
 // first section about setting the stage
@@ -20,9 +21,9 @@
       display: grid;
       grid-template-areas: "blockquote";
       place-items: center;
-      padding: 0;
+      padding: 0 2rem;
       margin: 3rem 0;
-    
+      
       > * {
         grid-area: blockquote;
       }
@@ -47,13 +48,17 @@
 #about section:nth-child(2) {
 
   position: relative; 
+  text-align: center; 
+  padding: 0.85rem;
 
+  // 'Some examples of modern CSS include:'
   p:nth-of-type(2) {
-    align-self: center;
     margin-top: 2rem;
-    text-align: center; 
     font-size: 1.5em;
-    font-weight: var(--font-weight-strong);
+    align-self: center;
+  }
+  p {
+    margin-top: 2rem;
   }
 
   &::before {

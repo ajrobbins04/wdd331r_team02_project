@@ -69,11 +69,6 @@
 *   using flexbox and grid.
 */
 /* 
-* UTILITIES BANNER
-*   Creates the banner displaying 'Style Stage' 
-*   in the header and 'S' in the footer.
-*/
-/* 
 * GLOBAL INDEX: 
 *   Imports all files in the global directory so only
 *   this file is imported directly into style.scss
@@ -198,10 +193,6 @@ article * + h2 {
   color: var(--color-background);
 }
 
-footer {
-  background-color: var(--bg-color-footer);
-}
-
 /* 
 * GLOBAL TYPOGRAPHY: 
 *   Handles general styling of text elements with
@@ -217,7 +208,7 @@ header {
   color: var(--color-extra-light);
 }
 
-footer {
+footer > * {
   color: var(--color-footer);
 }
 
@@ -228,9 +219,13 @@ li {
 }
 
 a {
-  color: var(--color-anchor);
+  color: var(--color-extra-light);
   text-decoration: none;
   font-size: var(--font-size-anchor);
+}
+
+p a {
+  color: var(--color-contrast);
 }
 
 li {
@@ -274,7 +269,6 @@ h1 {
 h2 {
   font-size: var(--font-size-h2);
   font-size: clamp(2rem, 4vw, var(--font-size-h2));
-  color: var(--color-h2);
   margin-top: 4rem;
 }
 
@@ -318,7 +312,7 @@ h4 {
   display: grid;
   grid-template-areas: "blockquote";
   place-items: center;
-  padding: 0;
+  padding: 0 2rem;
   margin: 3rem 0;
 }
 #about section:nth-child(1) blockquote > * {
@@ -339,13 +333,16 @@ h4 {
 
 #about section:nth-child(2) {
   position: relative;
+  text-align: center;
+  padding: 0.85rem;
 }
 #about section:nth-child(2) p:nth-of-type(2) {
-  align-self: center;
   margin-top: 2rem;
-  text-align: center;
   font-size: 1.5em;
-  font-weight: var(--font-weight-strong);
+  align-self: center;
+}
+#about section:nth-child(2) p {
+  margin-top: 2rem;
 }
 #about section:nth-child(2)::before {
   position: absolute;
@@ -552,27 +549,17 @@ h4 {
 *   'page-footer'.
 */
 .page-footer {
-  --banner-height: 2em;
-  --banner-padding: 0;
   position: relative;
   padding: 3rem 1rem;
-  background-color: var(--color-primary);
-  color: var(--color-light);
   /*background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d2fbf7' fill-opacity='1'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-repeat: repeat-x;
   background-position: center -34px;*/
 }
 .page-footer::before {
-  display: inline-grid;
-  min-height: var(--banner-height);
-  padding: var(--banner-padding);
-  place-content: center;
   position: absolute;
   left: 50%;
   width: 2em;
   transform: translate(-50%, -100%);
-  background-color: var(--color-background);
-  color: var(--color-primary);
   font-size: 3rem;
   content: "S";
 }
@@ -582,7 +569,7 @@ h4 {
   letter-spacing: 0.03em;
   text-align: center;
 }
-.page-footer p a {
+.page-footer p, .page-footer a {
   color: inherit;
 }
 .page-footer ul {
@@ -650,7 +637,6 @@ header .link-github {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 0.75em;
   transform: translate(0, 0);
   transition: 180ms all ease-in-out;
   line-height: 1;
@@ -671,18 +657,8 @@ header .link-github {
 *   its layout-related properties are stored
 *   in global/layout.
 */
-header {
-  --h1-height: 3em;
-  --h1-padding: 0 1em;
-}
-header h1 {
-  display: inline-grid;
-  min-height: var(--banner-height);
-  padding: var(--banner-padding);
-  place-content: center;
-}
-header h2 {
-  max-width: 30ch;
+header .container a {
+  padding: 0.5rem 0;
 }
 
 /* 
@@ -712,9 +688,6 @@ nav:hover::before, nav:focus::before {
   content: "";
 }
 
-#about section:nth-child(2) {
-  border: 8px solid var(--color-extra-light);
-}
 #about section:nth-child(2) p:nth-child(2) {
   color: var(--color-dark-2);
 }
@@ -727,6 +700,8 @@ nav:hover::before, nav:focus::before {
   opacity: 0.8;
   content: "";
   z-index: -1;
+  border: 8px solid var(--color-accent-secondary);
+  box-shadow: 0.25em 0.25em var(--color-dark);
 }
 @media (max-width: 35rem) {
   #about section:nth-child(2)::before {
@@ -803,8 +778,7 @@ nav:hover::before, nav:focus::before {
 .page-footer [class^=link] {
   width: 100%;
   min-height: 2.5em;
-  background-color: var(--color-background);
-  color: var(--color-primary);
+  color: var(--color-dark-secondary);
 }
 
 .page-footer .link-codepen {
