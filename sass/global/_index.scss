@@ -4,6 +4,5 @@
 *   this file is imported directly into style.scss
 */
 @import "reset";
-@import "variables";  // assigns design tokens to variables
-@import "global";     // general global styles
+@import "layout";     // common layouts throughout program
 @import "typography"; // global typography styles

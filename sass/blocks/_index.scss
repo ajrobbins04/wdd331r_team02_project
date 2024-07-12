@@ -3,8 +3,13 @@
 *   Imports all files in the global directory so only
 *   this file is imported directly into style.scss
 */
-
-@import "links";
+      
+@import "links"; 
+@import "header"; 
+@import "nav";
+@import "about";
 @import "guidelines"; // second article inside main
-@import "files";    // a #contribute child element
-@import "features"; // a #styles child element
+@import "contribute";
+@import "profile";
+@import "features";   // a #styles child element
+@import "footer";

@@ -8,50 +8,41 @@
   width: 95vw;
   max-width: 80ch;
   margin: 1rem auto 10vh;
-  padding: 1.25rem;
+  padding: 1rem;
   z-index: 1;
-
-  // 'Currently Staged Style'
-  h4 {
-    margin: 0;
-    color: var(--color-anchor);
-    text-align: center;
-  }
 
   .container {
     @include grid-w-centered-items;
 
+    // only applies to 'View Stylesheet' link
     > a {
       min-height: 2em;
-      border: 2px solid currentColor;
-      color: var(--color-anchor);
+      padding: 0.75rem;
     }
   }
+  // ul properties found in global/layout b/c 
+  // they are shared by multiple ul elements
+  li {
+    display: flex;
+    padding: 0.45em;
 
-  ul {
-    @include flex-row-wrapped-centered;
-    @include no-margin-padding;
+    span:nth-child(1) {
+      width: auto;
+      margin-right: 0.25em;
+      font-weight: var(--font-weight-strong);
+    }
 
-    li {
-      display: flex;
-      padding: 0.45em;
+    span:nth-child(2) {
+      flex-grow: 1;
+      word-break: break-word;
 
-      span:nth-child(1) {
-        width: auto;
-        margin-right: 0.25em;
-        font-weight: var(--font-weight-strong);
-      }
-
-      span:nth-child(2) {
-        flex-grow: 1;
-        word-break: break-word;
-
-        a {
-          color: inherit;
-        }
+      // twitter and website links
+      a {
+        color: inherit;
       }
     }
   }
+  
 
   @media (min-width: 180ch) {
     position: fixed;
@@ -60,8 +51,8 @@
     max-width: 30ch;
     margin-bottom: 0;
     border-radius: var(--border-radius);
-    background-color: var(--color-light);
-    box-shadow: 0 2px 5px rgba(color(primary), 0.15);
+    background-color: var(--color-extra-light);
+    box-shadow: 0 2px 5px rgba(var(--color-dark), 0.15);
 
     ul {
       justify-content: unset;

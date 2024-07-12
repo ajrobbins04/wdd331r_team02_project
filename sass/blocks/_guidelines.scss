@@ -1,53 +1,29 @@
 /* 
-* BLOCKS CONTRIBUTION:
-*   #contributions is the first article element
-*   inside main. It is placed inside a section
-*   element belonging to the .container class.
-*   
-*   Its explanation of the style stage
-*   participation guidelines is also wrapped in 
-*   a .container section element.
+* BLOCKS GUIDELINES
+*   Handles decorative styling and visual effects of the second
+*   article element in main, which displays the guidelines that
+*   must be followed to submit a new style stage.
 */
-
 #guidelines {
 
-  h3 {
-    display: inline-block;
-    transform: rotate(-8deg) translateX(-10%);
-    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
-
-    @supports (background-clip: text) or (-webkit-background-clip: text) {
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    @media (min-width: 120ch) {
-      transform: rotate(-8deg) translateX(-30%);
-    }
-  }
-
-  @supports (background-clip: text) or (-webkit-background-clip: text) {
-    p:nth-of-type(2) {
-      position: relative;
-
-      &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: rotate(4deg) translate(4.75rem, -3.5rem);
-        transform-origin: left center;
+    h3 {
+      transform: rotate(-8deg) translateX(-10%);
+      background: linear-gradient(to right, var(--color-dark), var(--color-accent));
+  
+      @supports (background-clip: text) or (-webkit-background-clip: text) {
         -webkit-background-clip: text;
         background-clip: text;
-        color: var(--color-primary-alt);
-        font-size: 0.9em;
-        font-weight: normal;
-        content: "← Whoa, text gradients!";
+        color: transparent;
+      }
+  
+      @media (min-width: 120ch) {
+        transform: rotate(-8deg) translateX(-30%);
       }
     }
-  }
-
-  .container > a {
-    align-self: center;
-  }
+    a {
+        &:hover,
+        &:focus {
+            box-shadow: 0.3em 0.3em var(--color-contrast);
+        }
+}
 }

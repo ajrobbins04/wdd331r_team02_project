@@ -1,12 +1,16 @@
 /* 
 * COMPOSITIONS INDEX:
+*   Each file handles layout, element spacing, sizing, and 
+*   anything else affecting the overall flow of major elements
+*   and their children.
+*
 *   Imports all files in the global directory so only
 *   this file is imported directly into style.scss. 
 */
 
-@import "header";    // second direct child element of main
-@import "about";     // handles 'setting the stage' portion
-@import "contribute";// third article inside main 
-@import "profile";   // the first aside after main w/author info
-@import "features";  // featured styles found in second aside element, #styles
-@import "footer";    // third element after main w/typical footer content
+@import "about";      // first article in main to explain style stage purpose and lists css tools
+@import "guidelines";
+@import "contribute"; // final article inside main with information and resources to contribute
+@import "profile";    // the first aside after main w/author info
+@import "features";   // the second aside element after main displaying 3 featured styles
+@import "footer";     // third element after main w/typical footer content
