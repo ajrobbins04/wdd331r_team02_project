@@ -34,14 +34,14 @@
     width: 1em;
     height: 1em;
     margin-right: 0.25em;
-    fill: currentColor; 
+    fill:$high-contrast; 
   }
 } 
 header .link-github {
   color: var(--color-accent);
 }
 .page-footer .link-github {
-  color: var(--color-high-contrast);
+  color:var(--color-hight-contrast);
 }
 
 // applies to most links except those in nav, in footer,
