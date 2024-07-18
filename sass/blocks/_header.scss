@@ -9,16 +9,20 @@
 header {
     position: relative;
 
-    // necessary to give stars a wrapping effect
+    // helps ensure a smooth, wrapping effect for stars
     height: 200%;
+    // stars cannot overflow outside the header
     overflow: hidden;
+
     .container a {
         padding: 0.5rem 0;
     }
 }
 
 body > header::before {
-    $count: 100;
+    // number of stars to put in header
+    $num-stars: 600;
+
     content: '';
     position: absolute;
     top: 0;
@@ -29,7 +33,11 @@ body > header::before {
     background: transparent;
    
     z-index: 0;
-    @include generate-stars($count);
-    
 
+    // use get-stars function to return a map containing
+    // the number of stars defined in $num-stars
+    $stars-map: get-stars($num-stars);
+    @include generate-stars($stars-map);
+    @include move-stars;
+    @include twinkle-stars($stars-map);
 }
