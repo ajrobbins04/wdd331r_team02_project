@@ -44,9 +44,9 @@ header .link-github {
   color:var(--color-hight-contrast);
 }
 
-// applies to most links except those in nav, in footer,
-// and in the 'fork the codepen' link in the source files 
-[class^="link"]:not(.link-codepen) {
+// applies to most links except those in nav, in footer
+// link in the source files 
+[class^="link"] {
   min-height: 3em;
 }
 
