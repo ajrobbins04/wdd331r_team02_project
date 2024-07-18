@@ -1,0 +1,77 @@
+@function random-px($min, $max) {
+    @return ($min + random() * ($max - $min)) + px;
+}
+
+@mixin animate-stars($count, $opacity, $size) {
+    // stars move up very slowly, w/a wrapping effect
+    @keyframes float-up {
+        from {
+            transform: translateY(0px);
+        }
+        to {
+            transform: translateY(-100px);
+        }
+    }
+    @keyframes twinkle {
+        0% {
+          opacity: $opacity;
+          transform: scale(1);
+        }
+        15% {
+          opacity: $opacity * 1.1;
+          transform: scale(1.1);
+        }
+        20% {
+          opacity: $opacity * 0.7;
+          transform: scale(0.9);
+        }
+        45% {
+          opacity: $opacity * 0.9;
+          transform: scale(1.05);
+        }
+        50% {
+          opacity: $opacity * 0.3;
+          transform: scale(0.95);
+        }
+        90% {
+          opacity: $opacity * 0.5;
+          transform: scale(1);
+        }
+      }
+    animation: float-up 45s linear infinite;
+}
+
+// generate stars at random locations w/varying opacity values
+@mixin generate-stars($count) {
+    $stars: ();
+    $opacities: 1, 0.8, 0.8, 0.6, 0.6, 0.6, 0.4, 0.4, 0.2, 0.1;
+    
+    @for $i from 1 through $count {
+    
+        $opacity: nth($opacities, ($i % length($opacities)) + 1);
+
+        // color not passed in as argument so all elements that use the mixin
+        // share the same color (currently white), but different opacity values
+        $color: rgba(255, 255, 255, $opacity);
+
+        // random size between 1 and 3 pixels
+        $size: #{random(2)}px;
+        $width: $size; 
+        $height: $size;
+
+
+        // generates random value from 0 to 100 and adds '%' as its unit
+        $x: #{random(100)} + 'vw';
+        $y: #{random(100)} + 'vh';
+
+        // generate star string w/all necessary values
+        $star: #{$x} #{$y} #{$width} #{$height} #{$color};
+
+        // add string to list of stars using a comma as the separator
+        $stars: append($stars, $star, comma);
+
+        @include animate-stars($count, $opacity, $size);
+    }
+    box-shadow: $stars;
+}
+

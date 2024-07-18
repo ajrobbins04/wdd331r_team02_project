@@ -5,10 +5,31 @@
 *   its layout-related properties are stored
 *   in global/layout.
 */
+
 header {
-    // dimensions for 'Style Stage' banner
- 
+    position: relative;
+
+    // necessary to give stars a wrapping effect
+    height: 200%;
+    overflow: hidden;
     .container a {
         padding: 0.5rem 0;
     }
+}
+
+body > header::before {
+    $count: 100;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+
+
+    //pointer-events: none;
+    background: transparent;
+   
+    z-index: 0;
+    @include generate-stars($count);
+    
+
 }
