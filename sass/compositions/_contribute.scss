@@ -10,30 +10,52 @@
 *   Properties affecting the visual styling can be found in blocks/contribute.
 *
 */
+#contribute {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: 
+    "contribute steps"
+    "sourcefiles sourcefiles";
 
-.contribute #files {
-    display: grid;
-    place-content: center;
-    margin: 5vh auto;
-    text-align: center;
-  
-    h3 {
-      height: 0;
-      opacity: 0;
-    }
+  section:nth-child(1) {
+    grid-area: contribute;
+  }
+
+  section:nth-child(2) {
+    grid-area: steps;
+  }
+
+  footer {
+    grid-area: sourcefiles;
+  }
+
+
+  #files {
   
     .container {
-      display: inline-block;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: 
+        "title title title"
+        "linkCSS linkHTML fork";
       padding: 5vmin;
-      background-color: var(--color-transparent-dark);
       text-align: center;
-  
-      a:not(:last-child) {
-        margin: 0.5rem;
-  
-        &:not(.link-codepen) {
-          font-size: clamp(1.5rem, 4vw, 2rem);
-        }
-      }
+    }
+
+    h3 {
+      grid-area: title;
+    }
+
+    .link-downloadcss{
+      grid-area: linkCSS;
+    }
+
+    .link-downloadhtml {
+      grid-area: linkHTML;
+    }
+
+    .link-codepen {
+      grid-area: fork;
     }
   }
+}

@@ -10,6 +10,8 @@
 
 #about {
   font-size: var(--font-size-h4);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
  
 }
 
@@ -48,8 +50,7 @@
 #about section:nth-child(2) {
 
   position: relative; 
-  text-align: center; 
-  padding: 0.85rem;
+  text-align: center;
 
   // 'Some examples of modern CSS include:'
   p:nth-of-type(2) {
