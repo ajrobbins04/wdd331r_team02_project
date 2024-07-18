@@ -28,16 +28,22 @@
 *   values using design tokens.
 */
 :root {
-  --color-dark: #09182E;
-  --color-dark-secondary: #552C85;
-  --color-accent: #DA40D3;
+  --color-dark: #09182e;
+  --color-dark-secondary: #552c85;
+  --color-accent: #da40d3;
   --color-accent-secondary: #FFE5B9;
-  --color-contrast: #16C8E3;
+  --color-contrast: rgb(22, 200, 227);
   --color-high-contrast: #FFD542;
   --color-extra-light: #fff;
+<<<<<<< Updated upstream
   --color-transparent-dark: rgba(86, 44, 133, 0.568627451);
   --bg-color-section: #09182E;
   --bg-color-footer: #09182E;
+=======
+  --color-transparent-dark: #562c8591;
+  --bg-color-section: #09182e;
+  --bg-color-footer: #09182e;
+>>>>>>> Stashed changes
   --font-family-body: "Reformation Sans";
   --font-family-h1: "Cybersky";
   --font-family-h2: "Reformation Sans";
@@ -136,7 +142,11 @@ select {
 *   elements, mainly to affect the overall layout.
 */
 body {
+<<<<<<< Updated upstream
   background-image: linear-gradient(to bottom, #09182E, #552C85, #01040A);
+=======
+  background-image: linear-gradient(to bottom, #09182E, #352c85,#431d6e, #01040A);
+>>>>>>> Stashed changes
 }
 
 .container {
@@ -263,23 +273,25 @@ h1 {
   font-family: var(--font-family-h1), var(--font-family-no-primary);
   font-size: var(--font-size-h1);
   font-size: clamp(2rem, 7vw, var(--font-size-h1));
+  color: var(--color-extra-light);
 }
 
 h2 {
   font-size: var(--font-size-h2);
   font-size: clamp(2rem, 4vw, var(--font-size-h2));
   margin-top: 4rem;
+  color: var(--color-extra-light);
 }
 
 h3 {
   font-size: var(--font-size-h3);
-  color: var(--color-h3);
+  color: var(--color-accent-secondary);
   margin-top: 2rem;
 }
 
 h4 {
   font-size: var(--font-size-h4);
-  color: var(--color-h4);
+  color: var(--color-accent-secondary);
   text-align: center;
   margin: 0;
 }
@@ -568,12 +580,12 @@ h4 {
 *   'page-footer'.
 */
 .page-footer {
+<<<<<<< Updated upstream
   background-color: #01040A;
+=======
+>>>>>>> Stashed changes
   position: relative;
   padding: 3rem 1rem;
-  /*background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d2fbf7' fill-opacity='1'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: center -34px;*/
 }
 .page-footer::before {
   position: absolute;
@@ -582,6 +594,7 @@ h4 {
   transform: translate(-50%, -100%);
   font-size: 3rem;
   content: "S";
+  color: var(--color-contrast);
 }
 .page-footer p:first-child {
   margin-top: 3rem;
@@ -591,6 +604,10 @@ h4 {
 }
 .page-footer p, .page-footer a {
   color: #fff;
+<<<<<<< Updated upstream
+=======
+  text-align: center;
+>>>>>>> Stashed changes
 }
 .page-footer ul {
   color: #FFD542;
@@ -632,7 +649,11 @@ h4 {
   width: 1em;
   height: 1em;
   margin-right: 0.25em;
+<<<<<<< Updated upstream
   fill: #FFD542;
+=======
+  fill: var(--color-accent);
+>>>>>>> Stashed changes
 }
 
 header .link-github {
@@ -640,7 +661,11 @@ header .link-github {
 }
 
 .page-footer .link-github {
+<<<<<<< Updated upstream
   color: var(--color-hight-contrast);
+=======
+  color: var(--color-accent);
+>>>>>>> Stashed changes
 }
 
 [class^=link] {
@@ -749,10 +774,18 @@ nav:hover::before, nav:focus::before {
 }
 
 .features li {
+<<<<<<< Updated upstream
   background-color: var(--color-accent);
   box-shadow: inset 0 -3em 3em #FFD542, 0.3em 0.3em 1em rgba(249, 79, 144, 0.944);
   animation: animate1 5s ease-in-out infinite;
   transition: all 1s ease-in-out;
+=======
+  width: 400px;
+  height: 400px;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuZGV2L3N2Z2pzIiB2aWV3Qm94PSIwIDAgODAwIDgwMCI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJzc3N1cmZhY2UtZ3JhZC1kYXJrIiByPSI3NSUiIGN4PSIyMCUiIGN5PSIyMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSJoc2woMzA4LCA5OSUsIDY0JSkiIHN0b3Atb3BhY2l0eT0iMCI+PC9zdG9wPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjNzAwYjMiIHN0b3Atb3BhY2l0eT0iMSI+PC9zdG9wPgogICAgPC9yYWRpYWxHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9InNzc3VyZmFjZS1ncmFkLWxpZ2h0IiByPSIyNSUiIGN4PSIzMCUiIGN5PSIzMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmODFmZiIgc3RvcC1vcGFjaXR5PSIwLjc1Ij48L3N0b3A+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9ImhzbCgzMDgsIDk5JSwgNjQlKSIgc3RvcC1vcGFjaXR5PSIwIj48L3N0b3A+CiAgPC9yYWRpYWxHcmFkaWVudD48ZmlsdGVyIGlkPSJzc3N1cmZhY2UtYmx1ciIgeD0iLTEwMCUiIHk9Ii0xMDAlIiB3aWR0aD0iNDAwJSIgaGVpZ2h0PSI0MDAlIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHByaW1pdGl2ZVVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KCTxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjMwIiB4PSIwJSIgeT0iMCUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGluPSJTb3VyY2VHcmFwaGljIiBlZGdlTW9kZT0ibm9uZSIgcmVzdWx0PSJibHVyIj48L2ZlR2F1c3NpYW5CbHVyPjwvZmlsdGVyPjwvZGVmcz48Zz48ZWxsaXBzZSByeD0iMjI2IiByeT0iMTEzIiBjeD0iNDUwIiBjeT0iNTAwIiBmaWxsPSIjOTIwMDgzIiBvcGFjaXR5PSIwLjI1IiBmaWx0ZXI9InVybCgjc3NzdXJmYWNlLWJsdXIpIj48L2VsbGlwc2U+PGNpcmNsZSByPSIyMjYiIGN4PSI0MDAiIGN5PSI0MDAiIGZpbGw9ImhzbCgzMDgsIDk5JSwgNjQlKSI+PC9jaXJjbGU+PGNpcmNsZSByPSIyMjYiIGN4PSI0MDAiIGN5PSI0MDAiIGZpbGw9InVybCgjc3NzdXJmYWNlLWdyYWQtZGFyaykiPjwvY2lyY2xlPjxjaXJjbGUgcj0iMjI2IiBjeD0iNDAwIiBjeT0iNDAwIiBmaWxsPSJ1cmwoI3Nzc3VyZmFjZS1ncmFkLWxpZ2h0KSI+PC9jaXJjbGU+PC9nPjwvc3ZnPg==");
+  color: var(--color-dark);
+  animation: floating1 6s linear infinite;
+>>>>>>> Stashed changes
 }
 .features li > span {
   border: 1px solid var(--color-background);
@@ -765,14 +798,13 @@ nav:hover::before, nav:focus::before {
   content: "";
 }
 .features li:nth-child(2) {
-  animation: animate2 5s ease-in-out infinite;
-  transition: all 1s ease-in-out;
+  animation: floating2 6s linear infinite;
 }
 .features li:nth-child(3) {
-  animation: animate3 5s ease-in-out infinite;
-  transition: all 1s ease-in-out;
+  animation: floating1 6s linear infinite;
 }
 
+<<<<<<< Updated upstream
 @keyframes animate1 {
   0%, 100% {
     border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
@@ -797,6 +829,30 @@ nav:hover::before, nav:focus::before {
     border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
   }
 }
+=======
+@keyframes floating1 {
+  0% {
+    transform: translate(-4%, -4%) translateY(40px);
+  }
+  50% {
+    transform: translate(-4%, -4%) translateY(0px);
+  }
+  100% {
+    transform: translate(-4%, -4%) translateY(40px);
+  }
+}
+@keyframes floating2 {
+  0% {
+    transform: translate(-4%, -4%) translateY(0px);
+  }
+  50% {
+    transform: translate(-4%, -4%) translateY(40px);
+  }
+  100% {
+    transform: translate(-4%, -4%) translateY(0px);
+  }
+}
+>>>>>>> Stashed changes
 .page-footer [class^=link] {
   width: 100%;
   min-height: 2.5em;
