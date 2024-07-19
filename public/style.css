@@ -465,6 +465,9 @@ h4 {
   justify-items: center;
   grid-gap: 1rem;
 }
+.profile .container #profile-title {
+  color: var(--color-dark);
+}
 .profile .container > a {
   min-height: 2em;
   padding: 0.75rem;
@@ -778,6 +781,7 @@ nav:hover::before, nav:focus::before {
   align-self: flex-start;
   font-size: var(--font-size-h2);
   margin-top: 4rem;
+  color: var(--color-extra-light);
 }
 #contribute section:nth-child(2) a, #contribute footer a {
   color: var(--color-contrast);
