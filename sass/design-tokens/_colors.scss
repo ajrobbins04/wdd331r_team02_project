@@ -1,6 +1,7 @@
 @use 'sass:list';
-$dark: #09182E !default;            // dark blue
-$dark-secondary: #552C85 !default;  // dark purple
+$dark: #09182F !default;            // dark blue
+$dark-secondary: #431D6E !default;  // dark purple
+$dark-accent:#352C85;
 $accent: #DA40D3  !default;   // pink (an accent to dark blue)
 $accent-secondary: #FFE5B9 !default;  // butter yellow (an accent to dark purple)
 $contrast: #16C8E3 !default;  // sky blue
@@ -11,7 +12,7 @@ $transparent-dark: #562c8591 !default; // purple
 $bg-color-footer:  #01040A;
 
  
-$bg-gradient: $dark, $dark-secondary, $bg-color-footer ;
+$bg-gradient: $dark, $dark-accent, $dark-secondary, $bg-color-footer ;
 
 // whole page has a linear gradient background
 @mixin background-gradient {
@@ -21,6 +22,7 @@ $bg-gradient: $dark, $dark-secondary, $bg-color-footer ;
 $colors: (
   dark: $dark,
   dark-secondary: $dark-secondary,
+  dark-accent: $dark-accent,
   accent: $accent,
   accent-secondary: $accent-secondary,
   contrast: $contrast,
