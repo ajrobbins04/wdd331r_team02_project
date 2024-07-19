@@ -34,20 +34,21 @@
     width: 1em;
     height: 1em;
     margin-right: 0.25em;
-    fill:var(--color-accent); 
+    fill:var(--color-accent-secondary); 
   }
 } 
 header .link-github {
   color: var(--color-accent);
 }
 .page-footer .link-github {
-  color:var(--color-accent);
+  @include link-gradient;
 }
 
 // applies to most links except those in nav, in footer
 // link in the source files 
 [class^="link"] {
   min-height: 3em;
+  color:var(--color-accent);
 }
 
 .container a {
@@ -58,7 +59,7 @@ header .link-github {
   transition: 180ms all ease-in-out;
   line-height: 1;
   text-align: center;
-  // color: var(--color-contrast);
+  color: var(--color-contrast);
 
   &:hover,
   &:focus {
@@ -69,7 +70,6 @@ header .link-github {
     outline-color: transparent;
     outline-style: solid;
   }
-
 }
 
 

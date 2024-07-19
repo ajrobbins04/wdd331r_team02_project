@@ -17,6 +17,16 @@
   src: url("../sass/resources/fonts/reformation-sans-regular-font/ReformationSansRegular-32mL.ttf") format("truetype");
   font-display: swap;
 }
+@property --color-1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e035d8;
+}
+@property --color-2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #FFD542;
+}
 /* 
 * UTILITIES INDEX 
 *   Imports all files in the global directory so only
@@ -28,22 +38,16 @@
 *   values using design tokens.
 */
 :root {
-  --color-dark: #09182e;
-  --color-dark-secondary: #552c85;
-  --color-accent: #da40d3;
+  --color-dark: #09182f;
+  --color-dark-secondary: #431d6e;
+  --color-accent: #e035d8;
   --color-accent-secondary: #FFE5B9;
-  --color-contrast: rgb(22, 200, 227);
+  --color-contrast: #16c8e3;
   --color-high-contrast: #FFD542;
   --color-extra-light: #fff;
-<<<<<<< Updated upstream
-  --color-transparent-dark: rgba(86, 44, 133, 0.568627451);
-  --bg-color-section: #09182E;
-  --bg-color-footer: #09182E;
-=======
-  --color-transparent-dark: #562c8591;
-  --bg-color-section: #09182e;
-  --bg-color-footer: #09182e;
->>>>>>> Stashed changes
+  --color-transparent-dark: rgba(86, 44, 133, 0.3294117647);
+  --bg-color-section: #09182f;
+  --bg-color-footer: #09182f;
   --font-family-body: "Reformation Sans";
   --font-family-h1: "Cybersky";
   --font-family-h2: "Reformation Sans";
@@ -142,11 +146,7 @@ select {
 *   elements, mainly to affect the overall layout.
 */
 body {
-<<<<<<< Updated upstream
-  background-image: linear-gradient(to bottom, #09182E, #552C85, #01040A);
-=======
-  background-image: linear-gradient(to bottom, #09182E, #352c85,#431d6e, #01040A);
->>>>>>> Stashed changes
+  background-image: linear-gradient(to bottom, #09182f, #352c85, #431d6e, #01040A);
 }
 
 .container {
@@ -580,10 +580,6 @@ h4 {
 *   'page-footer'.
 */
 .page-footer {
-<<<<<<< Updated upstream
-  background-color: #01040A;
-=======
->>>>>>> Stashed changes
   position: relative;
   padding: 3rem 1rem;
 }
@@ -592,9 +588,12 @@ h4 {
   left: 50%;
   width: 2em;
   transform: translate(-50%, -100%);
-  font-size: 3rem;
+  font-size: 5rem;
+  font-family: var(--font-family-h1), var(--font-family-no-primary);
   content: "S";
-  color: var(--color-contrast);
+  background-image: linear-gradient(to bottom right, #FFD542 10%, #FFE5B9 0%, #e7ba19 40%);
+  background-clip: text;
+  color: transparent;
 }
 .page-footer p:first-child {
   margin-top: 3rem;
@@ -604,10 +603,6 @@ h4 {
 }
 .page-footer p, .page-footer a {
   color: #fff;
-<<<<<<< Updated upstream
-=======
-  text-align: center;
->>>>>>> Stashed changes
 }
 .page-footer ul {
   color: #FFD542;
@@ -649,11 +644,7 @@ h4 {
   width: 1em;
   height: 1em;
   margin-right: 0.25em;
-<<<<<<< Updated upstream
-  fill: #FFD542;
-=======
-  fill: var(--color-accent);
->>>>>>> Stashed changes
+  fill: var(--color-accent-secondary);
 }
 
 header .link-github {
@@ -661,15 +652,16 @@ header .link-github {
 }
 
 .page-footer .link-github {
-<<<<<<< Updated upstream
-  color: var(--color-hight-contrast);
-=======
-  color: var(--color-accent);
->>>>>>> Stashed changes
+  color: var(--color-dark);
+  padding: 15px;
+  border-radius: 5px;
+  background: linear-gradient(10deg, var(--color-1), var(--color-2));
+  transition: --color-1 1000ms, --color-2 1000ms;
 }
 
 [class^=link] {
   min-height: 3em;
+  color: var(--color-accent);
 }
 
 .container a {
@@ -680,6 +672,7 @@ header .link-github {
   transition: 180ms all ease-in-out;
   line-height: 1;
   text-align: center;
+  color: var(--color-contrast);
 }
 .container a:hover, .container a:focus {
   transform: translate(-0.15em, -0.15em);
@@ -773,19 +766,32 @@ nav:hover::before, nav:focus::before {
   color: var(--color-anchor);
 }
 
+/*Plan B: coment out custom property below if animation is not supported by your browser*/
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
 .features li {
-<<<<<<< Updated upstream
-  background-color: var(--color-accent);
-  box-shadow: inset 0 -3em 3em #FFD542, 0.3em 0.3em 1em rgba(249, 79, 144, 0.944);
-  animation: animate1 5s ease-in-out infinite;
-  transition: all 1s ease-in-out;
-=======
-  width: 400px;
-  height: 400px;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuZGV2L3N2Z2pzIiB2aWV3Qm94PSIwIDAgODAwIDgwMCI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJzc3N1cmZhY2UtZ3JhZC1kYXJrIiByPSI3NSUiIGN4PSIyMCUiIGN5PSIyMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSJoc2woMzA4LCA5OSUsIDY0JSkiIHN0b3Atb3BhY2l0eT0iMCI+PC9zdG9wPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjNzAwYjMiIHN0b3Atb3BhY2l0eT0iMSI+PC9zdG9wPgogICAgPC9yYWRpYWxHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9InNzc3VyZmFjZS1ncmFkLWxpZ2h0IiByPSIyNSUiIGN4PSIzMCUiIGN5PSIzMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmODFmZiIgc3RvcC1vcGFjaXR5PSIwLjc1Ij48L3N0b3A+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9ImhzbCgzMDgsIDk5JSwgNjQlKSIgc3RvcC1vcGFjaXR5PSIwIj48L3N0b3A+CiAgPC9yYWRpYWxHcmFkaWVudD48ZmlsdGVyIGlkPSJzc3N1cmZhY2UtYmx1ciIgeD0iLTEwMCUiIHk9Ii0xMDAlIiB3aWR0aD0iNDAwJSIgaGVpZ2h0PSI0MDAlIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHByaW1pdGl2ZVVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KCTxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjMwIiB4PSIwJSIgeT0iMCUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGluPSJTb3VyY2VHcmFwaGljIiBlZGdlTW9kZT0ibm9uZSIgcmVzdWx0PSJibHVyIj48L2ZlR2F1c3NpYW5CbHVyPjwvZmlsdGVyPjwvZGVmcz48Zz48ZWxsaXBzZSByeD0iMjI2IiByeT0iMTEzIiBjeD0iNDUwIiBjeT0iNTAwIiBmaWxsPSIjOTIwMDgzIiBvcGFjaXR5PSIwLjI1IiBmaWx0ZXI9InVybCgjc3NzdXJmYWNlLWJsdXIpIj48L2VsbGlwc2U+PGNpcmNsZSByPSIyMjYiIGN4PSI0MDAiIGN5PSI0MDAiIGZpbGw9ImhzbCgzMDgsIDk5JSwgNjQlKSI+PC9jaXJjbGU+PGNpcmNsZSByPSIyMjYiIGN4PSI0MDAiIGN5PSI0MDAiIGZpbGw9InVybCgjc3NzdXJmYWNlLWdyYWQtZGFyaykiPjwvY2lyY2xlPjxjaXJjbGUgcj0iMjI2IiBjeD0iNDAwIiBjeT0iNDAwIiBmaWxsPSJ1cmwoI3Nzc3VyZmFjZS1ncmFkLWxpZ2h0KSI+PC9jaXJjbGU+PC9nPjwvc3ZnPg==");
-  color: var(--color-dark);
-  animation: floating1 6s linear infinite;
->>>>>>> Stashed changes
+  width: 10em;
+  height: 10em;
+  background: var(--color-dark-secondary);
+  position: relative;
+  color: var(--color-extra-light);
+  border-radius: 50%;
+}
+.features li::before,
+.features li ::after {
+  content: "";
+  position: absolute;
+  inset: -0.5rem;
+  z-index: -1;
+  background: linear-gradient(var(--gradient-angle), var(--color-accent), var(--color-contrast));
+  border-radius: 50%;
+  animation: rotation 3.5s linear infinite;
+}
+.features li ::after {
+  filter: blur(3rem);
 }
 .features li > span {
   border: 1px solid var(--color-background);
@@ -804,77 +810,32 @@ nav:hover::before, nav:focus::before {
   animation: floating1 6s linear infinite;
 }
 
-<<<<<<< Updated upstream
-@keyframes animate1 {
-  0%, 100% {
-    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
-  }
-  50% {
-    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
-  }
-}
-@keyframes animate2 {
-  0%, 100% {
-    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
-  }
-  50% {
-    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
-  }
-}
-@keyframes animate3 {
-  0%, 100% {
-    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
-  }
-  50% {
-    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
-  }
-}
-=======
-@keyframes floating1 {
+@keyframes rotation {
   0% {
-    transform: translate(-4%, -4%) translateY(40px);
-  }
-  50% {
-    transform: translate(-4%, -4%) translateY(0px);
+    --gradient-angle: 0deg;
   }
   100% {
-    transform: translate(-4%, -4%) translateY(40px);
+    --gradient-angle:360deg;
   }
 }
-@keyframes floating2 {
-  0% {
-    transform: translate(-4%, -4%) translateY(0px);
-  }
-  50% {
-    transform: translate(-4%, -4%) translateY(40px);
-  }
-  100% {
-    transform: translate(-4%, -4%) translateY(0px);
-  }
-}
->>>>>>> Stashed changes
 .page-footer [class^=link] {
   width: 100%;
   min-height: 2.5em;
-  color: var(--color-dark-secondary);
+  color: var(--color-dark);
+  padding: 15px;
+  border-radius: 5px;
+  background: linear-gradient(10deg, var(--color-1), var(--color-2));
+  transition: --color-1 1000ms, --color-2 1000ms;
+}
+.page-footer [class^=link]:hover {
+  --color-1:#FFD542;
+  --color-2:#e035d8;
 }
 
 .page-footer .link-codepen {
   display: block;
   margin-top: 3rem;
   font-size: 1.35rem;
-}
-.page-footer .link-codepen::before {
-  position: absolute;
-  padding-right: 1.25em;
-  transform: translate(15%, -90%) rotate(-3deg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 79.6 187.1'%3E%3Cpath fill='svgColor(primary-alt)' d='M12 131l-2 13-3 26a10 10 0 000 2 1 1 0 001 0 24 24 0 002-3 37 37 0 016-8 73 73 0 007-9l24-33 4-5a70 70 0 006-7l15-20a8 8 0 001-1 1 1 0 000-1 16 16 0 00-2-1l-8-3a69 69 0 01-13-6 7 7 0 00-1-1l-16-6-13-7a57 57 0 00-10-4 17 17 0 01-2-1 2 2 0 01-1-4 18 18 0 012-2 93 93 0 0011-13 95 95 0 018-8l10-11a32 32 0 003-4c3-5 7-9 12-13a12 12 0 011-1 1 1 0 012 0 2 2 0 010 2 27 27 0 01-3 3 104 104 0 00-10 12 115 115 0 01-11 13 102 102 0 00-11 13 78 78 0 01-5 7l-2 2a1 1 0 000 1l19 8 9 4 3 2a77 77 0 0113 5 22 22 0 003 2l17 8a8 8 0 011 1 2 2 0 010 2 22 22 0 01-1 3l-11 14a33 33 0 00-2 3 98 98 0 01-10 13l-5 7-23 31a87 87 0 01-7 9 60 60 0 00-6 8l-2 3a1 1 0 000 1l9-4 12-6 10-6 13-7a10 10 0 012 0 2 2 0 012 1 2 2 0 010 3 24 24 0 01-3 1l-8 4-20 11-24 12a19 19 0 01-2 1 2 2 0 01-3-2 10 10 0 010-2l1-7 3-24 3-21a39 39 0 011-5 2 2 0 013-1 2 2 0 011 2v4z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 130%;
-  background-size: 14%;
-  color: #6f6ffd;
-  font-size: 0.85em;
-  content: "Jump right in";
 }
 
 .link-allstyles {

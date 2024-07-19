@@ -1,13 +1,14 @@
 @use 'sass:list';
-$dark: #09182f !default;            // dark blue
-$dark-secondary: #431d6e!default;  // dark purple
-$dark-accent:#352c85;
-$accent: #DA40D3  !default;   // pink (an accent to dark blue)
+$dark: #09182f !default;            // dark blue, used for gradient background
+$dark-secondary: #431d6e!default;  // dark purple, used for gradient background
+$dark-accent:#352c85; //used for gradient background
+$dark-accent-secondary: #24113E;// deep dark purple used in the feature cards
+$accent: #e035d8  !default;   // pink (an accent to dark blue)
 $accent-secondary: #FFE5B9 !default;  // butter yellow (an accent to dark purple)
-$contrast: rgb(22, 200, 227) !default;  // sky blue
+$contrast: #16c8e3 !default;  // sky blue
 $high-contrast: #FFD542 !default;      // bright yellow
 $extra-light: #fff !default;              // white
-$transparent-dark: #562c8591 !default; // purple
+$transparent-dark: #562c8554 !default; // purple
 $bg-color-footer:  #01040A;
 
  
@@ -39,3 +40,28 @@ $bg-color-by-element: (
   @return map-get($colors, $key);
 }
 
+//link gradient style for footer links 
+@property --color-1{
+  syntax: "<color>";
+  inherits: true;
+  initial-value:$accent;
+}
+
+@property --color-2{
+  syntax: "<color>";
+  inherits: true;
+  initial-value:$high-contrast;
+}
+
+@mixin link-gradient{
+  color: var(--color-dark);
+  padding: 15px;
+  border-radius:5px;
+  background: linear-gradient(10deg, var(--color-1), var(--color-2));
+  transition: --color-1 1000ms, --color-2 1000ms;
+}
+@mixin logo-gradient{
+background-image: linear-gradient(to bottom right, #FFD542 10%, #FFE5B9 0%, #e7ba19 40%);
+background-clip: text;
+color:transparent;
+}

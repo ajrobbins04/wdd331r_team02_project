@@ -1,14 +1,37 @@
-
+/*Plan B: coment out custom property below if animation is not supported by your browser*/
+  @property --gradient-angle{
+    syntax:"<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
   // each featured style inside the ul has 
   // its own animation, but the 
   // SVG form is the same for all.
   .features {
     li {
-      width:400px;
-      height: 400px;
-      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuZGV2L3N2Z2pzIiB2aWV3Qm94PSIwIDAgODAwIDgwMCI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJzc3N1cmZhY2UtZ3JhZC1kYXJrIiByPSI3NSUiIGN4PSIyMCUiIGN5PSIyMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSJoc2woMzA4LCA5OSUsIDY0JSkiIHN0b3Atb3BhY2l0eT0iMCI+PC9zdG9wPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjNzAwYjMiIHN0b3Atb3BhY2l0eT0iMSI+PC9zdG9wPgogICAgPC9yYWRpYWxHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9InNzc3VyZmFjZS1ncmFkLWxpZ2h0IiByPSIyNSUiIGN4PSIzMCUiIGN5PSIzMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmODFmZiIgc3RvcC1vcGFjaXR5PSIwLjc1Ij48L3N0b3A+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9ImhzbCgzMDgsIDk5JSwgNjQlKSIgc3RvcC1vcGFjaXR5PSIwIj48L3N0b3A+CiAgPC9yYWRpYWxHcmFkaWVudD48ZmlsdGVyIGlkPSJzc3N1cmZhY2UtYmx1ciIgeD0iLTEwMCUiIHk9Ii0xMDAlIiB3aWR0aD0iNDAwJSIgaGVpZ2h0PSI0MDAlIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHByaW1pdGl2ZVVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KCTxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjMwIiB4PSIwJSIgeT0iMCUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGluPSJTb3VyY2VHcmFwaGljIiBlZGdlTW9kZT0ibm9uZSIgcmVzdWx0PSJibHVyIj48L2ZlR2F1c3NpYW5CbHVyPjwvZmlsdGVyPjwvZGVmcz48Zz48ZWxsaXBzZSByeD0iMjI2IiByeT0iMTEzIiBjeD0iNDUwIiBjeT0iNTAwIiBmaWxsPSIjOTIwMDgzIiBvcGFjaXR5PSIwLjI1IiBmaWx0ZXI9InVybCgjc3NzdXJmYWNlLWJsdXIpIj48L2VsbGlwc2U+PGNpcmNsZSByPSIyMjYiIGN4PSI0MDAiIGN5PSI0MDAiIGZpbGw9ImhzbCgzMDgsIDk5JSwgNjQlKSI+PC9jaXJjbGU+PGNpcmNsZSByPSIyMjYiIGN4PSI0MDAiIGN5PSI0MDAiIGZpbGw9InVybCgjc3NzdXJmYWNlLWdyYWQtZGFyaykiPjwvY2lyY2xlPjxjaXJjbGUgcj0iMjI2IiBjeD0iNDAwIiBjeT0iNDAwIiBmaWxsPSJ1cmwoI3Nzc3VyZmFjZS1ncmFkLWxpZ2h0KSI+PC9jaXJjbGU+PC9nPjwvc3ZnPg==");
-      color: var(--color-dark);
-      animation:floating1 6s linear infinite;
+      width:10em;
+      height: 10em;
+      background: var( --color-dark-secondary);
+      position:relative;
+      color: var(--color-extra-light);
+      border-radius: 50%;
+
+      &::before,
+      ::after {
+        content:"";
+        position: absolute;
+        inset: -.5rem;
+        z-index: -1;
+        background:linear-gradient(
+          var(--gradient-angle),
+          var(--color-accent),
+          var(--color-contrast));
+        border-radius: 50%;
+        animation:rotation 3.5s linear infinite;
+      }
+      ::after{
+        filter: blur(3rem);
+      }
       > span {
         border: 1px solid var(--color-background);
         background-color: var(--color-secondary);
@@ -31,26 +54,7 @@
       }      
     }
   }
-  @keyframes floating1 {
-    0% {
-      transform: translate(-4%, -4%) translateY(40px);
-    } 
-    50% {
-      transform: translate(-4%, -4%) translateY(0px);
-    } 
-    100% {
-      transform: translate(-4%, -4%) translateY(40px);
-    }
+  @keyframes rotation {
+    0% {--gradient-angle: 0deg; }
+    100% {--gradient-angle:360deg;}
   }
-  @keyframes floating2 {
-    0% {
-      transform: translate(-4%, -4%) translateY(0px);
-    } 
-    50% {
-      transform: translate(-4%, -4%) translateY(40px);
-    } 
-    100% {
-      transform: translate(-4%, -4%) translateY(0px);
-    }
-  }
-  
