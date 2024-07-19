@@ -7,3 +7,30 @@
 *   the necessary starter files.
 *
 */
+#contribute {
+
+  section:nth-child(1), section:nth-child(2), footer {
+    background-color: var(--color-dark-secondary);
+    border-radius: 20px;
+    padding: 3ch;
+
+    h2, h3 {
+      align-self: flex-start;
+      font-size: var(--font-size-h2);
+      margin-top: 4rem;
+    }
+  }
+
+  section:nth-child(2) a, footer a {
+    color: var(--color-contrast);
+  }
+
+  footer h3 {
+    margin-top: 2rem;
+    color: var(--color-extra-light);
+  }
+  
+  .link-codepen {
+        border: 3px solid var(--color-extra-light);
+  }
+}

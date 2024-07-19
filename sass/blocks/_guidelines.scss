@@ -6,24 +6,30 @@
 */
 #guidelines {
 
-    h3 {
-      transform: rotate(-8deg) translateX(-10%);
-      background: linear-gradient(to right, var(--color-dark), var(--color-accent));
-  
-      @supports (background-clip: text) or (-webkit-background-clip: text) {
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-  
-      @media (min-width: 120ch) {
-        transform: rotate(-8deg) translateX(-30%);
-      }
+  section:nth-child(1) {
+    background-color: var(--color-dark-secondary);
+    border-radius: 20px;
+
+    h2 {
+      align-self: flex-start;
     }
-    a {
-        &:hover,
-        &:focus {
-            box-shadow: 0.3em 0.3em var(--color-contrast);
-        }
-}
+  }
+
+  h3 {
+    transform: rotate(-8deg) translateX(-10%);
+    background: linear-gradient(to right, var(--color-high-contrast), var(--color-accent));
+  
+    @supports (background-clip: text) or (-webkit-background-clip: text) {
+        -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  
+    @media (min-width: 120ch) {
+      transform: rotate(-8deg) translateX(-20%);
+    }
+  }
+  a {
+    color: var(--color-contrast);
+  }
 }

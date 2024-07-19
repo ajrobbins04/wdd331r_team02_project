@@ -34,14 +34,14 @@
     width: 1em;
     height: 1em;
     margin-right: 0.25em;
-    fill:var(--color-accent); 
+    fill:$high-contrast; 
   }
 } 
 header .link-github {
   color: var(--color-accent);
 }
 .page-footer .link-github {
-  color:var(--color-accent);
+  color:var(--color-high-contrast);
 }
 
 // applies to most links except those in nav, in footer
@@ -58,7 +58,6 @@ header .link-github {
   transition: 180ms all ease-in-out;
   line-height: 1;
   text-align: center;
-  // color: var(--color-contrast);
 
   &:hover,
   &:focus {
