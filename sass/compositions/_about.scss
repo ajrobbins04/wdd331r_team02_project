@@ -12,19 +12,18 @@
   font-size: var(--font-size-h4);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
- 
+  gap: 20px;
 }
 
 // first section about setting the stage
 #about section:nth-child(1) {
+  padding: 3ch;
   
     blockquote {
       position: relative;
       display: grid;
       grid-template-areas: "blockquote";
       place-items: center;
-      padding: 0 2rem;
-      margin: 3rem 0;
       
       > * {
         grid-area: blockquote;
@@ -33,7 +32,7 @@
       p {
         position: relative;
         margin-bottom: 0;
-        padding: 0.5em;
+        padding: 0.6em;
       }
     
       &::before {
@@ -48,9 +47,8 @@
 
 // second section about 'Modern CSS Under the Spotlight'
 #about section:nth-child(2) {
-
-  position: relative; 
-  text-align: center;
+  padding: 3ch;
+  position: relative;
 
   // 'Some examples of modern CSS include:'
   p:nth-of-type(2) {

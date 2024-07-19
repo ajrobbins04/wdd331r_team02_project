@@ -15,7 +15,8 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-areas: 
     "contribute steps"
-    "sourcefiles sourcefiles";
+    "sourcefiles steps";
+  gap: 20px;
 
   section:nth-child(1) {
     grid-area: contribute;
@@ -34,10 +35,11 @@
   
     .container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       grid-template-areas: 
-        "title title title"
-        "linkCSS linkHTML fork";
+        "title title"
+        "linkCSS linkHTML"
+        "fork fork";
       padding: 5vmin;
       text-align: center;
     }
