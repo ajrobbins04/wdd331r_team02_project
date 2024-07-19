@@ -1,13 +1,4 @@
 @use 'sass:list';
-<<<<<<< HEAD
-$dark: #09182f !default;            // dark blue, used for gradient background
-$dark-secondary: #431d6e!default;  // dark purple, used for gradient background
-$dark-accent:#352c85; //used for gradient background
-$dark-accent-secondary: #24113E;// deep dark purple used in the feature cards
-$accent: #e035d8  !default;   // pink (an accent to dark blue)
-$accent-secondary: #FFE5B9 !default;  // butter yellow (an accent to dark purple)
-$contrast: #16c8e3 !default;  // sky blue
-=======
 $dark: #09182F !default;            // dark blue
 $dark-secondary: #431D6E !default;  // dark purple
 $dark-accent:#352C85;
@@ -15,7 +6,6 @@ $accent: #DA40D3  !default;   // pink (an accent to dark blue)
 $accent-secondary: #FFE5B9 !default;  // butter yellow (an accent to dark purple)
 $contrast: #16C8E3 !default;  // sky blue
 $contrast-dark: #0d798a !default; //dark green-blue
->>>>>>> 1b6fb9ae53697aa51d50b03eff1399306f12c0b7
 $high-contrast: #FFD542 !default;      // bright yellow
 $extra-light: #fff !default;              // white
 $transparent-dark: #562c8554 !default; // purple

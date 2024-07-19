@@ -20,7 +20,7 @@
 @property --color-1 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #e035d8;
+  initial-value: #DA40D3;
 }
 @property --color-2 {
   syntax: "<color>";
@@ -38,22 +38,18 @@
 *   values using design tokens.
 */
 :root {
-  --color-dark: #09182e;
-  --color-dark-secondary: #552c85;
-  --color-accent: #da40d3;
+  --color-dark: #09182F;
+  --color-dark-secondary: #431D6E;
+  --color-dark-accent: #352C85;
+  --color-accent: #DA40D3;
   --color-accent-secondary: #FFE5B9;
-  --color-contrast: rgb(22, 200, 227);
+  --color-contrast: #16C8E3;
+  --color-contrast-dark: #0d798a;
   --color-high-contrast: #FFD542;
   --color-extra-light: #fff;
-<<<<<<< Updated upstream
-  --color-transparent-dark: rgba(86, 44, 133, 0.568627451);
-  --bg-color-section: #09182E;
-  --bg-color-footer: #09182E;
-=======
-  --color-transparent-dark: #562c8591;
-  --bg-color-section: #09182e;
-  --bg-color-footer: #09182e;
->>>>>>> Stashed changes
+  --color-transparent-dark: rgba(86, 44, 133, 0.3294117647);
+  --bg-color-section: #09182F;
+  --bg-color-footer: #09182F;
   --font-family-body: "Reformation Sans";
   --font-family-h1: "Cybersky";
   --font-family-h2: "Reformation Sans";
@@ -153,11 +149,7 @@ select {
 *   elements, mainly to affect the overall layout.
 */
 body {
-<<<<<<< Updated upstream
-  background-image: linear-gradient(to bottom, #09182E, #552C85, #01040A);
-=======
-  background-image: linear-gradient(to bottom, #09182E, #352c85,#431d6e, #01040A);
->>>>>>> Stashed changes
+  background-image: linear-gradient(to bottom, #09182F, #352C85, #431D6E, #01040A);
 }
 
 .container {
@@ -622,10 +614,6 @@ h4 {
 }
 .page-footer p, .page-footer a {
   color: #fff;
-<<<<<<< Updated upstream
-=======
-  text-align: center;
->>>>>>> Stashed changes
 }
 .page-footer ul {
   color: #FFD542;
@@ -667,11 +655,7 @@ h4 {
   width: 1em;
   height: 1em;
   margin-right: 0.25em;
-<<<<<<< Updated upstream
-  fill: #FFD542;
-=======
-  fill: var(--color-accent);
->>>>>>> Stashed changes
+  fill: var(--color-accent-secondary);
 }
 
 header .link-github {
@@ -679,11 +663,11 @@ header .link-github {
 }
 
 .page-footer .link-github {
-<<<<<<< Updated upstream
-  color: var(--color-hight-contrast);
-=======
-  color: var(--color-accent);
->>>>>>> Stashed changes
+  color: var(--color-dark);
+  padding: 15px;
+  border-radius: 5px;
+  background: linear-gradient(10deg, var(--color-1), var(--color-2));
+  transition: --color-1 1000ms, --color-2 1000ms;
 }
 
 [class^=link] {
@@ -840,18 +824,25 @@ nav:hover::before, nav:focus::before {
   inherits: false;
 }
 .features li {
-<<<<<<< Updated upstream
-  background-color: var(--color-accent);
-  box-shadow: inset 0 -3em 3em #FFD542, 0.3em 0.3em 1em rgba(249, 79, 144, 0.944);
-  animation: animate1 5s ease-in-out infinite;
-  transition: all 1s ease-in-out;
-=======
-  width: 400px;
-  height: 400px;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuZGV2L3N2Z2pzIiB2aWV3Qm94PSIwIDAgODAwIDgwMCI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJzc3N1cmZhY2UtZ3JhZC1kYXJrIiByPSI3NSUiIGN4PSIyMCUiIGN5PSIyMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSJoc2woMzA4LCA5OSUsIDY0JSkiIHN0b3Atb3BhY2l0eT0iMCI+PC9zdG9wPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjNzAwYjMiIHN0b3Atb3BhY2l0eT0iMSI+PC9zdG9wPgogICAgPC9yYWRpYWxHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9InNzc3VyZmFjZS1ncmFkLWxpZ2h0IiByPSIyNSUiIGN4PSIzMCUiIGN5PSIzMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmODFmZiIgc3RvcC1vcGFjaXR5PSIwLjc1Ij48L3N0b3A+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9ImhzbCgzMDgsIDk5JSwgNjQlKSIgc3RvcC1vcGFjaXR5PSIwIj48L3N0b3A+CiAgPC9yYWRpYWxHcmFkaWVudD48ZmlsdGVyIGlkPSJzc3N1cmZhY2UtYmx1ciIgeD0iLTEwMCUiIHk9Ii0xMDAlIiB3aWR0aD0iNDAwJSIgaGVpZ2h0PSI0MDAlIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHByaW1pdGl2ZVVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KCTxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjMwIiB4PSIwJSIgeT0iMCUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGluPSJTb3VyY2VHcmFwaGljIiBlZGdlTW9kZT0ibm9uZSIgcmVzdWx0PSJibHVyIj48L2ZlR2F1c3NpYW5CbHVyPjwvZmlsdGVyPjwvZGVmcz48Zz48ZWxsaXBzZSByeD0iMjI2IiByeT0iMTEzIiBjeD0iNDUwIiBjeT0iNTAwIiBmaWxsPSIjOTIwMDgzIiBvcGFjaXR5PSIwLjI1IiBmaWx0ZXI9InVybCgjc3NzdXJmYWNlLWJsdXIpIj48L2VsbGlwc2U+PGNpcmNsZSByPSIyMjYiIGN4PSI0MDAiIGN5PSI0MDAiIGZpbGw9ImhzbCgzMDgsIDk5JSwgNjQlKSI+PC9jaXJjbGU+PGNpcmNsZSByPSIyMjYiIGN4PSI0MDAiIGN5PSI0MDAiIGZpbGw9InVybCgjc3NzdXJmYWNlLWdyYWQtZGFyaykiPjwvY2lyY2xlPjxjaXJjbGUgcj0iMjI2IiBjeD0iNDAwIiBjeT0iNDAwIiBmaWxsPSJ1cmwoI3Nzc3VyZmFjZS1ncmFkLWxpZ2h0KSI+PC9jaXJjbGU+PC9nPjwvc3ZnPg==");
-  color: var(--color-dark);
-  animation: floating1 6s linear infinite;
->>>>>>> Stashed changes
+  width: 10em;
+  height: 10em;
+  background: var(--color-dark-secondary);
+  position: relative;
+  color: var(--color-extra-light);
+  border-radius: 50%;
+}
+.features li::before,
+.features li ::after {
+  content: "";
+  position: absolute;
+  inset: -0.5rem;
+  z-index: -1;
+  background: linear-gradient(var(--gradient-angle), var(--color-accent), var(--color-contrast));
+  border-radius: 50%;
+  animation: rotation 3.5s linear infinite;
+}
+.features li ::after {
+  filter: blur(3rem);
 }
 .features li > span {
   border: 1px solid var(--color-background);
@@ -870,38 +861,9 @@ nav:hover::before, nav:focus::before {
   animation: floating1 6s linear infinite;
 }
 
-<<<<<<< Updated upstream
-@keyframes animate1 {
-  0%, 100% {
-    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
-  }
-  50% {
-    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
-  }
-}
-@keyframes animate2 {
-  0%, 100% {
-    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
-  }
-  50% {
-    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
-  }
-}
-@keyframes animate3 {
-  0%, 100% {
-    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
-  }
-  50% {
-    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
-  }
-}
-=======
-@keyframes floating1 {
+@keyframes rotation {
   0% {
-    transform: translate(-4%, -4%) translateY(40px);
-  }
-  50% {
-    transform: translate(-4%, -4%) translateY(0px);
+    --gradient-angle: 0deg;
   }
   100% {
     --gradient-angle:360deg;
