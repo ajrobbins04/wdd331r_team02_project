@@ -24,8 +24,14 @@
     }
   }
 
-  section:nth-child(2) a, footer a {
+  section:nth-child(2) a {
     color: var(--color-contrast);
+    
+  }
+  footer a{
+ @include link-gradient;
+ margin: 5px;
+
   }
 
   footer h3 {
@@ -34,6 +40,6 @@
   }
   
   .link-codepen {
-        border: 3px solid var(--color-extra-light);
+        border: 3px solid var(--color-dark);
   }
 }
