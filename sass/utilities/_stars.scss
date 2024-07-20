@@ -1,10 +1,77 @@
-@use "sass:map";
+@use 'sass:color';
 
 @function random-px($min, $max) {
+    // random() returns a random value from 0 to 1, so 
+    // scale the randomly generated value to the given range
     @return ($min + random() * ($max - $min)) + px;
 }
 
-@mixin move-stars() {
+@function modify-opacity($opacity, $interval) {
+
+  // currently keeps each color component at white, but method can
+  // be changed to modify the color as well if needed
+  $red: 255;
+  $green: 255;
+  $blue: 255;
+
+  // Calculate the final opacity
+  $final-opacity: $opacity * $interval;
+
+  // Ensure opacity is within valid range (0 to 1)
+  $final-opacity: min(max($final-opacity, 0), 1);
+    
+  // Return the rgba color with calculated opacity
+  @return rgba($red, $green, $blue, $final-opacity);
+
+}
+
+@mixin generate-keyframes-large($stars, $opacities) {
+ 
+    @for $i from 1 through length($stars) {
+      $star: nth($stars, $i);
+      $opacity: nth($opacities, ($i % length($opacities)) + 1);
+      
+      @keyframes twinkle-large-#{$i} {
+        0% {
+          box-shadow: $stars;
+        }
+        60% {
+          $interval: 0.80;
+          $twinkling-star: apply-twinkle($star, $opacity, $interval);
+          $stars: set-nth($stars, $i, $twinkling-star);
+          box-shadow: $stars;
+        }
+        100% {
+          box-shadow: $stars;
+        }
+      }
+    }
+  }
+
+    @mixin generate-keyframes-small($stars, $opacities) {
+ 
+      @for $i from 1 through length($stars) {
+        $star: nth($stars, $i);
+        $opacity: nth($opacities, ($i % length($opacities)) + 1);
+        
+        @keyframes twinkle-large-#{$i} {
+          0% {
+            box-shadow: $stars;
+          }
+          20% {
+            $interval: 0.80;
+            $twinkling-star: apply-twinkle($star, $opacity, $interval);
+            $stars: set-nth($stars, $i, $twinkling-star);
+            box-shadow: $stars;
+          }
+          100% {
+            box-shadow: $stars;
+          }
+        }
+      }
+    }
+
+@mixin animate-stars($stars) {
   @keyframes float-up {
     0% {
       transform: translateY(0px);
@@ -16,107 +83,47 @@
   animation: float-up 60s linear infinite;
 }
 
+@function apply-twinkle($star, $opacity, $interval) {
 
-@mixin twinkle-stars($stars-map) {
-
-  // altering each star's initial property values
-  // maintains a degree of variation when transforming stars
-  @each $key, $star in $stars-map {
-    $x: map-get($star, x);
-    $y: map-get($star, y);
-    $size-no-px: map-get($star, size-no-px);
-    $size: map-get($star, size);
-    $opacity: map-get($star, opacity);
-
-    @keyframes twinkle {
-      0% {
-        opacity: $opacity;
-      }
-      25% {
-        opacity: $opacity * 0.3;
-      }
-      50% {
-        opacity: $opacity;
-      }
-      75% {
-        opacity: $opacity * -0.3;
-      }
-      100% {
-        opacity: $opacity;
-      }
-    }
-    animation: twinkle 3s linear infinite;
-    animation-delay: #{random(15)}s; // random delay for each star
+    // note that first item in a sass list is at index 1, not 0
+    $star-color: nth($star, 5);
     
-  }
+    // Create new color with updated opacity
+    $new-color: modify-opacity($opacity, $interval);
+
+    // Update the star with the new opacity value
+    $star: set-nth($star, 5, $new-color);
+
+    @return $star;
 }
 
-// creates and returns stars at random locations w/varying opacity values
-@function get-stars($count) {
-    
-    $stars-map: ();
-    $opacities: 1, 0.8, 0.8, 0.6, 0.6, 0.6, 0.4, 0.4, 0.2, 0.1;
-    
-    @for $i from 1 through $count {
-    
-        $opacity: nth($opacities, ($i % length($opacities)) + 1);
+@mixin generate-stars($count, $size-min, $size-max) {
 
-        // color not passed in as argument so all elements that use the mixin
-        // share the same color (currently white), but different opacity values
-        $color: rgba(255, 255, 255, $opacity);
-        $size-no-px: 0;
-        // random size between 0 and 1 pixels
-        @if $i % 6 == 0 {
-          $size-no-px: random(2);
-        }
-        @else {
-          $size-no-px: random();
-        }
-        $size: #{$size-no-px}px;
-        $width: $size; 
-        $height: $size;
+  $opacities: 1, 0.8, 0.8, 0.6, 0.6, 0.6, 0.4, 0.4, 0.2, 0.1;
 
-        // generates random value from 0 to 100 and adds vw/vh as its unit
-        $x: #{random(100)} + 'vw';
-        $y: #{random(100)} + 'vh';
-
-        // store all star properties in a map
-        $star-map: (
-          'x': $x,
-          'y': $y,
-          'size-no-px': $size-no-px,
-          'size': $size,
-          'opacity': $opacity,
-        );
-
-        // add the map to the main stars map, using $i index as its key
-        $stars-map: map-merge($stars-map, ($i: $star-map));
-    }
-    
-    @return $stars-map;
-}
-
-
-@mixin generate-stars($stars-map) {
-
-  // stores stars in a list to assign them to box-shadow property
+  // stores box-shadow property value to create each star
   $stars: ();
 
-  @each $key, $star in $stars-map {
+    @for $i from 1 through $count {
+      $opacity: nth($opacities, ($i % length($opacities)) + 1);
+      // color not passed in as argument so all elements that use the mixin
+      // share the same color (currently white), but different opacity values
+      $color: rgba(255, 255, 255, $opacity);
 
-    // unpack all values to assign them to their separate variables
-    $x: map-get($star, 'x');
-    $y: map-get($star, 'y');
-    $size-no-px: map-get($star, 'size-no-px');
-    $size: map-get($star, 'size');
-    $opacity: map-get($star, 'opacity');
+      // generates random value from 0 to 100 and adds vw/vh as its unit
+      $x: #{random(100)} + 'vw';
+      $y: #{random(100)} + 'vh';
 
-    // generate star string with all necessary values
-    $star: #{$x} #{$y} #{$size} #{$size} rgba(255, 255, 255, $opacity);
+      $size: random-px($size-min, $size-max);
 
-    // add string to list of stars using a comma as the separator
-    $stars: append($stars, $star, comma);
+      // generate star string with all necessary values
+      $star: #{$x} #{$y} #{$size} #{$size} rgba(255, 255, 255, $opacity);
+
+      // add string to list of stars using a comma as the separator
+      $stars: append($stars, $star, comma);
+   
+    }
+    box-shadow: $stars;
+    @include animate-stars($stars);
+  
   }
-  // stars assigned to box-shadow property
-  box-shadow: $stars;
-}
