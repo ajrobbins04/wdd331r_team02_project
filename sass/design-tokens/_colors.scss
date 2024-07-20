@@ -13,12 +13,14 @@ $transparent-dark: #562c8554 !default; // purple
 $bg-color-footer:  #01040A;
 $bg-glassmorphism: #09182F90 !default; //Glassmorphism background color
 
-$bg-gradient: $dark, $dark-accent, $dark-secondary, $bg-color-footer ;
+$bg-gradient: $dark, $dark-accent, $dark-secondary, $bg-color-footer;
 
 // whole page has a linear gradient background
 @mixin background-gradient {
-  background-image:linear-gradient(to bottom, $bg-gradient);
+  background: linear-gradient(to bottom, $bg-gradient);
 }
+
+
 
 $colors: (
   dark: $dark,
