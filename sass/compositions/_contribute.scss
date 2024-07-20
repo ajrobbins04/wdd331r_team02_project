@@ -10,12 +10,42 @@
 *   Properties affecting the visual styling can be found in blocks/contribute.
 *
 */
+
+@media  screen and (min-width: 800px) {
+  
+  #main {
+  
+    #contribute {
+      font-size: var(--font-size-h4);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 
+      "contribute steps"
+      "sourcefiles steps";
+      gap: 20px;
+    }
+
+    #contribute #files .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 
+        "title title"
+        "linkCSS linkHTML"
+        "fork fork";
+      padding: 5vmin;
+      text-align: center;
+    }
+  }
+}
+
 #contribute {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   grid-template-areas: 
-    "contribute steps"
-    "sourcefiles steps";
+  "contribute"
+  "steps"
+  "sourcefiles";
+  gap: 20px;
   gap: 20px;
 
   section:nth-child(1) {
@@ -35,11 +65,12 @@
   
     .container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
       grid-template-areas: 
-        "title title"
-        "linkCSS linkHTML"
-        "fork fork";
+        "title"
+        "linkCSS"
+        "linkHTML"
+        "fork";
       padding: 5vmin;
       text-align: center;
     }

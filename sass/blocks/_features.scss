@@ -54,7 +54,29 @@
       }      
     }
   }
-  @keyframes rotation {
-    0% {--gradient-angle: 0deg; }
-    100% {--gradient-angle:360deg;}
+
+  @keyframes floating1 {
+    0% {
+      transform: translate(-4%, -4%) translateY(40px);
+    } 
+    50% {
+      transform: translate(-4%, -4%) translateY(0px);
+    } 
+    100% {
+      transform: translate(-4%, -4%) translateY(40px);
+    }
   }
+  @keyframes floating2 {
+    0% {
+      transform: translate(-4%, -4%) translateY(0px);
+    }
+    50% {
+      transform: translate(-4%, -4%) translateY(40px);
+    } 
+    100% {
+      transform: translate(-4%, -4%) translateY(0px);
+  }
+}
+  
+
+  

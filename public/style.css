@@ -317,13 +317,20 @@ h4 {
 *   styling tools available today. Decorative styles
 *   for these elements are found in blocks/about.
 */
+@media screen and (min-width: 800px) {
+  #main #about {
+    font-size: var(--font-size-h4);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
 #about {
   font-size: var(--font-size-h4);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 20px;
 }
-
 #about section:nth-child(1) {
   padding: 3ch;
 }
@@ -348,7 +355,6 @@ h4 {
   width: 100%;
   height: 100%;
 }
-
 #about section:nth-child(2) {
   padding: 3ch;
   position: relative;
@@ -380,11 +386,18 @@ h4 {
 *   participation guidelines is also wrapped in 
 *   a .container section element.
 */
+@media screen and (min-width: 800px) {
+  #main #guidelines {
+    font-size: var(--font-size-h4);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: ". guideline";
+    gap: 20px;
+  }
+}
 #guidelines {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: ". guideline";
-  gap: 20px;
+  grid-template-columns: 1fr;
 }
 #guidelines .container {
   grid-area: guideline;
@@ -422,10 +435,27 @@ h4 {
 *   Properties affecting the visual styling can be found in blocks/contribute.
 *
 */
+@media screen and (min-width: 800px) {
+  #main #contribute {
+    font-size: var(--font-size-h4);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "contribute steps" "sourcefiles steps";
+    gap: 20px;
+  }
+  #main #contribute #files .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "title title" "linkCSS linkHTML" "fork fork";
+    padding: 5vmin;
+    text-align: center;
+  }
+}
 #contribute {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: "contribute steps" "sourcefiles steps";
+  grid-template-columns: 1fr;
+  grid-template-areas: "contribute" "steps" "sourcefiles";
+  gap: 20px;
   gap: 20px;
 }
 #contribute section:nth-child(1) {
@@ -439,8 +469,8 @@ h4 {
 }
 #contribute #files .container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: "title title" "linkCSS linkHTML" "fork fork";
+  grid-template-columns: 1fr;
+  grid-template-areas: "title" "linkCSS" "linkHTML" "fork";
   padding: 5vmin;
   text-align: center;
 }
@@ -602,9 +632,7 @@ h4 {
   font-size: 5rem;
   font-family: var(--font-family-h1), var(--font-family-no-primary);
   content: "S";
-  background-image: linear-gradient(to bottom right, #FFD542 10%, #FFE5B9 0%, #e7ba19 40%);
-  background-clip: text;
-  color: transparent;
+  color: var(--color-contrast);
 }
 .page-footer p:first-child {
   margin-top: 3rem;
@@ -655,7 +683,7 @@ h4 {
   width: 1em;
   height: 1em;
   margin-right: 0.25em;
-  fill: var(--color-accent-secondary);
+  fill: var(--color-accent);
 }
 
 header .link-github {
@@ -724,10 +752,11 @@ nav:hover::before, nav:focus::before {
   opacity: 1;
 }
 
-#about section:nth-child(1) {
-  background-color: var(--color-dark-secondary);
+#about section:nth-child(1), #about section:nth-child(2) {
+  background-color: var(--bg-color-section);
   border-radius: 20px;
 }
+
 #about section:nth-child(1) blockquote {
   border-left: 4px solid var(--color-accent);
 }
@@ -737,10 +766,6 @@ nav:hover::before, nav:focus::before {
   font-size: var(--font-size-h4);
 }
 
-#about section:nth-child(2) {
-  background-color: var(--color-dark-secondary);
-  border-radius: 20px;
-}
 #about section:nth-child(2) li {
   color: var(--color-dark);
   background-color: var(--color-contrast);
@@ -755,7 +780,7 @@ nav:hover::before, nav:focus::before {
 *   must be followed to submit a new style stage.
 */
 #guidelines section:nth-child(1) {
-  background-color: var(--color-dark-secondary);
+  background-color: var(--bg-color-section);
   border-radius: 20px;
 }
 #guidelines section:nth-child(1) h2 {
@@ -791,7 +816,7 @@ nav:hover::before, nav:focus::before {
 *
 */
 #contribute section:nth-child(1), #contribute section:nth-child(2), #contribute footer {
-  background-color: var(--color-dark-secondary);
+  background-color: var(--bg-color-section);
   border-radius: 20px;
   padding: 3ch;
 }
@@ -861,12 +886,26 @@ nav:hover::before, nav:focus::before {
   animation: floating1 6s linear infinite;
 }
 
-@keyframes rotation {
+@keyframes floating1 {
   0% {
-    --gradient-angle: 0deg;
+    transform: translate(-4%, -4%) translateY(40px);
+  }
+  50% {
+    transform: translate(-4%, -4%) translateY(0px);
   }
   100% {
-    --gradient-angle:360deg;
+    transform: translate(-4%, -4%) translateY(40px);
+  }
+}
+@keyframes floating2 {
+  0% {
+    transform: translate(-4%, -4%) translateY(0px);
+  }
+  50% {
+    transform: translate(-4%, -4%) translateY(40px);
+  }
+  100% {
+    transform: translate(-4%, -4%) translateY(0px);
   }
 }
 .page-footer [class^=link] {

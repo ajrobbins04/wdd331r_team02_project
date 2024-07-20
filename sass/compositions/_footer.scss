@@ -17,7 +17,7 @@
     font-size: 5rem;
     font-family: var(--font-family-h1), var(--font-family-no-primary);
     content: "S";
-    @include logo-gradient;
+    color: var(--color-contrast);
   }
 
   p:first-child {

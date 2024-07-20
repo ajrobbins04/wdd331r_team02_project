@@ -9,12 +9,21 @@
 *   a .container section element.
 */
 
+@media  screen and (min-width: 800px) {
+  
+  #main #guidelines {
+    font-size: var(--font-size-h4);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    ". guideline";
+    gap: 20px;
+  }
+}
+
 #guidelines {
   display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: 
-    ". guideline";
-  gap: 20px;
+  grid-template-columns: 1fr;
 
   .container {
     grid-area: guideline;
