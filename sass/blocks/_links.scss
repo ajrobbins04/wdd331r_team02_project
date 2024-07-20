@@ -4,6 +4,7 @@
 *   throughout the style stage page.
 */
 
+
 // very first child element inside body that doesn't 
 // currently display (may want to find a way to incorporate
 // it by moving into viewport)
@@ -42,6 +43,7 @@ header .link-github {
 }
 .page-footer .link-github {
   @include link-gradient;
+
 }
 
 // applies to most links except those in nav, in footer

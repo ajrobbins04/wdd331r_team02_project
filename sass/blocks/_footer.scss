@@ -4,11 +4,7 @@
     width: 100%;
     min-height: 2.5em;
     @include link-gradient;
-    // color: var(--color-dark);
-    // padding: 15px;
-    // border-radius:5px;
-    // background: linear-gradient(10deg, var(--color-1), var(--color-2));
-    // transition: --color-1 1000ms, --color-2 1000ms;
+   
     &:hover{
       --color-1:#FFD542;
       --color-2:#e035d8; 
