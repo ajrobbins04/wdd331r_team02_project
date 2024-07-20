@@ -14,10 +14,6 @@ header {
 
     // stars cannot overflow outside the header
     overflow: hidden;
-
-    .container a {
-        padding: 0.5rem 0;
-    }
 }
 
 body > header::before,
