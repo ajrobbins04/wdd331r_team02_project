@@ -38,10 +38,12 @@
     fill:var(--color-accent-secondary); 
   }
 } 
-header .link-github {
-  color: var(--color-accent);
-}
-.page-footer .link-github {
+// header a.link-github {
+//   color: var(--color-accent);
+// }
+
+header a.link-github,
+.page-footer .link-github{
   @include link-gradient;
 
 }

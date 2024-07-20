@@ -74,7 +74,7 @@ h1 {
   font-family: var(--font-family-h1), var(--font-family-no-primary);
   font-size: var(--font-size-h1);
   font-size: clamp(2rem, 7vw, var(--font-size-h1));
-  color:var(--color-extra-light);
+  @include logo-glow;
 }
 
 h2 {
