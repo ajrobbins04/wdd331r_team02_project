@@ -7,8 +7,10 @@
 #guidelines {
 
   section:nth-child(1) {
-    background-color: var(--bg-color-section);
     border-radius: 20px;
+    background-color: var(--color-bg-glassmorphism);
+    box-shadow: 0 8px 32px 0 var(--color-dark);
+    backdrop-filter: blur(20px);
 
     h2 {
       align-self: flex-start;

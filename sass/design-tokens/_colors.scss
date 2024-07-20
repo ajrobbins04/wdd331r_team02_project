@@ -11,6 +11,7 @@ $high-contrast: #FFD542 !default;      // bright yellow
 $extra-light: #fff !default;              // white
 $transparent-dark: #562c8554 !default; // purple
 $bg-color-footer:  #01040A;
+$bg-glassmorphism: #09182F90 !default; //Glassmorphism background color
 
 $bg-gradient: $dark, $dark-accent, $dark-secondary, $bg-color-footer ;
 
@@ -29,7 +30,8 @@ $colors: (
   contrast-dark: $contrast-dark,
   high-contrast: $high-contrast,
   extra-light: $extra-light,
-  transparent-dark: $transparent-dark
+  transparent-dark: $transparent-dark,
+  bg-glassmorphism: $bg-glassmorphism
 );
 
 // background-color property values given to elements found in global/global.scss
