@@ -632,7 +632,9 @@ h4 {
   font-size: 5rem;
   font-family: var(--font-family-h1), var(--font-family-no-primary);
   content: "S";
-  color: var(--color-contrast);
+  background-image: linear-gradient(to bottom right, #FFD542 10%, #FFE5B9 0%, #e7ba19 40%);
+  background-clip: text;
+  color: transparent;
 }
 .page-footer p:first-child {
   margin-top: 3rem;
@@ -683,7 +685,7 @@ h4 {
   width: 1em;
   height: 1em;
   margin-right: 0.25em;
-  fill: var(--color-accent);
+  fill: var(--color-accent-secondary);
 }
 
 header .link-github {
@@ -886,26 +888,12 @@ nav:hover::before, nav:focus::before {
   animation: floating1 6s linear infinite;
 }
 
-@keyframes floating1 {
+@keyframes rotation {
   0% {
-    transform: translate(-4%, -4%) translateY(40px);
-  }
-  50% {
-    transform: translate(-4%, -4%) translateY(0px);
+    --gradient-angle: 0deg;
   }
   100% {
-    transform: translate(-4%, -4%) translateY(40px);
-  }
-}
-@keyframes floating2 {
-  0% {
-    transform: translate(-4%, -4%) translateY(0px);
-  }
-  50% {
-    transform: translate(-4%, -4%) translateY(40px);
-  }
-  100% {
-    transform: translate(-4%, -4%) translateY(0px);
+    --gradient-angle:360deg;
   }
 }
 .page-footer [class^=link] {
