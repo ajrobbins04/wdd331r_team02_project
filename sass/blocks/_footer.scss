@@ -16,10 +16,16 @@
 
 .link-allstyles {
     font-size: $font-size-h4;
+    align-self: center;
   
     @media (max-width: 400px) {
       margin-left: 6rem;
     }
+  }
+
+  .page-footer > .container {
+    align-items: center;
+    text-align: center;
   }
 
   
