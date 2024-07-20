@@ -17,7 +17,7 @@
     position: relative;
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
-  
+    justify-items: center;
   }
 }
 

@@ -142,6 +142,7 @@ select {
 */
 body {
   background: linear-gradient(to bottom, #09182F, #352C85, #431D6E, #01040A);
+  background: linear-gradient(to bottom, #09182F, #352C85, #431D6E, #01040A);
 }
 
 .container {
@@ -585,6 +586,7 @@ h4 {
   position: relative;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
+  justify-items: center;
 }
 
 .features li {
@@ -737,9 +739,6 @@ header {
   position: relative;
   height: 200%;
   overflow: hidden;
-}
-header .container a {
-  padding: 0.5rem 0;
 }
 
 body > header::before,
