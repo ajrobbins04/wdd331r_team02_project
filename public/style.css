@@ -564,7 +564,6 @@ h4 {
   position: relative;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
-  justify-items: center;
   /*! 
     * SVGs from Hero Patterns
     * @link http://www.heropatterns.com/
@@ -628,7 +627,7 @@ h4 {
   color: transparent;
 }
 .page-footer p:first-child {
-  margin-top: 3rem;
+  margin-top: 6rem;
   font-weight: var(--font-weigh);
   letter-spacing: 0.03em;
   text-align: center;
