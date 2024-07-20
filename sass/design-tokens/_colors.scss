@@ -43,24 +43,24 @@ $bg-color-by-element: (
 }
 
 //link gradient style for footer links 
-@property --color-1{
-  syntax: "<color>";
-  inherits: true;
-  initial-value:$accent;
-}
+// @property --color-1{
+//   syntax: "<color>";
+//   inherits: true;
+//   initial-value:$accent;
+// }
 
-@property --color-2{
-  syntax: "<color>";
-  inherits: true;
-  initial-value:$high-contrast;
-}
+// @property --color-2{
+//   syntax: "<color>";
+//   inherits: true;
+//   initial-value:$high-contrast;
+// }
 
 @mixin link-gradient{
   color: var(--color-dark);
   padding: 15px;
   border-radius:5px;
-  background: linear-gradient(10deg, var(--color-1), var(--color-2));
-  transition: --color-1 1000ms, --color-2 1000ms;
+  background: linear-gradient(10deg, #DA40D3, #FFD542);
+  // transition: --color-1 1000ms, --color-2 1000ms;
 }
 @mixin logo-gradient{
 background-image: linear-gradient(to bottom right, #FFD542 10%, #FFE5B9 0%, #e7ba19 40%);

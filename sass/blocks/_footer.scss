@@ -5,10 +5,6 @@
     min-height: 2.5em;
     @include link-gradient;
    
-    &:hover{
-      --color-1:#FFD542;
-      --color-2:#e035d8; 
-    }
   }
   
 .page-footer .link-codepen {
