@@ -10,14 +10,23 @@ $contrast-dark: #0d798a !default; //dark green-blue
 $high-contrast: #FFD542 !default;      // bright yellow
 $extra-light: #fff !default;              // white
 $transparent-dark: #562c8554 !default; // purple
-$bg-color-footer:  #01040A;
+$extra-dark:  #01040A;
 $bg-glassmorphism: #09182F90 !default; //Glassmorphism background color
 
-$bg-gradient: $dark, $dark-accent, $dark-secondary, $bg-color-footer;
+$bg-gradient: $dark, $dark-accent, $dark-secondary, $extra-dark;
 
 // whole page has a linear gradient background
 @mixin background-gradient {
   background: linear-gradient(to bottom, $bg-gradient);
+}
+
+$link-gradient: $accent, $high-contrast;
+
+@mixin hover-link-gradient {
+  background: linear-gradient(to right, $link-gradient);
+  -webkit-background-clip: text;
+  background-clip: text; 
+  -webkit-text-fill-color: transparent;
 }
 
 
@@ -33,7 +42,8 @@ $colors: (
   high-contrast: $high-contrast,
   extra-light: $extra-light,
   transparent-dark: $transparent-dark,
-  bg-glassmorphism: $bg-glassmorphism
+  bg-glassmorphism: $bg-glassmorphism,
+  extra-dark: $extra-dark,
 );
 
 // background-color property values given to elements found in global/global.scss

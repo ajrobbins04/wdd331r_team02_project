@@ -35,9 +35,13 @@ body > header::after {
 body > header::before {
     
     // number of smaller stars to put in header
-    $num-stars: 600;
+    $num-stars: 400;
     $size-min: 0;
     $size-max: 1.5;
+
+    @media (min-width: 800px) {
+        $num-stars: 600;
+    }
  
     @include generate-stars($num-stars, $size-min, $size-max);
 }
@@ -45,9 +49,13 @@ body > header::before {
 body > header::after {
 
     // number of larger stars to put in header
-    $num-stars: 150;
+    $num-stars: 50;
     $size-min: 1.5; 
     $size-max: 2.5;
+
+    @media (min-width: 800px) {
+        $num-stars: 150;
+    }
 
     @include generate-stars($num-stars, $size-min, $size-max);
 }
