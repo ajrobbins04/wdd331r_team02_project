@@ -4,12 +4,12 @@
 *   footer element, whose class is called 
 *   'page-footer'.
 */
+
 .page-footer {
   position: relative;
   padding: 3rem 1rem;
 
   &::before {
-
     position: absolute;
     left: 50%;
     width: 2em;
@@ -20,7 +20,7 @@
   }
 
   p:first-child {
-    margin-top: 3rem;
+    margin-top: 6rem;
     font-weight: var(--font-weigh);
     letter-spacing: 0.03em;
     text-align: center;
@@ -40,3 +40,5 @@
     margin-bottom: 0;
   }
 }
+
+
