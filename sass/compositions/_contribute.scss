@@ -11,29 +11,84 @@
 *
 */
 
-.contribute #files {
-    display: grid;
-    place-content: center;
-    margin: 5vh auto;
-    text-align: center;
+@media  screen and (min-width: 800px) {
   
-    h3 {
-      height: 0;
-      opacity: 0;
+  #main {
+  
+    #contribute {
+      font-size: var(--font-size-h4);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 
+      "contribute steps"
+      "sourcefiles steps";
+      gap: 20px;
     }
-  
-    .container {
-      display: inline-block;
+
+    #contribute #files .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 
+        "title title"
+        "linkCSS linkHTML"
+        "fork fork";
       padding: 5vmin;
-      background-color: var(--color-transparent-dark);
       text-align: center;
-  
-      a:not(:last-child) {
-        margin: 0.5rem;
-  
-        &:not(.link-codepen) {
-          font-size: clamp(1.5rem, 4vw, 2rem);
-        }
-      }
     }
   }
+}
+
+#contribute {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+  "contribute"
+  "steps"
+  "sourcefiles";
+  gap: 20px;
+  gap: 20px;
+
+  section:nth-child(1) {
+    grid-area: contribute;
+  }
+
+  section:nth-child(2) {
+    grid-area: steps;
+  }
+
+  footer {
+    grid-area: sourcefiles;
+  }
+
+
+  #files {
+  
+    .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+        "title"
+        "linkCSS"
+        "linkHTML"
+        "fork";
+      padding: 5vmin;
+      text-align: center;
+    }
+
+    h3 {
+      grid-area: title;
+    }
+
+    .link-downloadcss{
+      grid-area: linkCSS;
+    }
+
+    .link-downloadhtml {
+      grid-area: linkHTML;
+    }
+
+    .link-codepen {
+      grid-area: fork;
+    }
+  }
+}

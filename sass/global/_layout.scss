@@ -15,7 +15,7 @@ body {
   padding-top: 5vh;
   padding-bottom: 5vh;
   width: 100%;
-  max-width: 80ch;
+  max-width: 100ch;
   margin-left: auto;
   margin-right: auto;
 }
@@ -44,12 +44,12 @@ ul {
 }
 
 main {
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
   
-    &:focus {
-      outline: none;
-    }
+  &:focus {
+    outline: none;
+  }
 }
 
 // applies to all 3 article descendants belonging to main

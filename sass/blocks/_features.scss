@@ -1,17 +1,37 @@
-
+/*Plan B: coment out custom property below if animation is not supported by your browser*/
+  @property --gradient-angle{
+    syntax:"<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
   // each featured style inside the ul has 
-  // its own background pattern, but the 
-  // background color is the same for all.
+  // its own animation, but the 
+  // SVG form is the same for all.
   .features {
     li {
-      background-color: var(--color-accent);
-      box-shadow:
-      inset 0 -3em 3em #FFD542,
-      // 0 0 0 2px white, 
-      0.3em 0.3em 1em rgba(249, 79, 144, 0.944);
-      animation: animate1 5s ease-in-out infinite;
-      transition: all 1s ease-in-out;
+      width:10em;
+      height: 10em;
+      background: var( --color-dark-secondary);
+      position:relative;
+      color: var(--color-extra-light);
+      border-radius: 50%;
 
+      &::before,
+      ::after {
+        content:"";
+        position: absolute;
+        inset: -.5rem;
+        z-index: -1;
+        background:linear-gradient(
+          var(--gradient-angle),
+          var(--color-accent),
+          var(--color-contrast));
+        border-radius: 50%;
+        animation:rotation 3.5s linear infinite;
+      }
+      ::after{
+        filter: blur(3rem);
+      }
       > span {
         border: 1px solid var(--color-background);
         background-color: var(--color-secondary);
@@ -26,39 +46,18 @@
       }
    
       &:nth-child(2) {
-      animation: animate2 5s ease-in-out infinite;
-      transition: all 1s ease-in-out;
+        animation:floating2 6s linear infinite;
      }
   
       &:nth-child(3) {
-      animation: animate3 5s ease-in-out infinite;
-      transition: all 1s ease-in-out;
+        animation:floating1 6s linear infinite;
       }      
     }
   }
-  @keyframes animate1 {
-    0%, 100% {
-      border-radius:60% 40% 30% 70% / 60% 30% 70% 40%;
-    } 
-    50% {
-      border-radius:30% 60% 70% 40% / 50% 60% 30% 60%;
-    }
-  }
-  @keyframes animate2 {
-    0%, 100% {
-      border-radius:30% 60% 70% 40% / 50% 60% 30% 60%;
-    } 
-    50% {
-      border-radius:60% 40% 30% 70% / 60% 30% 70% 40%;
-    }
-  }
-  @keyframes animate3 {
-    0%, 100% {
-      border-radius:60% 40% 30% 70% / 60% 30% 70% 40%;
-    } 
-    50% {
-      border-radius:30% 60% 70% 40% / 50% 60% 30% 60%;
-    }
+
+  @keyframes rotation {
+    0% {--gradient-angle: 0deg; }
+    100% {--gradient-angle:360deg;}
   }
   
 

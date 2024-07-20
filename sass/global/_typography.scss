@@ -74,25 +74,26 @@ h1 {
   font-family: var(--font-family-h1), var(--font-family-no-primary);
   font-size: var(--font-size-h1);
   font-size: clamp(2rem, 7vw, var(--font-size-h1));
-
+  color:var(--color-extra-light);
 }
 
 h2 {
   font-size: var(--font-size-h2);
   font-size: clamp(2rem, 4vw, var(--font-size-h2));
   margin-top: 4rem;
+  color:var(--color-extra-light);
 }
 
 h3 {
   font-size: var(--font-size-h3);
-  color: var(--color-h3);
+  color: var(--color-accent-secondary);
   margin-top: 2rem;
 }
 
 // only one inside .profile class
 h4 {
   font-size: var(--font-size-h4);
-  color: var(--color-h4);
+  color: var(--color-accent-secondary);
   text-align: center;
   margin: 0;
 }

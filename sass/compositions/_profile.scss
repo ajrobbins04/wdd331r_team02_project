@@ -14,6 +14,10 @@
   .container {
     @include grid-w-centered-items;
 
+    #profile-title {
+      color: var(--color-dark);
+    }
+
     // only applies to 'View Stylesheet' link
     > a {
       min-height: 2em;
