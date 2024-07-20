@@ -2,7 +2,7 @@
     .container {
         > a {
             border: 2px solid currentColor;
-            color: var(--color-anchor);
+            @include link-gradient;
         
         }
     }

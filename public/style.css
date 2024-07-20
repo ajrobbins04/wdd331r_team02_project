@@ -499,6 +499,9 @@ h4 {
   margin: 1rem auto 10vh;
   padding: 1rem;
   z-index: 1;
+  border-radius: var(--border-radius);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .profile .container {
   display: grid;
@@ -506,7 +509,8 @@ h4 {
   grid-gap: 1rem;
 }
 .profile .container #profile-title {
-  color: var(--color-dark);
+  color: var(--color-high-contrast);
+  font-weight: bold;
 }
 .profile .container > a {
   min-height: 2em;
@@ -520,13 +524,15 @@ h4 {
   width: auto;
   margin-right: 0.25em;
   font-weight: var(--font-weight-strong);
+  color: var(--color-accent-secondary);
 }
 .profile li span:nth-child(2) {
   flex-grow: 1;
   word-break: break-word;
+  color: var(--color-extra-light);
 }
 .profile li span:nth-child(2) a {
-  color: inherit;
+  color: var(--color-extra-light);
 }
 @media (min-width: 180ch) {
   .profile {
@@ -536,8 +542,10 @@ h4 {
     max-width: 30ch;
     margin-bottom: 0;
     border-radius: var(--border-radius);
-    background-color: var(--color-extra-light);
-    box-shadow: 0 2px 5px rgba(var(--color-dark), 0.15);
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   .profile ul {
     justify-content: unset;
@@ -882,7 +890,11 @@ nav:hover::before, nav:focus::before {
 
 .profile .container > a {
   border: 2px solid currentColor;
-  color: var(--color-anchor);
+  color: var(--color-dark);
+  padding: 15px;
+  border-radius: 5px;
+  background: linear-gradient(10deg, var(--color-1), var(--color-2));
+  transition: --color-1 1000ms, --color-2 1000ms;
 }
 
 /*Plan B: coment out custom property below if animation is not supported by your browser*/

@@ -10,12 +10,17 @@
   margin: 1rem auto 10vh;
   padding: 1rem;
   z-index: 1;
+  border-radius: var(--border-radius);
+  border:2px solid rgba(255, 255, 255, .2);
+  box-shadow: 0 0 10px rgb(0, 0, 0, .2); 
+  
 
   .container {
     @include grid-w-centered-items;
 
     #profile-title {
-      color: var(--color-dark);
+      color: var(--color-high-contrast);
+      font-weight: bold;
     }
 
     // only applies to 'View Stylesheet' link
@@ -34,15 +39,17 @@
       width: auto;
       margin-right: 0.25em;
       font-weight: var(--font-weight-strong);
+      color: var(--color-accent-secondary);
     }
 
     span:nth-child(2) {
       flex-grow: 1;
       word-break: break-word;
+      color: var(--color-extra-light);
 
       // twitter and website links
       a {
-        color: inherit;
+        color: var(--color-extra-light);
       }
     }
   }
@@ -55,8 +62,10 @@
     max-width: 30ch;
     margin-bottom: 0;
     border-radius: var(--border-radius);
-    background-color: var(--color-extra-light);
-    box-shadow: 0 2px 5px rgba(var(--color-dark), 0.15);
+    background: transparent;
+    border:2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgb(0, 0, 0, .2); 
 
     ul {
       justify-content: unset;
