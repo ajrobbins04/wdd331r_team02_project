@@ -1,9 +1,14 @@
-@use 'sass:color';
 
 @function random-px($min, $max) {
     // random() returns a random value from 0 to 1, so 
     // scale the randomly generated value to the given range
     @return ($min + random() * ($max - $min)) + px;
+}
+
+@function random-no-unit($min, $max) {
+  // random() returns a random value from 0 to 1, so 
+  // scale the randomly generated value to the given range
+  @return ($min + random() * ($max - $min));
 }
 
 @function modify-opacity($opacity, $interval) {
@@ -71,7 +76,7 @@
       }
     }
 
-@mixin animate-stars($stars) {
+@mixin animate-stars() {
   @keyframes float-up {
     0% {
       transform: translateY(0px);
@@ -82,6 +87,80 @@
   }
   animation: float-up 60s linear infinite;
 }
+
+  /*@mixin animate-shooting-stars() {
+    
+      $delay: #{random(10)}s;
+
+      @keyframes shooting-star {
+        0% {
+          translate: (100vw, 0);
+          opacity: 1;
+        }
+        100% {
+          translate: (25vw, 25vh);
+          opacity: 1;
+        }
+      }
+      animation: shooting-star 3s ease-in-out infinite;
+      animation-delay: $delay;
+    }
+  
+  */
+  @mixin animate-shooting-stars($delay) {
+
+    @keyframes shooting-star {
+      0% {
+        transform: translate(100vw, 0);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(0, 100vh);
+        opacity: 0;
+      }
+    }
+    animation: shooting-star 3s ease-in-out infinite;
+    animation-delay: $delay;
+  }
+
+@mixin generate-shooting-stars($count) {
+
+  //$delay: '2s', '6s', '1s', '5s', '4s';
+  $shooting-stars: ();
+  $delay: 0;
+  $size: 0;
+  $color: 0;
+
+  @for $i from 1 through $count {
+
+    $delay: #{random(10)}s;
+    $color: rgba(255, 255, 255, 1);
+    $size: 2px;
+
+    // add string to list of stars using a comma as the separator
+    //$shooting-stars: append($shooting-stars, $star, comma);
+    @keyframes shooting-star {
+      0% {
+        transform: translate(0, 0) rotate(45deg);
+        opacity: 1;
+      }
+      70% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-1000px, 1000px) rotate(45deg);
+        opacity: 0;
+      }
+  }
+
+  box-shadow: 0 0 0 #{$size} #{$color};
+  animation: shooting-star 3s linear infinite;
+
+
+  //box-shadow: $shooting-stars;
+}
+} 
+
 
 @function apply-twinkle($star, $opacity, $interval) {
 
@@ -97,7 +176,7 @@
     @return $star;
 }
 
-@mixin generate-stars($count, $size-min, $size-max) {
+@function generate-stars($count, $size-min, $size-max) {
 
   $opacities: 1, 0.8, 0.8, 0.6, 0.6, 0.6, 0.4, 0.4, 0.2, 0.1;
 
@@ -123,7 +202,6 @@
       $stars: append($stars, $star, comma);
    
     }
-    box-shadow: $stars;
-    @include animate-stars($stars);
+    @return $stars;
   
   }

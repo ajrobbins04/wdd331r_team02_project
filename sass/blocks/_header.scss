@@ -6,6 +6,7 @@
 *   in global/layout.
 */
 @use 'sass:color';
+@use 'sass:list';
 header {
     position: relative;
 
@@ -63,42 +64,48 @@ header {
  
 }
 
-body > header::before,
-body > header::after {
-   
+
+body > header::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     background: transparent;
-    z-index: 2;
-
-}
-
-body > header::before {
     
     // number of smaller stars to put in header
-    $num-stars: 400;
-    $size-min: 0;
-    $size-max: 1.5;
+    $num-stars-small: 400;
+    $size-min-small: 0;
+    $size-max-small: 1.5;
+
+    // number of larger stars to put in header
+    $num-stars-large: 50;
+    $size-min-large: 1.5; 
+    $size-max-large: 2.5;
 
     @media (min-width: 800px) {
-        $num-stars: 600;
+        $num-stars-small: 600;
+        $num-stars-large: 150;
     }
- 
-    @include generate-stars($num-stars, $size-min, $size-max);
+    
+    @include animate-stars();
+    $small-stars: generate-stars($num-stars-small, $size-min-small, $size-max-small);
+    $large-stars: generate-stars($num-stars-large, $size-min-large, $size-max-large);
+
+    $all-stars: list.join($small-stars, $large-stars);
+    box-shadow: $all-stars;
+    @include animate-stars;
 }
 
 body > header::after {
 
-    // number of larger stars to put in header
-    $num-stars: 50;
-    $size-min: 1.5; 
-    $size-max: 2.5;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background: radial-gradient(circle, white, transparent);
 
-    @media (min-width: 800px) {
-        $num-stars: 150;
-    }
-
-    @include generate-stars($num-stars, $size-min, $size-max);
+    $num-shooting-stars: 5;
+    @include generate-shooting-stars($num-shooting-stars);
+    
 }
