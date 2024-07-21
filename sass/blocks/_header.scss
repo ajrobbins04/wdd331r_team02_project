@@ -5,7 +5,7 @@
 *   its layout-related properties are stored
 *   in global/layout.
 */
-
+@use 'sass:color';
 header {
     position: relative;
 
@@ -14,6 +14,53 @@ header {
 
     // stars cannot overflow outside the header
     overflow: hidden;
+
+    & > .container h1 {
+       @include logo-glow;
+    }
+
+    & > .container a {
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        padding: 4px 0;
+    }
+
+    & > .container .link-github {
+        padding: 4px 6px;
+        margin-top: 2rem;
+    }
+
+    & > .container a::after  {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+    }
+
+    & > .container a:not(.link-github)::after  {
+        height: 2px;
+        width: 0;
+        background: linear-gradient(to right, var(--color-link-gradient));
+        transition: all 0.3s ease-in-out;
+
+    }
+    & > .container a:hover::after  {
+        width: 100%;
+    }
+
+    & .container a:hover {
+        color: var(--color-high-contrast);
+    }
+
+    &  .container .link-github:hover {
+        background: var(--color-extra-dark);
+        outline: var(--color-contrast) solid 2px;
+        color: var(--color-high-contrast);
+        box-shadow: var(--color-contrast) 0 0 75px;
+        
+    }
+
+ 
 }
 
 body > header::before,

@@ -47,7 +47,7 @@ nav {
   }
   li {
     margin: 0.5rem;
-    padding-left: 3rem;
+    padding-left: 2.75rem;
     @media (min-width: 750px) {
       margin: 1rem 1.25rem;
     }
@@ -80,7 +80,6 @@ h1 {
   font-family: var(--font-family-h1), var(--font-family-no-primary);
   font-size: var(--font-size-h1);
   font-size: clamp(2rem, 7vw, var(--font-size-h1));
-  @include logo-glow;
 }
 
 h2 {

@@ -67,7 +67,8 @@ header a.link-github,
 
   &:hover,
   &:focus {
-    transform: translate(-0.15em, -0.15em);
+    transform: scale(1.1);
+    margin: 0 0.75rem; 
   }
 
   &:focus {

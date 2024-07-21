@@ -23,13 +23,11 @@ $bg-gradient: $dark, $dark-accent, $dark-secondary, $extra-dark;
 $link-gradient: $accent, $high-contrast;
 
 @mixin hover-link-gradient {
-  background-image: linear-gradient(to right, $link-gradient);
+  background: linear-gradient(to right, $link-gradient);
   -webkit-background-clip: text;
   background-clip: text; 
   -webkit-text-fill-color: transparent;
 }
-
-
 
 $colors: (
   dark: $dark,
@@ -44,6 +42,7 @@ $colors: (
   transparent-dark: $transparent-dark,
   bg-glassmorphism: $bg-glassmorphism,
   extra-dark: $extra-dark,
+  link-gradient: $link-gradient,
 );
 
 // background-color property values given to elements found in global/global.scss
