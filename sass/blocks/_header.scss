@@ -103,8 +103,7 @@ body > header::after {
     top: 0;
     right: 0;
     z-index: -1;
-    background: radial-gradient(circle, white, transparent);
-
+    background: linear-gradient(90deg, white 0%, rgba(255, 255, 255, 0.3) 35%, rgba(24, 12, 56, 0.05) 100%);
     $num-shooting-stars: 5;
     @include generate-shooting-stars($num-shooting-stars);
     

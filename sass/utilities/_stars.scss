@@ -88,41 +88,6 @@
   animation: float-up 60s linear infinite;
 }
 
-  /*@mixin animate-shooting-stars() {
-    
-      $delay: #{random(10)}s;
-
-      @keyframes shooting-star {
-        0% {
-          translate: (100vw, 0);
-          opacity: 1;
-        }
-        100% {
-          translate: (25vw, 25vh);
-          opacity: 1;
-        }
-      }
-      animation: shooting-star 3s ease-in-out infinite;
-      animation-delay: $delay;
-    }
-  
-  */
-  @mixin animate-shooting-stars($delay) {
-
-    @keyframes shooting-star {
-      0% {
-        transform: translate(100vw, 0);
-        opacity: 1;
-      }
-      100% {
-        transform: translate(0, 100vh);
-        opacity: 0;
-      }
-    }
-    animation: shooting-star 3s ease-in-out infinite;
-    animation-delay: $delay;
-  }
-
 @mixin generate-shooting-stars($count) {
 
   //$delay: '2s', '6s', '1s', '5s', '4s';
@@ -130,11 +95,12 @@
   $delay: 0;
   $size: 0;
   $color: 0;
+  
 
   @for $i from 1 through $count {
 
     $delay: #{random(10)}s;
-    $color: rgba(255, 255, 255, 1);
+    $color: rgba(255, 255, 255, 0.8);
     $size: 2px;
 
     // add string to list of stars using a comma as the separator
@@ -143,10 +109,9 @@
       0% {
         transform: translate(0, 0) rotate(45deg);
         opacity: 1;
+        height: 100px;
       }
-      70% {
-        opacity: 1;
-      }
+      
       100% {
         transform: translate(-1000px, 1000px) rotate(45deg);
         opacity: 0;
